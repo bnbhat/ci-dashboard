@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" class="is-paper">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Run Detail — CI Dashboard</title>
+  <meta name="ci-dashboard-data-base" content="data" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla_framework_version_4.51.0.min.css" />
+  <script>
+    (function () {
+      var saved = localStorage.getItem('ci-dashboard-theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = saved || (prefersDark ? 'dark' : 'paper');
+      var html = document.documentElement;
+      html.classList.remove('is-dark', 'is-paper');
+      html.classList.add(theme === 'dark' ? 'is-dark' : 'is-paper');
+    }());
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+  <script src="assets/app.js"></script>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<header class="p-navigation is-dark">
+  <div class="p-navigation__row">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__tagged-logo">
+        <a class="p-navigation__link" href="index.html">
+          <div class="p-navigation__logo-tag"><img src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="Ubuntu" width="32" height="32" /></div>
+          <span class="p-navigation__logo-title">CI Dashboard</span>
+        </a>
+      </div>
+      <a href="#main-nav" class="p-navigation__toggle--open" title="Open menu">Menu</a>
+      <a href="#main-nav-closed" class="p-navigation__toggle--close" title="Close menu">Close menu</a>
+    </div>
+    <nav id="main-nav" class="p-navigation__nav" aria-label="Main navigation">
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item"><a class="p-navigation__link" href="index.html">Overview</a></li>
+        <li class="p-navigation__item"><a class="p-navigation__link" href="tests.html">Tests</a></li>
+        <li class="p-navigation__item"><a class="p-navigation__link" href="compare.html">Compare Devices</a></li>
+      </ul>
+      <ul class="p-navigation__items p-navigation__items--right">
+        <li class="p-navigation__item u-vertically-center">
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="l-content" x-data="runPage()" x-init="load()" style="padding-top:2rem;">
+
+  <template x-if="loading"><div class="u-loading"><div class="u-spinner"></div><p>Loading run…</p></div></template>
+  <template x-if="error"><div class="p-notification--negative"><div class="p-notification__content"><p class="p-notification__message" x-text="error"></p></div></div></template>
+
+  <template x-if="!loading && !error">
+    <div>
+      <div class="summary-strip">
+        <h2 x-text="'Run: ' + run.run_id"></h2>
+      </div>
+      <p class="summary-meta">
+        <span x-text="run.device_cid"></span> · <span x-text="run.image_type"></span> ·
+        <span x-text="run.distribution"></span> · <span x-text="formatTimestamp(run.timestamp)"></span>
+      </p>
+      <p class="summary-meta" x-text="'Test plan: ' + run.testplan_id"></p>
+
+      <div class="summary-strip" style="margin: 1.5rem 0;">
+        <div class="stat-card"><div class="stat-value" x-text="run.results.length"></div><div class="stat-label">Total tests</div></div>
+        <div class="stat-card is-pass"><div class="stat-value" x-text="run.summary.pass"></div><div class="stat-label">Pass</div></div>
+        <div class="stat-card is-fail"><div class="stat-value" x-text="run.summary.fail"></div><div class="stat-label">Fail</div></div>
+        <div class="stat-card is-skip"><div class="stat-value" x-text="run.summary.skip"></div><div class="stat-label">Skip</div></div>
+      </div>
+
+      <div class="filter-bar">
+        <div class="filter-field">
+          <label for="search">Search test name / id</label>
+          <input id="search" type="text" x-model="search" placeholder="filter results…" />
+        </div>
+        <div class="filter-field">
+          <label for="category">Category</label>
+          <select id="category" x-model="categoryFilter">
+            <option value="">All categories</option>
+            <template x-for="c in categories" :key="c"><option :value="c" x-text="c"></option></template>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label>Status</label>
+          <div class="filter-checkboxes">
+            <label><input type="checkbox" value="pass" x-model="statusFilter"> Pass</label>
+            <label><input type="checkbox" value="fail" x-model="statusFilter"> Fail</label>
+            <label><input type="checkbox" value="skip" x-model="statusFilter"> Skip</label>
+          </div>
+        </div>
+      </div>
+
+      <p class="summary-meta" x-text="filteredResults.length + ' of ' + run.results.length + ' results'"></p>
+
+      <div style="overflow-x:auto;">
+        <table class="p-table">
+          <thead><tr><th>Test</th><th>Category</th><th>Status</th><th>Outcome</th><th>Duration</th><th></th></tr></thead>
+          <tbody>
+            <template x-for="r in filteredResults" :key="r.full_id">
+              <tr>
+                <td x-text="r.name"></td>
+                <td x-text="r.category"></td>
+                <td><span class="status-chip" :class="statusChipClass(r.status)" x-text="r.status"></span></td>
+                <td x-text="r.outcome"></td>
+                <td x-text="formatDuration(r.duration)"></td>
+                <td><a class="test-name-link" :href="'tests.html?test=' + encodeURIComponent(r.slug)">History →</a></td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+      <template x-if="filteredResults.length === 0">
+        <div class="u-empty">No results match the current filters.</div>
+      </template>
+    </div>
+  </template>
+</main>
+
+<footer class="ubuntu-footer"><div class="ubuntu-footer-inner">CI Dashboard — Run detail view. Only test names/status are stored, not logs.</div></footer>
+
+<script>
+function runPage() {
+  return {
+    loading: true,
+    error: null,
+    run: { results: [], summary: {} },
+    search: '',
+    categoryFilter: '',
+    statusFilter: [],
+    formatTimestamp, formatDuration, statusChipClass,
+
+    async load() {
+      const params = new URLSearchParams(window.location.search);
+      const runId = params.get('run');
+      if (!runId) { this.error = 'No run specified. Use runs.html?run=<run_id>.'; this.loading = false; return; }
+      try {
+        this.run = await fetchJSON(`runs/${runId}.json`);
+      } catch (e) {
+        this.error = e.message;
+      } finally {
+        this.loading = false;
+      }
+    },
+
+    get categories() {
+      return [...new Set(this.run.results.map((r) => r.category))].sort();
+    },
+
+    get filteredResults() {
+      const q = this.search.trim().toLowerCase();
+      return this.run.results.filter((r) => {
+        if (q && !(r.name.toLowerCase().includes(q) || r.full_id.toLowerCase().includes(q))) return false;
+        if (this.categoryFilter && r.category !== this.categoryFilter) return false;
+        if (this.statusFilter.length > 0 && !this.statusFilter.includes(r.status)) return false;
+        return true;
+      });
+    },
+  };
+}
+</script>
+
+</body>
+</html>

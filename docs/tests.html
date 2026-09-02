@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" class="is-paper">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tests — CI Dashboard</title>
+  <meta name="ci-dashboard-data-base" content="data" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla_framework_version_4.51.0.min.css" />
+  <script>
+    (function () {
+      var saved = localStorage.getItem('ci-dashboard-theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = saved || (prefersDark ? 'dark' : 'paper');
+      var html = document.documentElement;
+      html.classList.remove('is-dark', 'is-paper');
+      html.classList.add(theme === 'dark' ? 'is-dark' : 'is-paper');
+    }());
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+  <script src="assets/app.js"></script>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<header class="p-navigation is-dark">
+  <div class="p-navigation__row">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__tagged-logo">
+        <a class="p-navigation__link" href="index.html">
+          <div class="p-navigation__logo-tag"><img src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="Ubuntu" width="32" height="32" /></div>
+          <span class="p-navigation__logo-title">CI Dashboard</span>
+        </a>
+      </div>
+      <a href="#main-nav" class="p-navigation__toggle--open" title="Open menu">Menu</a>
+      <a href="#main-nav-closed" class="p-navigation__toggle--close" title="Close menu">Close menu</a>
+    </div>
+    <nav id="main-nav" class="p-navigation__nav" aria-label="Main navigation">
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item"><a class="p-navigation__link" href="index.html">Overview</a></li>
+        <li class="p-navigation__item is-selected"><a class="p-navigation__link" href="tests.html">Tests</a></li>
+        <li class="p-navigation__item"><a class="p-navigation__link" href="compare.html">Compare Devices</a></li>
+      </ul>
+      <ul class="p-navigation__items p-navigation__items--right">
+        <li class="p-navigation__item u-vertically-center">
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero-section" style="padding: 1.5rem 1.5rem;">
+  <div class="hero-inner">
+    <h1 class="hero-title" style="font-size:1.5rem;">Test <strong>History</strong></h1>
+    <p class="hero-subtitle">Search for a test and see whether it has failed in the past, and on which devices.</p>
+  </div>
+</section>
+
+<main class="l-content" x-data="testsPage()" x-init="load()">
+
+  <template x-if="loading"><div class="u-loading"><div class="u-spinner"></div><p>Loading tests…</p></div></template>
+  <template x-if="error"><div class="p-notification--negative"><div class="p-notification__content"><p class="p-notification__message" x-text="error"></p></div></div></template>
+
+  <template x-if="!loading && !error && !selectedTest">
+    <div>
+      <div class="filter-bar">
+        <div class="filter-field">
+          <label for="search">Search test name / id</label>
+          <input id="search" type="text" x-model="search" placeholder="e.g. wireless, audio, acpi…" />
+        </div>
+        <div class="filter-field">
+          <label for="category">Category</label>
+          <select id="category" x-model="categoryFilter">
+            <option value="">All categories</option>
+            <template x-for="c in categories" :key="c"><option :value="c" x-text="c"></option></template>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label>Latest status</label>
+          <div class="filter-checkboxes">
+            <label><input type="checkbox" value="pass" x-model="statusFilter"> Pass</label>
+            <label><input type="checkbox" value="fail" x-model="statusFilter"> Fail</label>
+            <label><input type="checkbox" value="skip" x-model="statusFilter"> Skip</label>
+          </div>
+        </div>
+      </div>
+
+      <p class="summary-meta" x-text="filteredTests.length + ' of ' + allTests.length + ' tests'"></p>
+
+      <div style="overflow-x:auto;">
+        <table class="p-table">
+          <thead><tr><th>Test</th><th>Category</th><th>Latest status</th><th>Runs recorded</th></tr></thead>
+          <tbody>
+            <template x-for="t in filteredTests" :key="t.slug">
+              <tr>
+                <td><a class="test-name-link" @click="selectTest(t.slug)" x-text="t.name"></a>
+                    <div class="summary-meta" x-text="t.full_id"></div></td>
+                <td x-text="t.category"></td>
+                <td><span class="status-chip" :class="statusChipClass(t.latest_status)" x-text="t.latest_status || 'n/a'"></span></td>
+                <td x-text="t.run_count"></td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+      <template x-if="filteredTests.length === 0">
+        <div class="u-empty">No tests match the current filters.</div>
+      </template>
+    </div>
+  </template>
+
+  <template x-if="!loading && !error && selectedTest">
+    <div>
+      <button class="p-button" @click="selectedTest = null; testDetail = null;">← Back to test list</button>
+      <template x-if="testDetail">
+        <div>
+          <div class="summary-strip" style="margin-top:1.5rem;">
+            <h2 x-text="testDetail.name"></h2>
+          </div>
+          <p class="summary-meta" x-text="testDetail.full_id"></p>
+          <p class="summary-meta">Category: <span x-text="testDetail.category"></span></p>
+
+          <div class="filter-bar">
+            <div class="filter-field">
+              <label for="device-filter">Filter by device</label>
+              <select id="device-filter" x-model="deviceFilter">
+                <option value="">All devices</option>
+                <template x-for="d in testDevices" :key="d"><option :value="d" x-text="d"></option></template>
+              </select>
+            </div>
+          </div>
+
+          <div style="overflow-x:auto;">
+            <table class="p-table">
+              <thead><tr><th>Timestamp</th><th>Device</th><th>Image</th><th>Status</th><th>Outcome</th><th>Duration</th><th></th></tr></thead>
+              <tbody>
+                <template x-for="h in filteredHistory" :key="h.run_id + h.device_cid">
+                  <tr>
+                    <td x-text="formatTimestamp(h.timestamp)"></td>
+                    <td x-text="h.device_cid"></td>
+                    <td x-text="h.image_type"></td>
+                    <td><span class="status-chip" :class="statusChipClass(h.status)" x-text="h.status"></span></td>
+                    <td x-text="h.outcome"></td>
+                    <td x-text="formatDuration(h.duration)"></td>
+                    <td><a class="run-link" :href="'runs.html?run=' + encodeURIComponent(h.run_id)">View run →</a></td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
+          <template x-if="filteredHistory.length === 0">
+            <div class="u-empty">No history recorded for this test yet.</div>
+          </template>
+        </div>
+      </template>
+    </div>
+  </template>
+</main>
+
+<footer class="ubuntu-footer"><div class="ubuntu-footer-inner">CI Dashboard — Test history view.</div></footer>
+
+<script>
+function testsPage() {
+  return {
+    loading: true,
+    error: null,
+    allTests: [],
+    categories: [],
+    search: '',
+    categoryFilter: '',
+    statusFilter: [],
+    selectedTest: null,
+    testDetail: null,
+    deviceFilter: '',
+    formatTimestamp, formatDuration, statusChipClass,
+
+    async load() {
+      try {
+        const index = await fetchJSON('tests/index.json');
+        this.allTests = index.tests;
+        this.categories = [...new Set(index.tests.map((t) => t.category))].sort();
+        const params = new URLSearchParams(window.location.search);
+        const preselect = params.get('test');
+        if (preselect) await this.selectTest(preselect);
+      } catch (e) {
+        this.error = e.message;
+      } finally {
+        this.loading = false;
+      }
+    },
+
+    get filteredTests() {
+      const q = this.search.trim().toLowerCase();
+      return this.allTests.filter((t) => {
+        if (q && !(t.name.toLowerCase().includes(q) || t.full_id.toLowerCase().includes(q))) return false;
+        if (this.categoryFilter && t.category !== this.categoryFilter) return false;
+        if (this.statusFilter.length > 0 && !this.statusFilter.includes(t.latest_status)) return false;
+        return true;
+      });
+    },
+
+    async selectTest(slug) {
+      this.loading = true;
+      try {
+        this.testDetail = await fetchJSON(`tests/${slug}.json`);
+        this.selectedTest = slug;
+        this.deviceFilter = '';
+        history.replaceState(null, '', `tests.html?test=${encodeURIComponent(slug)}`);
+      } catch (e) {
+        this.error = e.message;
+      } finally {
+        this.loading = false;
+      }
+    },
+
+    get testDevices() {
+      if (!this.testDetail) return [];
+      return [...new Set(this.testDetail.history.map((h) => h.device_cid))].sort();
+    },
+
+    get filteredHistory() {
+      if (!this.testDetail) return [];
+      if (!this.deviceFilter) return this.testDetail.history;
+      return this.testDetail.history.filter((h) => h.device_cid === this.deviceFilter);
+    },
+  };
+}
+</script>
+
+</body>
+</html>
