@@ -1,0 +1,117 @@
+name: Image test & dashboard ingest
+
+# Single workflow: the device's Checkbox test job (`run-image-test`) and the
+# dashboard ingest job (`ingest`) live together here, as clarified for this
+# project (same repo, same workflow file — ingest is just another job).
+#
+# `device_cid` and `image_type` are supplied as inputs by whatever triggers
+# this workflow (the lab's orchestration, via `workflow_dispatch`, or another
+# workflow via `workflow_call`). The Checkbox `submission.json` produced by
+# `run-image-test` is handed to `ingest` as a workflow artifact ("attachment").
+
+on:
+  workflow_dispatch:
+    inputs:
+      device_cid:
+        description: "Device CID identifying the physical lab machine"
+        required: true
+        type: string
+      image_type:
+        description: "Image under test"
+        required: true
+        type: choice
+        options: [desktop, server]
+  workflow_call:
+    inputs:
+      device_cid:
+        required: true
+        type: string
+      image_type:
+        required: true
+        type: string
+
+env:
+  DATA_BRANCH: data
+
+jobs:
+  run-image-test:
+    # Runs on the lab's self-hosted runner for this specific device. Label
+    # convention: a runner registered with labels [self-hosted, <device_cid>].
+    runs-on: [self-hosted, "${{ inputs.device_cid }}"]
+    outputs:
+      run-id: ${{ steps.meta.outputs.run_id }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ─────────────────────────────────────────────────────────────────
+      # INTEGRATION POINT: this is where the lab's existing Checkbox / QIM
+      # automation runs the actual certification test plan against
+      # ${{ inputs.image_type }} on this device and produces
+      # `submission.json` at the repo root (or update the path below).
+      # That automation is out of scope for this repo — replace this step
+      # with the real invocation.
+      # ─────────────────────────────────────────────────────────────────
+      - name: Run Checkbox test plan (placeholder — plug in lab automation)
+        run: |
+          echo "TODO: invoke Checkbox for image_type=${{ inputs.image_type }} on device=${{ inputs.device_cid }}"
+          test -f submission.json || { echo "::error::submission.json not found — wire up the real test step"; exit 1; }
+
+      - name: Compute run id
+        id: meta
+        run: echo "run_id=${{ inputs.device_cid }}-${{ inputs.image_type }}-$(date -u +%Y%m%dT%H%M%SZ)" >> "$GITHUB_OUTPUT"
+
+      - name: Upload submission.json as an attachment for the ingest job
+        uses: actions/upload-artifact@v4
+        with:
+          name: submission-json
+          path: submission.json
+          retention-days: 7
+
+  ingest:
+    needs: run-image-test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code (main)
+        uses: actions/checkout@v4
+        with:
+          path: code
+
+      - name: Checkout data branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.DATA_BRANCH }}
+          path: data-branch
+
+      - name: Download submission.json attachment
+        uses: actions/download-artifact@v4
+        with:
+          name: submission-json
+          path: incoming
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ci-dashboard
+        run: python -m pip install code/
+
+      - name: Ingest submission into dashboard data
+        run: |
+          ci-dashboard ingest incoming/submission.json \
+            --device "${{ inputs.device_cid }}" \
+            --image "${{ inputs.image_type }}" \
+            --run-id "${{ needs.run-image-test.outputs.run-id }}" \
+            --data-dir data-branch/docs/data
+
+      - name: Commit and push updated data
+        working-directory: data-branch
+        run: |
+          git config user.name "ci-dashboard-bot"
+          git config user.email "ci-dashboard-bot@users.noreply.github.com"
+          git add docs/data
+          git diff --cached --quiet && echo "No data changes." && exit 0
+          git commit -m "Ingest ${{ inputs.device_cid }} / ${{ inputs.image_type }} run ${{ needs.run-image-test.outputs.run-id }}"
+          git push origin "${{ env.DATA_BRANCH }}"

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" class="is-paper">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CI Dashboard — Ubuntu Image Test History</title>
+  <meta name="ci-dashboard-data-base" content="data" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla_framework_version_4.51.0.min.css" />
+
+  <script>
+    (function () {
+      var saved = localStorage.getItem('ci-dashboard-theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = saved || (prefersDark ? 'dark' : 'paper');
+      var html = document.documentElement;
+      html.classList.remove('is-dark', 'is-paper');
+      html.classList.add(theme === 'dark' ? 'is-dark' : 'is-paper');
+    }());
+  </script>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+  <script src="assets/app.js"></script>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<header class="p-navigation is-dark">
+  <div class="p-navigation__row">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__tagged-logo">
+        <a class="p-navigation__link" href="index.html">
+          <div class="p-navigation__logo-tag">
+            <img src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="Ubuntu" width="32" height="32" />
+          </div>
+          <span class="p-navigation__logo-title">CI Dashboard</span>
+        </a>
+      </div>
+      <a href="#main-nav" class="p-navigation__toggle--open" title="Open menu">Menu</a>
+      <a href="#main-nav-closed" class="p-navigation__toggle--close" title="Close menu">Close menu</a>
+    </div>
+    <nav id="main-nav" class="p-navigation__nav" aria-label="Main navigation">
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item is-selected"><a class="p-navigation__link" href="index.html">Overview</a></li>
+        <li class="p-navigation__item"><a class="p-navigation__link" href="tests.html">Tests</a></li>
+        <li class="p-navigation__item"><a class="p-navigation__link" href="compare.html">Compare Devices</a></li>
+      </ul>
+      <ul class="p-navigation__items p-navigation__items--right">
+        <li class="p-navigation__item u-vertically-center">
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero-section">
+  <div class="hero-inner">
+    <h1 class="hero-title">Ubuntu Image <strong>CI Dashboard</strong></h1>
+    <p class="hero-subtitle">Historic Checkbox test results across 8 lab devices running Ubuntu Desktop &amp; Server image tests daily.</p>
+  </div>
+</section>
+
+<main class="l-content" x-data="overview()" x-init="load()">
+
+  <template x-if="loading">
+    <div class="u-loading"><div class="u-spinner"></div><p>Loading dashboard data…</p></div>
+  </template>
+
+  <template x-if="error">
+    <div class="p-notification--negative"><div class="p-notification__content"><p class="p-notification__message" x-text="error"></p></div></div>
+  </template>
+
+  <template x-if="!loading && !error">
+    <div>
+      <div class="summary-strip">
+        <h2>Latest results across all devices</h2>
+        <p class="summary-meta" x-text="'Data generated ' + formatTimestamp(manifest.generated_at)"></p>
+      </div>
+
+      <div class="summary-strip" style="margin-bottom: 2rem;">
+        <div class="stat-card"><div class="stat-value" x-text="manifest.runs.length"></div><div class="stat-label">Runs (retained)</div></div>
+        <div class="stat-card is-pass"><div class="stat-value" x-text="totals.pass"></div><div class="stat-label">Passes</div></div>
+        <div class="stat-card is-fail"><div class="stat-value" x-text="totals.fail"></div><div class="stat-label">Failures</div></div>
+        <div class="stat-card is-skip"><div class="stat-value" x-text="totals.skip"></div><div class="stat-label">Skipped</div></div>
+        <div class="stat-card"><div class="stat-value" x-text="(overallPassRate === null ? '—' : overallPassRate + '%')"></div><div class="stat-label">Pass rate</div></div>
+      </div>
+
+      <div class="section-header">
+        <h2 style="font-size:1.25rem;font-weight:500;margin:0;">Devices (<span x-text="manifest.devices.length"></span>)</h2>
+      </div>
+
+      <template x-if="manifest.devices.length === 0">
+        <div class="u-empty">No device data yet. Once a device's CI workflow ingests a submission.json, it will appear here.</div>
+      </template>
+
+      <div class="p-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:1rem;margin-bottom:2rem;">
+        <template x-for="device in devices" :key="device.device_cid">
+          <div class="device-card">
+            <h3 x-text="device.device_cid"></h3>
+            <template x-for="run in device.latestByImage" :key="run.image_type">
+              <div class="device-row">
+                <span x-text="run.image_type"></span>
+                <span>
+                  <span class="status-chip" :class="run.summary.fail > 0 ? 'is-fail' : 'is-pass'"
+                        x-text="run.summary.fail > 0 ? run.summary.fail + ' failing' : 'all pass'"></span>
+                </span>
+              </div>
+            </template>
+            <p class="summary-meta" style="margin:0.25rem 0 0;" x-text="'Last run ' + formatTimestamp(device.lastTimestamp)"></p>
+          </div>
+        </template>
+      </div>
+
+      <div class="section-header">
+        <h2 style="font-size:1.25rem;font-weight:500;margin:0;">Recent runs</h2>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="p-table">
+          <thead>
+            <tr>
+              <th>Timestamp</th><th>Device</th><th>Image</th><th>Distribution</th>
+              <th>Pass</th><th>Fail</th><th>Skip</th><th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <template x-for="run in manifest.runs.slice(0, 30)" :key="run.run_id">
+              <tr>
+                <td x-text="formatTimestamp(run.timestamp)"></td>
+                <td x-text="run.device_cid"></td>
+                <td x-text="run.image_type"></td>
+                <td x-text="run.distribution"></td>
+                <td x-text="run.summary.pass"></td>
+                <td x-text="run.summary.fail"></td>
+                <td x-text="run.summary.skip"></td>
+                <td><a class="run-link" :href="'runs.html?run=' + encodeURIComponent(run.run_id)">View →</a></td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </template>
+</main>
+
+<footer class="ubuntu-footer">
+  <div class="ubuntu-footer-inner">CI Dashboard — generated from Checkbox submission.json reports. Test output is never stored, only pass/fail/skip status.</div>
+</footer>
+
+<script>
+function overview() {
+  return {
+    loading: true,
+    error: null,
+    manifest: { runs: [], devices: [], generated_at: null },
+    totals: { pass: 0, fail: 0, skip: 0 },
+    overallPassRate: null,
+    devices: [],
+    formatTimestamp,
+
+    async load() {
+      try {
+        this.manifest = await fetchJSON('manifest.json');
+        const totals = { pass: 0, fail: 0, skip: 0 };
+        for (const r of this.manifest.runs) {
+          totals.pass += r.summary.pass || 0;
+          totals.fail += r.summary.fail || 0;
+          totals.skip += r.summary.skip || 0;
+        }
+        this.totals = totals;
+        this.overallPassRate = passRate(totals);
+        this.devices = this.manifest.devices.map((cid) => this.buildDeviceCard(cid));
+      } catch (e) {
+        this.error = e.message;
+      } finally {
+        this.loading = false;
+      }
+    },
+
+    buildDeviceCard(cid) {
+      const runsForDevice = this.manifest.runs.filter((r) => r.device_cid === cid);
+      const byImage = {};
+      for (const r of runsForDevice) {
+        if (!byImage[r.image_type] || r.timestamp > byImage[r.image_type].timestamp) {
+          byImage[r.image_type] = r;
+        }
+      }
+      const lastTimestamp = runsForDevice.reduce(
+        (max, r) => (r.timestamp > max ? r.timestamp : max), '');
+      return {
+        device_cid: cid,
+        latestByImage: Object.values(byImage),
+        lastTimestamp,
+      };
+    },
+  };
+}
+</script>
+
+</body>
+</html>

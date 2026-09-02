@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+build/
+dist/
+
+# Generated dashboard data — lives only on the dedicated `data` branch,
+# never committed to main.
+docs/data/*
+!docs/data/.gitkeep
+
+# Editors / OS
+.DS_Store
