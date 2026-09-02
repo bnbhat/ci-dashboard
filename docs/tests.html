@@ -100,8 +100,8 @@
           <tbody>
             <template x-for="t in filteredTests" :key="t.slug">
               <tr>
-                <td><a class="test-name-link" @click="selectTest(t.slug)" x-text="testIdShort(t.full_id)"></a>
-                    <div class="summary-meta" x-text="t.name"></div></td>
+                <td><a class="test-name-link" @click="selectTest(t.slug)" x-text="t.name"></a>
+                    <div class="summary-meta" x-text="testIdShort(t.full_id)"></div></td>
                 <td x-text="t.category"></td>
                 <td><span class="status-chip" :class="statusChipClass(t.latest_status)" x-text="statusLabel(t.latest_status) || 'n/a'"></span></td>
                 <td x-text="t.run_count"></td>
@@ -122,9 +122,9 @@
       <template x-if="testDetail">
         <div>
           <div class="summary-strip" style="margin-top:1.5rem;">
-            <h2 x-text="testIdShort(testDetail.full_id)"></h2>
+            <h2 x-text="testDetail.name"></h2>
           </div>
-          <p class="summary-meta" x-text="testDetail.name"></p>
+          <p class="summary-meta" x-text="testIdShort(testDetail.full_id)"></p>
           <p class="summary-meta">Category: <span x-text="testDetail.category"></span></p>
 
           <div class="filter-bar">
