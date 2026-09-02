@@ -41,6 +41,7 @@
         <li class="p-navigation__item"><a class="p-navigation__link" href="index.html">Overview</a></li>
         <li class="p-navigation__item"><a class="p-navigation__link" href="tests.html">Tests</a></li>
         <li class="p-navigation__item"><a class="p-navigation__link" href="compare.html">Compare Devices</a></li>
+        <li class="p-navigation__item"><a class="p-navigation__link" href="packages.html">Packages</a></li>
       </ul>
       <ul class="p-navigation__items p-navigation__items--right">
         <li class="p-navigation__item u-vertically-center">
@@ -69,6 +70,13 @@
         <span x-text="run.distribution"></span> · <span x-text="formatTimestamp(run.timestamp)"></span>
       </p>
       <p class="summary-meta" x-text="'Test plan: ' + run.testplan_id"></p>
+      <p class="summary-meta">
+        <span x-show="run.submission_id" x-text="'Submission ID: ' + run.submission_id"></span>
+        <span x-show="run.kernel"> · Kernel: <span x-text="run.kernel"></span></span>
+        <span x-show="run.architecture"> · Arch: <span x-text="run.architecture"></span></span>
+        <span x-show="run.checkbox_version"> · Checkbox: <span x-text="run.checkbox_version"></span></span>
+      </p>
+      <p style="margin:0.5rem 0 1rem;"><a class="p-button" :href="'packages.html?run=' + encodeURIComponent(run.run_id)">View installed packages →</a></p>
 
       <div class="summary-strip" style="margin: 1.5rem 0;">
         <div class="stat-card"><div class="stat-value" x-text="run.results.length"></div><div class="stat-label">Total tests</div></div>

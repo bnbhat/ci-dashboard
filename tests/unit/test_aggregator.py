@@ -10,7 +10,7 @@ from ci_dashboard.aggregator import (
     register_known_devices,
     slugify_test_id,
 )
-from ci_dashboard.models import RunMeta, TestResult
+from ci_dashboard.models import PackageInfo, RunMeta, SnapPackageInfo, TestResult
 
 
 def _make_run(
@@ -143,3 +143,54 @@ def test_rebuild_compare_matrix_latest_status_per_device(tmp_path: Path):
     assert test0["latest_by_device"]["cid-aaa111"]["status"] == "fail"
     assert test0["latest_by_device"]["cid-aaa111"]["run_id"] == "run-a2"
     assert test0["latest_by_device"]["cid-bbb222"]["status"] == "pass"
+
+
+def test_ingest_run_writes_packages_and_diffs_against_previous(tmp_path: Path):
+    run1 = _make_run("run-1", "cid-aaa111", "desktop", "2026-09-01T00:00:00+00:00", ["pass"])
+    packages1 = [PackageInfo(name="acl", version="1.0"), PackageInfo(name="bash", version="5.0")]
+    snaps1 = [SnapPackageInfo(name="core24", version="1", channel="stable", revision="100")]
+    run1_full = RunMeta(
+        run_id=run1.run_id,
+        device_cid=run1.device_cid,
+        image_type=run1.image_type,
+        testplan_id=run1.testplan_id,
+        distribution=run1.distribution,
+        timestamp=run1.timestamp,
+        results=run1.results,
+        submission_id="1001",
+        checkbox_version="7.5.0",
+        kernel="6.8.0-generic",
+        architecture="arm64",
+        packages=packages1,
+        snap_packages=snaps1,
+    )
+    ingest_run(tmp_path, run1_full)
+
+    run2 = _make_run("run-2", "cid-aaa111", "desktop", "2026-09-02T00:00:00+00:00", ["pass"])
+    packages2 = [PackageInfo(name="acl", version="1.1"), PackageInfo(name="curl", version="8.0")]
+    run2_full = RunMeta(
+        run_id=run2.run_id,
+        device_cid=run2.device_cid,
+        image_type=run2.image_type,
+        testplan_id=run2.testplan_id,
+        distribution=run2.distribution,
+        timestamp=run2.timestamp,
+        results=run2.results,
+        submission_id="1002",
+        packages=packages2,
+        snap_packages=[],
+    )
+    ingest_run(tmp_path, run2_full)
+
+    pkg1 = json.loads((tmp_path / "packages" / "run-1.json").read_text())
+    assert pkg1["submission_id"] == "1001"
+    assert pkg1["kernel"] == "6.8.0-generic"
+    assert len(pkg1["packages"]) == 2
+    assert pkg1["previous_run_id"] is None
+
+    pkg2 = json.loads((tmp_path / "packages" / "run-2.json").read_text())
+    assert pkg2["previous_run_id"] == "run-1"
+    diff = pkg2["diff_from_previous"]["packages"]
+    assert diff["added"] == ["curl"]
+    assert diff["removed"] == ["bash"]
+    assert diff["changed"] == [{"name": "acl", "old_version": "1.0", "new_version": "1.1"}]

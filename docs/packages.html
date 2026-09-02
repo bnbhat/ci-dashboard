@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" class="is-paper">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Packages — CI Dashboard</title>
+  <meta name="ci-dashboard-data-base" content="data" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla_framework_version_4.51.0.min.css" />
+  <script>
+    (function () {
+      var saved = localStorage.getItem('ci-dashboard-theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = saved || (prefersDark ? 'dark' : 'paper');
+      var html = document.documentElement;
+      html.classList.remove('is-dark', 'is-paper');
+      html.classList.add(theme === 'dark' ? 'is-dark' : 'is-paper');
+    }());
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+  <script src="assets/app.js"></script>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<header class="p-navigation is-dark">
+  <div class="p-navigation__row">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__tagged-logo">
+        <a class="p-navigation__link" href="index.html">
+          <div class="p-navigation__logo-tag"><img src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="Ubuntu" width="32" height="32" /></div>
+          <span class="p-navigation__logo-title">CI Dashboard</span>
+        </a>
+      </div>
+      <a href="#main-nav" class="p-navigation__toggle--open" title="Open menu">Menu</a>
+      <a href="#main-nav-closed" class="p-navigation__toggle--close" title="Close menu">Close menu</a>
+    </div>
+    <nav id="main-nav" class="p-navigation__nav" aria-label="Main navigation">
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item"><a class="p-navigation__link" href="index.html">Overview</a></li>
+        <li class="p-navigation__item"><a class="p-navigation__link" href="tests.html">Tests</a></li>
+        <li class="p-navigation__item"><a class="p-navigation__link" href="compare.html">Compare Devices</a></li>
+        <li class="p-navigation__item is-selected"><a class="p-navigation__link" href="packages.html">Packages</a></li>
+      </ul>
+      <ul class="p-navigation__items p-navigation__items--right">
+        <li class="p-navigation__item u-vertically-center">
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="l-content" x-data="packagesPage()" x-init="load()" style="padding-top:2rem;">
+
+  <template x-if="loading"><div class="u-loading"><div class="u-spinner"></div><p>Loading packages…</p></div></template>
+  <template x-if="error"><div class="p-notification--negative"><div class="p-notification__content"><p class="p-notification__message" x-text="error"></p></div></div></template>
+
+  <template x-if="!loading && !error">
+    <div>
+      <div class="summary-strip">
+        <h2 x-text="'Packages: ' + pkg.run_id"></h2>
+      </div>
+      <p class="summary-meta">
+        <span x-text="pkg.device_cid"></span> · <span x-text="pkg.image_type"></span> ·
+        <span x-text="formatTimestamp(pkg.timestamp)"></span>
+        <span x-show="pkg.submission_id"> · Submission ID: <span x-text="pkg.submission_id"></span></span>
+      </p>
+      <p class="summary-meta">
+        <span x-show="pkg.kernel">Kernel: <span x-text="pkg.kernel"></span></span>
+        <span x-show="pkg.architecture"> · Arch: <span x-text="pkg.architecture"></span></span>
+        <span x-show="pkg.checkbox_version"> · Checkbox: <span x-text="pkg.checkbox_version"></span></span>
+        <span x-show="pkg.distribution_codename"> · Series: <span x-text="pkg.distribution_codename"></span></span>
+        <span x-show="pkg.distribution_release"> · Release: <span x-text="pkg.distribution_release"></span></span>
+      </p>
+      <p style="margin:0.5rem 0 1rem;"><a class="run-link" :href="'runs.html?run=' + encodeURIComponent(pkg.run_id)">← Back to run detail</a></p>
+
+      <div class="summary-strip" style="margin-bottom:1.5rem;">
+        <div class="stat-card"><div class="stat-value" x-text="pkg.packages.length"></div><div class="stat-label">Deb packages</div></div>
+        <div class="stat-card"><div class="stat-value" x-text="pkg.snap_packages.length"></div><div class="stat-label">Snap packages</div></div>
+      </div>
+
+      <template x-if="pkg.previous_run_id">
+        <div style="margin-bottom:2rem;">
+          <h3 style="font-size:1.1rem;font-weight:500;">
+            Changes since previous run
+            (<a class="run-link" :href="'packages.html?run=' + encodeURIComponent(pkg.previous_run_id)" x-text="pkg.previous_run_id"></a>)
+          </h3>
+          <template x-if="diffIsEmpty">
+            <p class="summary-meta">No package or snap changes since the previous run on this device/image.</p>
+          </template>
+          <template x-if="!diffIsEmpty">
+            <div style="overflow-x:auto;">
+              <table class="p-table">
+                <thead><tr><th>Package</th><th>Change</th><th>Old version</th><th>New version</th></tr></thead>
+                <tbody>
+                  <template x-for="name in pkg.diff_from_previous.packages.added" :key="'add-' + name">
+                    <tr><td x-text="name"></td><td><span class="status-chip is-pass">added</span></td><td>—</td><td>—</td></tr>
+                  </template>
+                  <template x-for="name in pkg.diff_from_previous.packages.removed" :key="'rm-' + name">
+                    <tr><td x-text="name"></td><td><span class="status-chip is-fail">removed</span></td><td>—</td><td>—</td></tr>
+                  </template>
+                  <template x-for="c in pkg.diff_from_previous.packages.changed" :key="'chg-' + c.name">
+                    <tr><td x-text="c.name"></td><td><span class="status-chip is-ignored">updated</span></td><td x-text="c.old_version"></td><td x-text="c.new_version"></td></tr>
+                  </template>
+                  <template x-for="name in pkg.diff_from_previous.snap_packages.added" :key="'snap-add-' + name">
+                    <tr><td x-text="name + ' (snap)'"></td><td><span class="status-chip is-pass">added</span></td><td>—</td><td>—</td></tr>
+                  </template>
+                  <template x-for="name in pkg.diff_from_previous.snap_packages.removed" :key="'snap-rm-' + name">
+                    <tr><td x-text="name + ' (snap)'"></td><td><span class="status-chip is-fail">removed</span></td><td>—</td><td>—</td></tr>
+                  </template>
+                  <template x-for="c in pkg.diff_from_previous.snap_packages.changed" :key="'snap-chg-' + c.name">
+                    <tr><td x-text="c.name + ' (snap)'"></td><td><span class="status-chip is-ignored">updated</span></td><td x-text="c.old_version"></td><td x-text="c.new_version"></td></tr>
+                  </template>
+                </tbody>
+              </table>
+            </div>
+          </template>
+        </div>
+      </template>
+
+      <div class="filter-bar">
+        <div class="filter-field">
+          <label for="search">Search package name</label>
+          <input id="search" type="text" x-model="search" placeholder="filter packages…" />
+        </div>
+        <div class="filter-field">
+          <label>Type</label>
+          <div class="filter-checkboxes">
+            <label><input type="checkbox" value="deb" x-model="typeFilter"> Deb</label>
+            <label><input type="checkbox" value="snap" x-model="typeFilter"> Snap</label>
+          </div>
+        </div>
+      </div>
+
+      <p class="summary-meta" x-text="filteredPackages.length + ' of ' + (pkg.packages.length + pkg.snap_packages.length) + ' packages'"></p>
+
+      <div style="overflow-x:auto;">
+        <table class="p-table">
+          <thead><tr><th>Name</th><th>Type</th><th>Version</th><th>Channel</th></tr></thead>
+          <tbody>
+            <template x-for="p in filteredPackages" :key="p.type + '-' + p.name">
+              <tr>
+                <td x-text="p.name"></td>
+                <td x-text="p.type"></td>
+                <td x-text="p.version || '—'"></td>
+                <td x-text="p.channel || '—'"></td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+      <template x-if="filteredPackages.length === 0">
+        <div class="u-empty">No packages match the current filters.</div>
+      </template>
+    </div>
+  </template>
+</main>
+
+<footer class="ubuntu-footer"><div class="ubuntu-footer-inner">CI Dashboard — Installed package versions per run, with a diff against the previous run to help correlate regressions with package/kernel changes.</div></footer>
+
+<script>
+function packagesPage() {
+  return {
+    loading: true,
+    error: null,
+    pkg: { packages: [], snap_packages: [], diff_from_previous: null },
+    search: '',
+    typeFilter: [],
+    formatTimestamp,
+
+    async load() {
+      const params = new URLSearchParams(window.location.search);
+      const runId = params.get('run');
+      if (!runId) { this.error = 'No run specified. Use packages.html?run=<run_id> (link from a run detail page).'; this.loading = false; return; }
+      try {
+        this.pkg = await fetchJSON(`packages/${runId}.json`);
+      } catch (e) {
+        this.error = e.message;
+      } finally {
+        this.loading = false;
+      }
+    },
+
+    get diffIsEmpty() {
+      const d = this.pkg.diff_from_previous;
+      if (!d) return true;
+      return d.packages.added.length === 0 && d.packages.removed.length === 0 && d.packages.changed.length === 0
+        && d.snap_packages.added.length === 0 && d.snap_packages.removed.length === 0 && d.snap_packages.changed.length === 0;
+    },
+
+    get filteredPackages() {
+      const q = this.search.trim().toLowerCase();
+      const debs = this.pkg.packages.map((p) => ({ ...p, type: 'deb' }));
+      const snaps = this.pkg.snap_packages.map((p) => ({ ...p, type: 'snap' }));
+      let all = [...debs, ...snaps];
+      if (this.typeFilter.length > 0) all = all.filter((p) => this.typeFilter.includes(p.type));
+      if (q) all = all.filter((p) => p.name.toLowerCase().includes(q));
+      return all.sort((a, b) => a.name.localeCompare(b.name));
+    },
+  };
+}
+</script>
+
+</body>
+</html>
