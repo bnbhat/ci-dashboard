@@ -118,8 +118,8 @@
             <template x-for="r in filteredResults" :key="r.full_id">
               <tr>
                 <td>
-                  <div x-text="testIdShort(r.full_id)"></div>
-                  <div class="summary-meta" x-text="r.name"></div>
+                  <div x-text="r.name"></div>
+                  <div class="summary-meta" x-text="testIdShort(r.full_id)"></div>
                 </td>
                 <td x-text="r.category"></td>
                 <td>
