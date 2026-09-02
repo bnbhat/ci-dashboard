@@ -62,11 +62,31 @@ def ingest_run(
     data_dir = Path(data_dir)
     cutoff = _cutoff_iso(retention_days)
 
+    previous_run_id = _find_previous_run_id(data_dir, run)
     _update_manifest(data_dir, run, cutoff)
     _update_run_detail(data_dir, run)
     _update_device(data_dir, run, cutoff)
+    _update_packages(data_dir, run, previous_run_id)
     for result in run.results:
         _update_test_history(data_dir, run, result, cutoff)
+
+
+def _find_previous_run_id(data_dir: Path, run: RunMeta) -> str | None:
+    """The most recent existing run for the same device+image, strictly
+    before this run's timestamp — used as the baseline for the package
+    diff. Looked up before the manifest is updated with the new run."""
+    manifest = _load_json(data_dir / "manifest.json", {"runs": []})
+    candidates = [
+        r
+        for r in manifest.get("runs", [])
+        if r["device_cid"] == run.device_cid
+        and r["image_type"] == run.image_type
+        and r["run_id"] != run.run_id
+        and r["timestamp"] < run.timestamp
+    ]
+    if not candidates:
+        return None
+    return max(candidates, key=lambda r: r["timestamp"])["run_id"]
 
 
 def _update_manifest(data_dir: Path, run: RunMeta, cutoff: str) -> None:
@@ -92,6 +112,10 @@ def _update_manifest(data_dir: Path, run: RunMeta, cutoff: str) -> None:
             "distribution": run.distribution,
             "summary": run.summary,
             "total": len(run.results),
+            "submission_id": run.submission_id,
+            "checkbox_version": run.checkbox_version,
+            "kernel": run.kernel,
+            "architecture": run.architecture,
         }
     )
     manifest["runs"] = [r for r in manifest["runs"] if r["timestamp"] >= cutoff]
@@ -160,6 +184,13 @@ def _update_run_detail(data_dir: Path, run: RunMeta) -> None:
             "distribution": run.distribution,
             "summary": run.summary,
             "results": results,
+            "submission_id": run.submission_id,
+            "checkbox_version": run.checkbox_version,
+            "kernel": run.kernel,
+            "architecture": run.architecture,
+            "distribution_codename": run.distribution_codename,
+            "distribution_release": run.distribution_release,
+            "device_alias": run.device_alias,
         },
     )
 
@@ -198,6 +229,63 @@ def _update_device(data_dir: Path, run: RunMeta, cutoff: str) -> None:
     if run.series:
         device["series"] = run.series
     _save_json(path, device)
+
+
+def _diff_package_lists(old: list[dict], new: list[dict]) -> dict:
+    """Compare two {"name", "version"} lists, returning added/removed/
+    changed-version package names."""
+    old_map = {p["name"]: p.get("version") for p in old}
+    new_map = {p["name"]: p.get("version") for p in new}
+    added = sorted(set(new_map) - set(old_map))
+    removed = sorted(set(old_map) - set(new_map))
+    changed = sorted(
+        (
+            {"name": n, "old_version": old_map[n], "new_version": new_map[n]}
+            for n in (new_map.keys() & old_map.keys())
+            if old_map[n] != new_map[n]
+        ),
+        key=lambda c: c["name"],
+    )
+    return {"added": added, "removed": removed, "changed": changed}
+
+
+def _update_packages(data_dir: Path, run: RunMeta, previous_run_id: str | None) -> None:
+    """Write packages/{run_id}.json with the full deb/snap package lists for
+    this run, plus a diff against the previous run for the same device+image
+    (added/removed/version-changed packages) so regressions can be
+    correlated with package/kernel bumps."""
+    path = data_dir / "packages" / f"{run.run_id}.json"
+    packages = [asdict(p) for p in run.packages]
+    snap_packages = [asdict(p) for p in run.snap_packages]
+
+    diff = None
+    if previous_run_id:
+        prev = _load_json(data_dir / "packages" / f"{previous_run_id}.json", {})
+        diff = {
+            "packages": _diff_package_lists(prev.get("packages", []), packages),
+            "snap_packages": _diff_package_lists(prev.get("snap_packages", []), snap_packages),
+        }
+
+    _save_json(
+        path,
+        {
+            "version": SCHEMA_VERSION,
+            "run_id": run.run_id,
+            "device_cid": run.device_cid,
+            "image_type": run.image_type,
+            "timestamp": run.timestamp,
+            "submission_id": run.submission_id,
+            "checkbox_version": run.checkbox_version,
+            "kernel": run.kernel,
+            "architecture": run.architecture,
+            "distribution_codename": run.distribution_codename,
+            "distribution_release": run.distribution_release,
+            "packages": packages,
+            "snap_packages": snap_packages,
+            "previous_run_id": previous_run_id,
+            "diff_from_previous": diff,
+        },
+    )
 
 
 def _update_test_history(data_dir: Path, run: RunMeta, result, cutoff: str) -> None:

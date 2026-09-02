@@ -24,6 +24,24 @@ class TestResult:
 
 
 @dataclass(frozen=True, slots=True)
+class PackageInfo:
+    """A single installed .deb package (name + version only)."""
+
+    name: str
+    version: str | None = None
+
+
+@dataclass(frozen=True, slots=True)
+class SnapPackageInfo:
+    """A single installed snap package."""
+
+    name: str
+    version: str | None = None
+    channel: str | None = None
+    revision: str | None = None
+
+
+@dataclass(frozen=True, slots=True)
 class RunMeta:
     """Metadata for a single test-run submission, supplied by the calling
     CI job (device CID + image type are not reliably present inside
@@ -39,6 +57,14 @@ class RunMeta:
     device_alias: str | None = None
     platform: str | None = None
     series: str | None = None
+    submission_id: str | None = None
+    checkbox_version: str | None = None
+    kernel: str | None = None
+    architecture: str | None = None
+    distribution_codename: str | None = None
+    distribution_release: str | None = None
+    packages: list[PackageInfo] = field(default_factory=list)
+    snap_packages: list[SnapPackageInfo] = field(default_factory=list)
 
     @property
     def summary(self) -> dict[str, int]:

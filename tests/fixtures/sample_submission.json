@@ -581,5 +581,34 @@
       "plugin": "attachment",
       "template_id": null
     }
-  ]
+  ],
+  "origin": {
+    "name": "Checkbox",
+    "version": "7.5.0.dev34"
+  },
+  "kernel": "6.8.0-1084-qcom",
+  "architecture": "arm64",
+  "packages": [
+    {
+      "name": "acl",
+      "version": "2.3.2-1build1.1"
+    },
+    {
+      "name": "adduser",
+      "version": "3.137ubuntu1"
+    }
+  ],
+  "snap-packages": [
+    {
+      "name": "core24",
+      "version": "20260410",
+      "channel": "latest/stable",
+      "revision": "1644"
+    }
+  ],
+  "launcher": {
+    "launcher": {
+      "session_desc": "PE-Images-202609010742-33458049048"
+    }
+  }
 }
