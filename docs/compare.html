@@ -104,8 +104,8 @@
           <tbody>
             <template x-for="t in filteredTests" :key="t.slug">
               <tr>
-                <td><a class="test-name-link" @click="window.location.href = 'tests.html?test=' + encodeURIComponent(t.slug)" x-text="t.name"></a>
-                    <div class="summary-meta" x-text="testIdShort(t.full_id)"></div></td>
+                <td><a class="test-name-link" @click="window.location.href = 'tests.html?test=' + encodeURIComponent(t.slug)" x-text="testIdShort(t.full_id)"></a>
+                    <div class="summary-meta" x-text="t.name"></div></td>
                 <td x-text="t.category"></td>
                 <template x-for="d in matrix.devices" :key="d">
                   <td class="status-cell" @click="goToRun(t, d)" :title="t.latest_by_device[d] && t.latest_by_device[d].ignore_reason || ''">
