@@ -86,6 +86,7 @@
         <div class="stat-card"><div class="stat-value" x-text="manifest.runs.length"></div><div class="stat-label">Runs (retained)</div></div>
         <div class="stat-card is-pass"><div class="stat-value" x-text="totals.pass"></div><div class="stat-label">Passes</div></div>
         <div class="stat-card is-fail"><div class="stat-value" x-text="totals.fail"></div><div class="stat-label">Failures</div></div>
+        <div class="stat-card is-ignored"><div class="stat-value" x-text="totals['failed-ignored']"></div><div class="stat-label">Ignored (known)</div></div>
         <div class="stat-card is-skip"><div class="stat-value" x-text="totals.skip"></div><div class="stat-label">Skipped</div></div>
         <div class="stat-card"><div class="stat-value" x-text="(overallPassRate === null ? '—' : overallPassRate + '%')"></div><div class="stat-label">Pass rate</div></div>
       </div>
@@ -101,13 +102,16 @@
       <div class="p-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:1rem;margin-bottom:2rem;">
         <template x-for="device in devices" :key="device.device_cid">
           <div class="device-card">
-            <h3 x-text="device.device_cid"></h3>
+            <h3 x-text="device.alias || device.device_cid"></h3>
+            <p class="summary-meta" style="margin:0;" x-text="device.device_cid + (device.series ? ' · ' + device.series : '')"></p>
             <template x-for="run in device.latestByImage" :key="run.image_type">
               <div class="device-row">
                 <span x-text="run.image_type"></span>
-                <span>
+                <span style="display:flex;gap:0.35rem;">
                   <span class="status-chip" :class="run.summary.fail > 0 ? 'is-fail' : 'is-pass'"
                         x-text="run.summary.fail > 0 ? run.summary.fail + ' failing' : 'all pass'"></span>
+                  <span class="status-chip is-ignored" x-show="run.summary['failed-ignored'] > 0"
+                        x-text="run.summary['failed-ignored'] + ' ignored'"></span>
                 </span>
               </div>
             </template>
@@ -156,8 +160,8 @@ function overview() {
   return {
     loading: true,
     error: null,
-    manifest: { runs: [], devices: [], generated_at: null },
-    totals: { pass: 0, fail: 0, skip: 0 },
+    manifest: { runs: [], devices: [], device_meta: {}, generated_at: null },
+    totals: { pass: 0, fail: 0, skip: 0, 'failed-ignored': 0 },
     overallPassRate: null,
     devices: [],
     formatTimestamp,
@@ -165,11 +169,12 @@ function overview() {
     async load() {
       try {
         this.manifest = await fetchJSON('manifest.json');
-        const totals = { pass: 0, fail: 0, skip: 0 };
+        const totals = { pass: 0, fail: 0, skip: 0, 'failed-ignored': 0 };
         for (const r of this.manifest.runs) {
           totals.pass += r.summary.pass || 0;
           totals.fail += r.summary.fail || 0;
           totals.skip += r.summary.skip || 0;
+          totals['failed-ignored'] += r.summary['failed-ignored'] || 0;
         }
         this.totals = totals;
         this.overallPassRate = passRate(totals);
@@ -191,8 +196,11 @@ function overview() {
       }
       const lastTimestamp = runsForDevice.reduce(
         (max, r) => (r.timestamp > max ? r.timestamp : max), '');
+      const meta = (this.manifest.device_meta || {})[cid] || {};
       return {
         device_cid: cid,
+        alias: meta.alias,
+        series: meta.series,
         latestByImage: Object.values(byImage),
         lastTimestamp,
       };

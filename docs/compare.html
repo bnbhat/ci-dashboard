@@ -97,7 +97,7 @@
             <tr>
               <th>Test</th>
               <th>Category</th>
-              <template x-for="d in matrix.devices" :key="d"><th class="device-col" x-text="d"></th></template>
+              <template x-for="d in matrix.devices" :key="d"><th class="device-col" x-text="deviceLabel(d)"></th></template>
             </tr>
           </thead>
           <tbody>
@@ -106,9 +106,9 @@
                 <td><a class="test-name-link" @click="window.location.href = 'tests.html?test=' + encodeURIComponent(t.slug)" x-text="t.name"></a></td>
                 <td x-text="t.category"></td>
                 <template x-for="d in matrix.devices" :key="d">
-                  <td class="status-cell" @click="goToRun(t, d)">
+                  <td class="status-cell" @click="goToRun(t, d)" :title="t.latest_by_device[d] && t.latest_by_device[d].ignore_reason || ''">
                     <template x-if="t.latest_by_device[d]">
-                      <span class="status-chip" :class="statusChipClass(t.latest_by_device[d].status)" x-text="t.latest_by_device[d].status"></span>
+                      <span class="status-chip" :class="statusChipClass(t.latest_by_device[d].status)" x-text="statusLabel(t.latest_by_device[d].status)"></span>
                     </template>
                     <template x-if="!t.latest_by_device[d]">
                       <span class="summary-meta">—</span>
@@ -134,12 +134,17 @@ function comparePage() {
   return {
     loading: true,
     error: null,
-    matrix: { devices: [], tests: [], generated_at: null },
+    matrix: { devices: [], tests: [], device_meta: {}, generated_at: null },
     search: '',
     categoryFilter: '',
     onlyDiffering: false,
     onlyFailing: false,
-    formatTimestamp, statusChipClass,
+    formatTimestamp, statusChipClass, statusLabel,
+
+    deviceLabel(cid) {
+      const meta = (this.matrix.device_meta || {})[cid];
+      return meta && meta.alias ? meta.alias : cid;
+    },
 
     async load() {
       try {

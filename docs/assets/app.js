@@ -26,7 +26,11 @@ async function fetchJSON(path) {
 }
 
 function statusChipClass(status) {
-  return { pass: 'is-pass', fail: 'is-fail', skip: 'is-skip' }[status] || 'is-skip';
+  return { pass: 'is-pass', fail: 'is-fail', skip: 'is-skip', 'failed-ignored': 'is-ignored' }[status] || 'is-skip';
+}
+
+function statusLabel(status) {
+  return { 'failed-ignored': 'ignored' }[status] || status;
 }
 
 function formatDuration(seconds) {
