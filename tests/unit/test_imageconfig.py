@@ -15,10 +15,17 @@ def test_short_test_id_strips_namespace():
 def test_devices_are_parsed_from_queues():
     config = ImagesConfig.from_file(FIXTURE)
     devices = {d.cid: d for d in config.devices()}
-    assert set(devices) == {"202509-37951", "202605-38792"}
+    assert set(devices) == {
+        "202403-33871",
+        "202603-38455",
+        "202601-38369",
+        "202512-38153",
+        "202605-38802",
+        "202509-37951",
+    }
 
     d1 = devices["202509-37951"]
-    assert d1.alias == "HAMOA-12C SIPA-64GB EVK IQX7181"
+    assert d1.alias == "IQ-X7181 Evaluation Kit"
     assert d1.platform == "dragonwing"
     assert d1.series == "resolute"
     assert any("IQ-X.1.8" in f for f in d1.extra_files)
@@ -26,7 +33,7 @@ def test_devices_are_parsed_from_queues():
 
 def test_device_info_lookup():
     config = ImagesConfig.from_file(FIXTURE)
-    assert config.device_info("202605-38792").alias == "PURWA-8C SIPA-64GB EVK IQX5121"
+    assert config.device_info("202603-38455").alias == "IQ-9075 Evaluation Kit"
     assert config.device_info("unknown-cid") is None
 
 
