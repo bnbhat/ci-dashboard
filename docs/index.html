@@ -115,7 +115,10 @@
                 </span>
               </div>
             </template>
-            <p class="summary-meta" style="margin:0.25rem 0 0;" x-text="'Last run ' + formatTimestamp(device.lastTimestamp)"></p>
+            <template x-if="device.latestByImage.length === 0">
+              <p class="summary-meta" style="margin:0.25rem 0 0;">No test runs submitted yet.</p>
+            </template>
+            <p class="summary-meta" style="margin:0.25rem 0 0;" x-show="device.latestByImage.length > 0" x-text="'Last run ' + formatTimestamp(device.lastTimestamp)"></p>
           </div>
         </template>
       </div>

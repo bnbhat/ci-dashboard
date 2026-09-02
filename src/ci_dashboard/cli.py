@@ -20,6 +20,7 @@ from ci_dashboard.aggregator import (
     ingest_run,
     rebuild_compare_matrix,
     rebuild_test_index,
+    register_known_devices,
 )
 from ci_dashboard.imageconfig import ImagesConfig, classify_ignored
 from ci_dashboard.models import RunMeta, TestResult
@@ -153,9 +154,46 @@ def ingest(
     )
 
     ingest_run(data_dir, run, retention_days=retention_days)
+    if images_yaml is not None:
+        # Register the full device roster (including devices that have never
+        # submitted a run yet) so they still show up in the dashboard.
+        register_known_devices(
+            data_dir,
+            [
+                {"cid": d.cid, "alias": d.alias, "platform": d.platform, "series": d.series}
+                for d in images_config.devices()
+            ],
+        )
     rebuild_test_index(data_dir)
     rebuild_compare_matrix(data_dir)
     click.echo(f"Ingested run '{rid}' for device={device_cid} image={image}.", err=True)
+
+
+@main.command("sync-devices")
+@click.option(
+    "--images-yaml",
+    required=True,
+    type=click.Path(exists=True, dir_okay=False, path_type=Path),
+    help="Path to images.yaml. Registers every device it declares.",
+)
+@click.option(
+    "--data-dir",
+    default="docs/data",
+    type=click.Path(file_okay=False, path_type=Path),
+    help="Directory (normally the checked-out 'data' branch) to write JSON into.",
+)
+def sync_devices(images_yaml: Path, data_dir: Path) -> None:
+    """Register every device declared in IMAGES_YAML into manifest.json,
+    even ones that have never submitted a run yet. Useful to run once (or
+    on a schedule) so the dashboard's Devices section always lists the
+    full lab fleet, independent of ingest activity."""
+    images_config = ImagesConfig.from_file(images_yaml)
+    devices = images_config.devices()
+    register_known_devices(
+        data_dir,
+        [{"cid": d.cid, "alias": d.alias, "platform": d.platform, "series": d.series} for d in devices],
+    )
+    click.echo(f"Registered {len(devices)} device(s) from {images_yaml}.", err=True)
 
 
 if __name__ == "__main__":
