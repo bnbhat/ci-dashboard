@@ -64,8 +64,10 @@ body,
 .stat-card.is-pass .stat-value { color: #0E8420; }
 .stat-card.is-fail .stat-value { color: #C7162B; }
 .stat-card.is-skip .stat-value { color: #757575; }
+.stat-card.is-ignored .stat-value { color: #B8860B; }
 .is-dark .stat-card.is-pass .stat-value { color: #5DC875; }
 .is-dark .stat-card.is-fail .stat-value { color: #FF6B6B; }
+.is-dark .stat-card.is-ignored .stat-value { color: #FFBA3B; }
 
 .filter-bar {
   background: var(--vf-color-background-alt);
@@ -96,9 +98,11 @@ body,
 .status-chip.is-pass { background: #E8F5E9; border-color: #A5D6A7; color: #1B5E20; }
 .status-chip.is-fail { background: #FDE8E8; border-color: #F3AFAF; color: #8A1F11; }
 .status-chip.is-skip { background: #F0F0F0; border-color: #D9D9D9; color: #555; }
+.status-chip.is-ignored { background: #FFF3E0; border-color: #FFCC80; color: #8B5A00; }
 .is-dark .status-chip.is-pass { background: #0D2B14; border-color: #1A4A26; color: #5DC875; }
 .is-dark .status-chip.is-fail { background: #3A1208; border-color: #5A2510; color: #FF8A6B; }
 .is-dark .status-chip.is-skip { background: #252525; border-color: #3A3A3A; color: #AEAEAE; }
+.is-dark .status-chip.is-ignored { background: #2B1F00; border-color: #4A3800; color: #FFBA3B; }
 
 .device-card {
   background: var(--vf-color-background-alt);

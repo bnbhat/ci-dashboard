@@ -72,7 +72,14 @@ def ingest_run(
 def _update_manifest(data_dir: Path, run: RunMeta, cutoff: str) -> None:
     path = data_dir / "manifest.json"
     manifest = _load_json(
-        path, {"version": SCHEMA_VERSION, "generated_at": "", "runs": [], "devices": []}
+        path,
+        {
+            "version": SCHEMA_VERSION,
+            "generated_at": "",
+            "runs": [],
+            "devices": [],
+            "device_meta": {},
+        },
     )
     manifest["runs"] = [r for r in manifest["runs"] if r["run_id"] != run.run_id]
     manifest["runs"].append(
@@ -91,6 +98,13 @@ def _update_manifest(data_dir: Path, run: RunMeta, cutoff: str) -> None:
     manifest["runs"].sort(key=lambda r: r["timestamp"], reverse=True)
     devices = sorted({r["device_cid"] for r in manifest["runs"]} | {run.device_cid})
     manifest["devices"] = devices
+    device_meta = manifest.setdefault("device_meta", {})
+    if run.device_alias or run.platform or run.series:
+        device_meta[run.device_cid] = {
+            "alias": run.device_alias or run.device_cid,
+            "platform": run.platform,
+            "series": run.series,
+        }
     manifest["generated_at"] = datetime.now(UTC).isoformat()
     manifest["version"] = SCHEMA_VERSION
     _save_json(path, manifest)
@@ -123,7 +137,14 @@ def _update_device(data_dir: Path, run: RunMeta, cutoff: str) -> None:
     path = data_dir / "devices" / f"{run.device_cid}.json"
     device = _load_json(
         path,
-        {"version": SCHEMA_VERSION, "device_cid": run.device_cid, "runs": []},
+        {
+            "version": SCHEMA_VERSION,
+            "device_cid": run.device_cid,
+            "alias": run.device_cid,
+            "platform": None,
+            "series": None,
+            "runs": [],
+        },
     )
     device["runs"] = [r for r in device["runs"] if r["run_id"] != run.run_id]
     device["runs"].append(
@@ -139,6 +160,12 @@ def _update_device(data_dir: Path, run: RunMeta, cutoff: str) -> None:
     device["runs"].sort(key=lambda r: r["timestamp"], reverse=True)
     device["version"] = SCHEMA_VERSION
     device["device_cid"] = run.device_cid
+    if run.device_alias:
+        device["alias"] = run.device_alias
+    if run.platform:
+        device["platform"] = run.platform
+    if run.series:
+        device["series"] = run.series
     _save_json(path, device)
 
 
@@ -171,6 +198,7 @@ def _update_test_history(data_dir: Path, run: RunMeta, result, cutoff: str) -> N
             "status": result.status,
             "outcome": result.outcome,
             "duration": result.duration,
+            "ignore_reason": result.ignore_reason,
         }
     )
     test["history"] = [h for h in test["history"] if h["timestamp"] >= cutoff]
@@ -185,8 +213,9 @@ def rebuild_compare_matrix(data_dir: str | Path) -> None:
     fetching every per-test history file individually."""
     data_dir = Path(data_dir)
     tests_dir = data_dir / "tests"
-    manifest = _load_json(data_dir / "manifest.json", {"devices": []})
+    manifest = _load_json(data_dir / "manifest.json", {"devices": [], "device_meta": {}})
     devices = manifest.get("devices", [])
+    device_meta = manifest.get("device_meta", {})
 
     matrix = []
     if tests_dir.exists():
@@ -212,6 +241,7 @@ def rebuild_compare_matrix(data_dir: str | Path) -> None:
                             "run_id": e["run_id"],
                             "timestamp": e["timestamp"],
                             "image_type": e["image_type"],
+                            "ignore_reason": e.get("ignore_reason"),
                         }
                         for dev, e in latest_by_device.items()
                     },
@@ -224,6 +254,7 @@ def rebuild_compare_matrix(data_dir: str | Path) -> None:
             "version": SCHEMA_VERSION,
             "generated_at": datetime.now(UTC).isoformat(),
             "devices": devices,
+            "device_meta": device_meta,
             "tests": matrix,
         },
     )

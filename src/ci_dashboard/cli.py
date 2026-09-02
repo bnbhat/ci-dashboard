@@ -21,7 +21,8 @@ from ci_dashboard.aggregator import (
     rebuild_compare_matrix,
     rebuild_test_index,
 )
-from ci_dashboard.models import RunMeta
+from ci_dashboard.imageconfig import ImagesConfig, classify_ignored
+from ci_dashboard.models import RunMeta, TestResult
 from ci_dashboard.parser import infer_image_type, parse_results, parse_top_level_meta
 
 
@@ -55,6 +56,16 @@ def main() -> None:
     type=int,
     help="Drop history entries older than this many days.",
 )
+@click.option(
+    "--images-yaml",
+    default=None,
+    type=click.Path(exists=True, dir_okay=False, path_type=Path),
+    help=(
+        "Path to images.yaml. When given, its ignored_tests are used to "
+        "reclassify expected failures as 'failed-ignored', and its "
+        "queues[] provide device alias/platform/series metadata."
+    ),
+)
 def ingest(
     submission_json: Path,
     device_cid: str,
@@ -63,6 +74,7 @@ def ingest(
     timestamp: str | None,
     data_dir: Path,
     retention_days: int,
+    images_yaml: Path | None,
 ) -> None:
     """Parse SUBMISSION_JSON and merge it into the dashboard's data store.
 
@@ -86,6 +98,47 @@ def ingest(
             err=True,
         )
 
+    device_alias = platform = series = None
+    if images_yaml is not None:
+        images_config = ImagesConfig.from_file(images_yaml)
+        device_info = images_config.device_info(device_cid)
+        if device_info is None:
+            click.echo(
+                f"Warning: device '{device_cid}' not found in {images_yaml} — "
+                "no alias/ignore-list will be applied.",
+                err=True,
+            )
+        else:
+            device_alias, platform, series = device_info.alias, device_info.platform, device_info.series
+
+        rules = images_config.ignore_rules_for(device_cid, image)
+        ignored_count = 0
+        reclassified: list[TestResult] = []
+        for r in results:
+            new_status, reason = classify_ignored(r.full_id, r.status, rules)
+            if new_status != r.status:
+                ignored_count += 1
+                reclassified.append(
+                    TestResult(
+                        full_id=r.full_id,
+                        name=r.name,
+                        category=r.category,
+                        status=new_status,
+                        outcome=r.outcome,
+                        duration=r.duration,
+                        ignore_reason=reason,
+                    )
+                )
+            else:
+                reclassified.append(r)
+        results = reclassified
+        if ignored_count:
+            click.echo(
+                f"Reclassified {ignored_count} known-failing test(s) as 'failed-ignored' "
+                f"per {images_yaml}.",
+                err=True,
+            )
+
     run = RunMeta(
         run_id=rid,
         device_cid=device_cid,
@@ -94,6 +147,9 @@ def ingest(
         distribution=top_meta.get("distribution") or "unknown",
         timestamp=ts,
         results=results,
+        device_alias=device_alias,
+        platform=platform,
+        series=series,
     )
 
     ingest_run(data_dir, run, retention_days=retention_days)

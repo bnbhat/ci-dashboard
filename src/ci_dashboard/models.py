@@ -17,9 +17,10 @@ class TestResult:
     full_id: str
     name: str
     category: str
-    status: str  # "pass" | "fail" | "skip"
+    status: str  # "pass" | "fail" | "skip" | "failed-ignored"
     outcome: str  # e.g. "pass", "fail", "skipped-dependency", "skipped-resource"
     duration: float | None = None
+    ignore_reason: str | None = None  # set when status == "failed-ignored"
 
 
 @dataclass(frozen=True, slots=True)
@@ -35,10 +36,13 @@ class RunMeta:
     distribution: str
     timestamp: str  # ISO-8601 UTC, assigned at ingest time
     results: list[TestResult] = field(default_factory=list)
+    device_alias: str | None = None
+    platform: str | None = None
+    series: str | None = None
 
     @property
     def summary(self) -> dict[str, int]:
-        counts = {"pass": 0, "fail": 0, "skip": 0}
+        counts = {"pass": 0, "fail": 0, "skip": 0, "failed-ignored": 0}
         for r in self.results:
             counts[r.status] = counts.get(r.status, 0) + 1
         return counts

@@ -85,6 +85,7 @@
           <div class="filter-checkboxes">
             <label><input type="checkbox" value="pass" x-model="statusFilter"> Pass</label>
             <label><input type="checkbox" value="fail" x-model="statusFilter"> Fail</label>
+            <label><input type="checkbox" value="failed-ignored" x-model="statusFilter"> Ignored</label>
             <label><input type="checkbox" value="skip" x-model="statusFilter"> Skip</label>
           </div>
         </div>
@@ -101,7 +102,7 @@
                 <td><a class="test-name-link" @click="selectTest(t.slug)" x-text="t.name"></a>
                     <div class="summary-meta" x-text="t.full_id"></div></td>
                 <td x-text="t.category"></td>
-                <td><span class="status-chip" :class="statusChipClass(t.latest_status)" x-text="t.latest_status || 'n/a'"></span></td>
+                <td><span class="status-chip" :class="statusChipClass(t.latest_status)" x-text="statusLabel(t.latest_status) || 'n/a'"></span></td>
                 <td x-text="t.run_count"></td>
               </tr>
             </template>
@@ -144,7 +145,10 @@
                     <td x-text="formatTimestamp(h.timestamp)"></td>
                     <td x-text="h.device_cid"></td>
                     <td x-text="h.image_type"></td>
-                    <td><span class="status-chip" :class="statusChipClass(h.status)" x-text="h.status"></span></td>
+                    <td>
+                      <span class="status-chip" :class="statusChipClass(h.status)" x-text="statusLabel(h.status)"></span>
+                      <div class="summary-meta" x-show="h.ignore_reason" x-text="h.ignore_reason" style="max-width:16rem;"></div>
+                    </td>
                     <td x-text="h.outcome"></td>
                     <td x-text="formatDuration(h.duration)"></td>
                     <td><a class="run-link" :href="'runs.html?run=' + encodeURIComponent(h.run_id)">View run →</a></td>
@@ -177,7 +181,7 @@ function testsPage() {
     selectedTest: null,
     testDetail: null,
     deviceFilter: '',
-    formatTimestamp, formatDuration, statusChipClass,
+    formatTimestamp, formatDuration, statusChipClass, statusLabel,
 
     async load() {
       try {

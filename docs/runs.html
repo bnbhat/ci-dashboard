@@ -65,7 +65,7 @@
         <h2 x-text="'Run: ' + run.run_id"></h2>
       </div>
       <p class="summary-meta">
-        <span x-text="run.device_cid"></span> · <span x-text="run.image_type"></span> ·
+        <span x-text="run.device_alias || run.device_cid"></span> · <span x-text="run.image_type"></span> ·
         <span x-text="run.distribution"></span> · <span x-text="formatTimestamp(run.timestamp)"></span>
       </p>
       <p class="summary-meta" x-text="'Test plan: ' + run.testplan_id"></p>
@@ -74,6 +74,7 @@
         <div class="stat-card"><div class="stat-value" x-text="run.results.length"></div><div class="stat-label">Total tests</div></div>
         <div class="stat-card is-pass"><div class="stat-value" x-text="run.summary.pass"></div><div class="stat-label">Pass</div></div>
         <div class="stat-card is-fail"><div class="stat-value" x-text="run.summary.fail"></div><div class="stat-label">Fail</div></div>
+        <div class="stat-card is-ignored"><div class="stat-value" x-text="run.summary['failed-ignored']"></div><div class="stat-label">Ignored</div></div>
         <div class="stat-card is-skip"><div class="stat-value" x-text="run.summary.skip"></div><div class="stat-label">Skip</div></div>
       </div>
 
@@ -94,6 +95,7 @@
           <div class="filter-checkboxes">
             <label><input type="checkbox" value="pass" x-model="statusFilter"> Pass</label>
             <label><input type="checkbox" value="fail" x-model="statusFilter"> Fail</label>
+            <label><input type="checkbox" value="failed-ignored" x-model="statusFilter"> Ignored</label>
             <label><input type="checkbox" value="skip" x-model="statusFilter"> Skip</label>
           </div>
         </div>
@@ -109,7 +111,10 @@
               <tr>
                 <td x-text="r.name"></td>
                 <td x-text="r.category"></td>
-                <td><span class="status-chip" :class="statusChipClass(r.status)" x-text="r.status"></span></td>
+                <td>
+                  <span class="status-chip" :class="statusChipClass(r.status)" x-text="statusLabel(r.status)"></span>
+                  <div class="summary-meta" x-show="r.ignore_reason" x-text="r.ignore_reason" style="max-width:16rem;"></div>
+                </td>
                 <td x-text="r.outcome"></td>
                 <td x-text="formatDuration(r.duration)"></td>
                 <td><a class="test-name-link" :href="'tests.html?test=' + encodeURIComponent(r.slug)">History →</a></td>
@@ -136,7 +141,7 @@ function runPage() {
     search: '',
     categoryFilter: '',
     statusFilter: [],
-    formatTimestamp, formatDuration, statusChipClass,
+    formatTimestamp, formatDuration, statusChipClass, statusLabel,
 
     async load() {
       const params = new URLSearchParams(window.location.search);

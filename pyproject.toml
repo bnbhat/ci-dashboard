@@ -12,6 +12,7 @@ license = { text = "GPL-3.0-or-later" }
 dependencies = [
     "ijson>=3.2",
     "click>=8.1",
+    "PyYAML>=6.0",
 ]
 
 [project.optional-dependencies]

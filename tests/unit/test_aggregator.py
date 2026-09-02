@@ -47,7 +47,7 @@ def test_ingest_run_creates_manifest_devices_tests_runs(tmp_path: Path):
 
     manifest = json.loads((tmp_path / "manifest.json").read_text())
     assert manifest["runs"][0]["run_id"] == "run-1"
-    assert manifest["runs"][0]["summary"] == {"pass": 1, "fail": 1, "skip": 0}
+    assert manifest["runs"][0]["summary"] == {"pass": 1, "fail": 1, "skip": 0, "failed-ignored": 0}
     assert manifest["devices"] == ["cid-aaa111"]
 
     device = json.loads((tmp_path / "devices" / "cid-aaa111.json").read_text())
