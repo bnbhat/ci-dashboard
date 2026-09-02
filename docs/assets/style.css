@@ -112,6 +112,11 @@ body,
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.device-card:hover {
+  border-color: #E95420;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
 }
 .device-card h3 { margin: 0; font-size: 1rem; font-family: 'Ubuntu Mono', monospace; }
 .device-card .device-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.875rem; }

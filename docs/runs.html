@@ -117,7 +117,10 @@
           <tbody>
             <template x-for="r in filteredResults" :key="r.full_id">
               <tr>
-                <td x-text="r.name"></td>
+                <td>
+                  <div x-text="r.full_id"></div>
+                  <div class="summary-meta" x-text="r.name"></div>
+                </td>
                 <td x-text="r.category"></td>
                 <td>
                   <span class="status-chip" :class="statusChipClass(r.status)" x-text="statusLabel(r.status)"></span>

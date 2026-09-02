@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" class="is-paper">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Device — CI Dashboard</title>
+  <meta name="ci-dashboard-data-base" content="data" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla_framework_version_4.51.0.min.css" />
+  <script>
+    (function () {
+      var saved = localStorage.getItem('ci-dashboard-theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = saved || (prefersDark ? 'dark' : 'paper');
+      var html = document.documentElement;
+      html.classList.remove('is-dark', 'is-paper');
+      html.classList.add(theme === 'dark' ? 'is-dark' : 'is-paper');
+    }());
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+  <script src="assets/app.js"></script>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<header class="p-navigation is-dark">
+  <div class="p-navigation__row">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__tagged-logo">
+        <a class="p-navigation__link" href="index.html">
+          <div class="p-navigation__logo-tag"><img src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="Ubuntu" width="32" height="32" /></div>
+          <span class="p-navigation__logo-title">CI Dashboard</span>
+        </a>
+      </div>
+      <a href="#main-nav" class="p-navigation__toggle--open" title="Open menu">Menu</a>
+      <a href="#main-nav-closed" class="p-navigation__toggle--close" title="Close menu">Close menu</a>
+    </div>
+    <nav id="main-nav" class="p-navigation__nav" aria-label="Main navigation">
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item"><a class="p-navigation__link" href="index.html">Overview</a></li>
+        <li class="p-navigation__item"><a class="p-navigation__link" href="tests.html">Tests</a></li>
+        <li class="p-navigation__item"><a class="p-navigation__link" href="compare.html">Compare Devices</a></li>
+        <li class="p-navigation__item"><a class="p-navigation__link" href="packages.html">Packages</a></li>
+      </ul>
+      <ul class="p-navigation__items p-navigation__items--right">
+        <li class="p-navigation__item u-vertically-center">
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="l-content" x-data="devicePage()" x-init="load()" style="padding-top:2rem;">
+
+  <template x-if="loading"><div class="u-loading"><div class="u-spinner"></div><p>Loading device…</p></div></template>
+  <template x-if="error"><div class="p-notification--negative"><div class="p-notification__content"><p class="p-notification__message" x-text="error"></p></div></div></template>
+
+  <template x-if="!loading && !error">
+    <div>
+      <p><a href="index.html">← Back to overview</a></p>
+      <div class="summary-strip">
+        <h2 x-text="deviceLabel"></h2>
+      </div>
+      <p class="summary-meta" x-text="deviceCid + (series ? ' · ' + series : '') + (platform ? ' · ' + platform : '')"></p>
+
+      <div class="summary-strip" style="margin: 1.5rem 0;">
+        <div class="stat-card"><div class="stat-value" x-text="runs.length"></div><div class="stat-label">Submissions</div></div>
+        <div class="stat-card is-pass"><div class="stat-value" x-text="totals.pass"></div><div class="stat-label">Passes</div></div>
+        <div class="stat-card is-fail"><div class="stat-value" x-text="totals.fail"></div><div class="stat-label">Failures</div></div>
+        <div class="stat-card is-ignored"><div class="stat-value" x-text="totals['failed-ignored']"></div><div class="stat-label">Ignored</div></div>
+        <div class="stat-card is-skip"><div class="stat-value" x-text="totals.skip"></div><div class="stat-label">Skipped</div></div>
+      </div>
+
+      <div class="filter-bar">
+        <div class="filter-field">
+          <label for="image-filter">Image type</label>
+          <select id="image-filter" x-model="imageFilter">
+            <option value="">All images</option>
+            <template x-for="i in imageTypes" :key="i"><option :value="i" x-text="i"></option></template>
+          </select>
+        </div>
+      </div>
+
+      <template x-if="runs.length === 0">
+        <div class="u-empty">No test runs submitted yet for this device.</div>
+      </template>
+
+      <template x-if="filteredRuns.length > 0">
+        <div style="overflow-x:auto;">
+          <table class="p-table">
+            <thead>
+              <tr>
+                <th>Timestamp</th><th>Image</th><th>Submission ID</th><th>Distribution</th>
+                <th>Pass</th><th>Fail</th><th>Ignored</th><th>Skip</th><th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <template x-for="run in filteredRuns" :key="run.run_id">
+                <tr>
+                  <td x-text="formatTimestamp(run.timestamp)"></td>
+                  <td x-text="run.image_type"></td>
+                  <td x-text="run.submission_id || '—'"></td>
+                  <td x-text="run.distribution"></td>
+                  <td x-text="run.summary.pass"></td>
+                  <td x-text="run.summary.fail"></td>
+                  <td x-text="run.summary['failed-ignored']"></td>
+                  <td x-text="run.summary.skip"></td>
+                  <td><a class="run-link" :href="'runs.html?run=' + encodeURIComponent(run.run_id)">View →</a></td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </template>
+    </div>
+  </template>
+</main>
+
+<footer class="ubuntu-footer"><div class="ubuntu-footer-inner">CI Dashboard — generated from Checkbox submission.json reports. Test output is never stored, only pass/fail/skip status.</div></footer>
+
+<script>
+function devicePage() {
+  return {
+    loading: true,
+    error: null,
+    deviceCid: '',
+    alias: '',
+    series: '',
+    platform: '',
+    runs: [],
+    imageFilter: '',
+    totals: { pass: 0, fail: 0, skip: 0, 'failed-ignored': 0 },
+    formatTimestamp,
+
+    get deviceLabel() {
+      return this.alias || this.deviceCid;
+    },
+
+    get imageTypes() {
+      return [...new Set(this.runs.map((r) => r.image_type))].sort();
+    },
+
+    get filteredRuns() {
+      return this.runs
+        .filter((r) => !this.imageFilter || r.image_type === this.imageFilter)
+        .slice()
+        .sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1));
+    },
+
+    async load() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        this.deviceCid = params.get('device') || '';
+        const manifest = await fetchJSON('manifest.json');
+        const meta = (manifest.device_meta || {})[this.deviceCid] || {};
+        this.alias = meta.alias || '';
+        this.series = meta.series || '';
+        this.platform = meta.platform || '';
+        this.runs = manifest.runs.filter((r) => r.device_cid === this.deviceCid);
+
+        const totals = { pass: 0, fail: 0, skip: 0, 'failed-ignored': 0 };
+        for (const r of this.runs) {
+          totals.pass += r.summary.pass || 0;
+          totals.fail += r.summary.fail || 0;
+          totals.skip += r.summary.skip || 0;
+          totals['failed-ignored'] += r.summary['failed-ignored'] || 0;
+        }
+        this.totals = totals;
+
+        if (!this.deviceCid) {
+          this.error = 'No device specified.';
+        }
+      } catch (e) {
+        this.error = e.message;
+      } finally {
+        this.loading = false;
+      }
+    },
+  };
+}
+</script>
+
+</body>
+</html>
