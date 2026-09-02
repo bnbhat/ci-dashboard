@@ -102,7 +102,7 @@
 
       <div class="p-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:1rem;margin-bottom:2rem;">
         <template x-for="device in devices" :key="device.device_cid">
-          <div class="device-card">
+          <div class="device-card" style="cursor:pointer;" @click="window.location.href = 'device.html?device=' + encodeURIComponent(device.device_cid)">
             <h3 x-text="device.alias || device.device_cid"></h3>
             <p class="summary-meta" style="margin:0;" x-text="device.device_cid + (device.series ? ' · ' + device.series : '')"></p>
             <template x-for="run in device.latestByImage" :key="run.image_type">
@@ -139,7 +139,7 @@
             <template x-for="run in manifest.runs.slice(0, 30)" :key="run.run_id">
               <tr>
                 <td x-text="formatTimestamp(run.timestamp)"></td>
-                <td x-text="run.device_cid"></td>
+                <td><a class="run-link" :href="'device.html?device=' + encodeURIComponent(run.device_cid)" x-text="run.device_cid"></a></td>
                 <td x-text="run.image_type"></td>
                 <td x-text="run.distribution"></td>
                 <td x-text="run.summary.pass"></td>
