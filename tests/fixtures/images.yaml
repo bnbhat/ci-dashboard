@@ -10,7 +10,7 @@ platforms:
       extra_files:
         - dtb.bin
         - rawprogram0.xml
-      config_branch: bnbhat/purwa
+      config_branch: pe-carmel
       test_plan: com.canonical.qa.carmel::carmel-{type}-{version}-automated
       ignored_tests:
         - reason: 'CI uses a devel kernel; it is expected not to be in main archive'
@@ -34,56 +34,56 @@ platforms:
         auth_env: CARMEL_UPDATES_TOKEN
         in_build_types: [devel, release]
     series:
-      #noble:
-      #  hooks: dragonwing/classic/noble/
-      #  testing:
-      #    ignored_tests:
-      #      - reason: https://warthogs.atlassian.net/browse/PECA-1290
-      #        patterns: [suspend/1_suspend-time-check_drm_platform_ae01000_display_controller_auto]
-      #      - reason: https://warthogs.atlassian.net/browse/PECA-1289
-      #        patterns: [after-suspend-ce-oem-thermal/.*]
-      #    queues:
-      #      - name: 202403-33871
-      #        alias: RB3 Gen2 (QCS6490) Vision Kit
-      #        extra_files:
-      #          - https://tel-image-cache.canonical.com/oem-share/carmel/boot-asset/rb3gen2/non-hlos/QLI.1.8-Ver.1.1-ubuntu-QCS6490-nhlos-bins.tar.gz
-      #      - name: 202603-38455
-      #        alias: RB8 QCS9075M CORE KIT - RB8
-      #        extra_files:
-      #          - https://tel-image-cache.canonical.com/oem-share/carmel/boot-asset/iq9/non-hlos/QLI.1.8-Ver.1.1-ubuntu-QCS9100-nhlos-bins.tar.gz
-      #        ignored_tests:
-      #          - reason: https://bugs.launchpad.net/carmel/+bug/2148146
-      #            patterns: [usb/storage-detect]
-      #      - name: 202601-38369
-      #        alias: Advantech AMR - AMR
-      #        extra_files:
-      #          - https://tel-image-cache.canonical.com/oem-share/carmel/boot-asset/amr/non-hlos/QLI.1.8-Ver.1.1-ubuntu-QCS9100-nhlos-bins.tar.gz
-      #        ignored_tests:
-      #          - reason: https://warthogs.atlassian.net/browse/PECA-1719
-      #            patterns: [.*bluetooth.*, wireless/detect]
-      #          - reason: https://bugs.launchpad.net/carmel/+bug/2158695
-      #            patterns: [socketcan/.*]
-      #      - name: 202512-38153
-      #        alias: RB4 QCS8275 CORE KIT (EVK)
-      #        extra_files:
-      #          - https://tel-image-cache.canonical.com/oem-share/carmel/boot-asset/iq8/non-hlos/QLI.1.8-Ver.1.1-ubuntu-QCS8300-nhlos-bins.tar.gz
-      #      - name: 202605-38802
-      #        alias: Arduino SA - VENTUNO Q - Monza 2
-      #        extra_files:
-      #          - https://tel-image-cache.canonical.com/oem-share/carmel/boot-asset/ventunoq/non-hlos/QLI.1.8-Ver.1.1-ubuntu-QCS8300-nhlos-bins.tar.gz
-      #          - rawprogram0_emmc.xml
-      #        ignored_tests:
-      #          - reason: https://warthogs.atlassian.net/browse/PECA-1695
-      #            patterns: [usb/storage-detect]
-      #          - reason: https://bugs.launchpad.net/carmel/+bug/2148539
-      #            patterns: [audio/alsa_record_playback_automated]
-      #  configurations:
-      #    server:
-      #    desktop:
-      #      testing:
-      #        ignored_tests:
-      #          - reason: https://bugs.launchpad.net/carmel/+bug/2114199
-      #            patterns: [carmel-qim-ai-ml/image-.*, carmel-video/transform-.*, carmel-video/overlay-.*, carmel-video/composition-.*, carmel-video/split-.*]
+      noble:
+        hooks: dragonwing/classic/noble/
+        testing:
+          ignored_tests:
+            - reason: https://warthogs.atlassian.net/browse/PECA-1290
+              patterns: [suspend/1_suspend-time-check_drm_platform_ae01000_display_controller_auto]
+            - reason: https://warthogs.atlassian.net/browse/PECA-1289
+              patterns: [after-suspend-ce-oem-thermal/.*]
+          queues:
+            - name: 202403-33871
+              alias: RB3 Gen2 Vision Kit
+              extra_files:
+                - https://tel-image-cache.canonical.com/oem-share/carmel/boot-asset/rb3gen2/non-hlos/QLI.1.8-Ver.1.1-ubuntu-QCS6490-nhlos-bins.tar.gz
+            - name: 202603-38455
+              alias: IQ-9075 Evaluation Kit
+              extra_files:
+                - https://tel-image-cache.canonical.com/oem-share/carmel/boot-asset/iq9/non-hlos/QLI.1.8-Ver.1.1-ubuntu-QCS9100-nhlos-bins.tar.gz
+              ignored_tests:
+                - reason: https://bugs.launchpad.net/carmel/+bug/2148146
+                  patterns: [usb/storage-detect]
+            - name: 202601-38369
+              alias: IQ-9 AMR Evaluation Kit
+              extra_files:
+                - https://tel-image-cache.canonical.com/oem-share/carmel/boot-asset/amr/non-hlos/QLI.1.8-Ver.1.1-ubuntu-QCS9100-nhlos-bins.tar.gz
+              ignored_tests:
+                - reason: https://warthogs.atlassian.net/browse/PECA-1719
+                  patterns: [.*bluetooth.*, wireless/detect]
+                - reason: https://bugs.launchpad.net/carmel/+bug/2158695
+                  patterns: [socketcan/.*]
+            - name: 202512-38153
+              alias: IQ-8275 Evaluation Kit
+              extra_files:
+                - https://tel-image-cache.canonical.com/oem-share/carmel/boot-asset/iq8/non-hlos/QLI.1.8-Ver.1.1-ubuntu-QCS8300-nhlos-bins.tar.gz
+            - name: 202605-38802
+              alias: Arduino VentUno Q
+              extra_files:
+                - https://tel-image-cache.canonical.com/oem-share/carmel/boot-asset/ventunoq/non-hlos/QLI.1.8-Ver.1.1-ubuntu-QCS8300-nhlos-bins.tar.gz
+                - rawprogram0_emmc.xml
+              ignored_tests:
+                - reason: https://warthogs.atlassian.net/browse/PECA-1695
+                  patterns: [usb/storage-detect]
+                - reason: https://bugs.launchpad.net/carmel/+bug/2148539
+                  patterns: [audio/alsa_record_playback_automated]
+        configurations:
+          server:
+          desktop:
+            testing:
+              ignored_tests:
+                - reason: https://bugs.launchpad.net/carmel/+bug/2114199
+                  patterns: [carmel-qim-ai-ml/image-.*, carmel-video/transform-.*, carmel-video/overlay-.*, carmel-video/composition-.*, carmel-video/split-.*]
       resolute:
         hooks: dragonwing/classic/resolute/
         testing:
@@ -103,13 +103,7 @@ platforms:
               patterns: [camera/.*]
           queues:
             - name: 202509-37951
-              alias: HAMOA-12C SIPA-64GB EVK IQX7181
-              extra_files:
-                - https://tel-image-cache.canonical.com/oem-share/carmel/boot-asset/iqx7/cdt/IQ-X.1.4-EVK-CDT.tar.gz
-                - https://tel-image-cache.canonical.com/oem-share/carmel/boot-asset/iqx7/ufs-provisioning/provision.zip
-                - https://tel-image-cache.canonical.com/oem-share/carmel/boot-asset/iqx7/non-hlos/IQ-X.1.8-Ver.1.2-ubuntu-X1E80100-nhlos-bins.tar.gz
-            - name: 202605-38792
-              alias: PURWA-8C SIPA-64GB EVK IQX5121
+              alias: IQ-X7181 Evaluation Kit
               extra_files:
                 - https://tel-image-cache.canonical.com/oem-share/carmel/boot-asset/iqx7/cdt/IQ-X.1.4-EVK-CDT.tar.gz
                 - https://tel-image-cache.canonical.com/oem-share/carmel/boot-asset/iqx7/ufs-provisioning/provision.zip
