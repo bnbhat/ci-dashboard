@@ -110,6 +110,37 @@ def _update_manifest(data_dir: Path, run: RunMeta, cutoff: str) -> None:
     _save_json(path, manifest)
 
 
+def register_known_devices(data_dir: str | Path, devices: list[dict]) -> None:
+    """Seed manifest.json's device roster/device_meta from images.yaml's full
+    device list, even for devices that have never submitted a run. Existing
+    entries (and any runs) are left untouched; this only adds devices that
+    aren't already present."""
+    data_dir = Path(data_dir)
+    path = data_dir / "manifest.json"
+    manifest = _load_json(
+        path,
+        {
+            "version": SCHEMA_VERSION,
+            "generated_at": "",
+            "runs": [],
+            "devices": [],
+            "device_meta": {},
+        },
+    )
+    device_meta = manifest.setdefault("device_meta", {})
+    all_cids = set(manifest.get("devices", []))
+    for d in devices:
+        all_cids.add(d["cid"])
+        device_meta.setdefault(
+            d["cid"],
+            {"alias": d.get("alias") or d["cid"], "platform": d.get("platform"), "series": d.get("series")},
+        )
+    manifest["devices"] = sorted(all_cids)
+    manifest["generated_at"] = datetime.now(UTC).isoformat()
+    manifest["version"] = SCHEMA_VERSION
+    _save_json(path, manifest)
+
+
 def _update_run_detail(data_dir: Path, run: RunMeta) -> None:
     path = data_dir / "runs" / f"{run.run_id}.json"
     results = []

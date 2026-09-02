@@ -7,12 +7,20 @@ from ci_dashboard.aggregator import (
     ingest_run,
     rebuild_compare_matrix,
     rebuild_test_index,
+    register_known_devices,
     slugify_test_id,
 )
 from ci_dashboard.models import RunMeta, TestResult
 
 
-def _make_run(run_id: str, device: str, image: str, timestamp: str, statuses: list[str]) -> RunMeta:
+def _make_run(
+    run_id: str,
+    device: str,
+    image: str,
+    timestamp: str,
+    statuses: list[str],
+    device_alias: str | None = None,
+) -> RunMeta:
     results = [
         TestResult(
             full_id=f"com.canonical.certification::test/{i}",
@@ -32,6 +40,7 @@ def _make_run(run_id: str, device: str, image: str, timestamp: str, statuses: li
         distribution="Ubuntu 24.04.4 LTS",
         timestamp=timestamp,
         results=results,
+        device_alias=device_alias,
     )
 
 
@@ -57,6 +66,26 @@ def test_ingest_run_creates_manifest_devices_tests_runs(tmp_path: Path):
     assert len(run_detail["results"]) == 2
     assert "io_log" not in run_detail["results"][0]
     assert "comments" not in run_detail["results"][0]
+
+
+def test_register_known_devices_adds_devices_without_runs(tmp_path: Path):
+    run = _make_run(
+        "run-1", "cid-aaa111", "desktop", "2026-09-01T00:00:00+00:00", ["pass"], device_alias="Real Alias"
+    )
+    ingest_run(tmp_path, run)
+
+    register_known_devices(
+        tmp_path,
+        [
+            {"cid": "cid-aaa111", "alias": "Should Not Override", "platform": "p", "series": "s"},
+            {"cid": "cid-bbb222", "alias": "No Data Yet", "platform": "p", "series": "s"},
+        ],
+    )
+
+    manifest = json.loads((tmp_path / "manifest.json").read_text())
+    assert manifest["devices"] == ["cid-aaa111", "cid-bbb222"]
+    assert manifest["device_meta"]["cid-aaa111"]["alias"] == "Real Alias"
+    assert manifest["device_meta"]["cid-bbb222"]["alias"] == "No Data Yet"
 
 
 def test_ingest_run_is_idempotent_on_reingest(tmp_path: Path):
