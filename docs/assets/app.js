@@ -33,6 +33,14 @@ function statusLabel(status) {
   return { 'failed-ignored': 'ignored' }[status] || status;
 }
 
+/* Strips the "com.canonical.certification::" style namespace prefix
+ * from a Checkbox full test id, keeping only the part after '::'. */
+function testIdShort(fullId) {
+  if (!fullId) return fullId;
+  const idx = fullId.indexOf('::');
+  return idx === -1 ? fullId : fullId.slice(idx + 2);
+}
+
 function formatDuration(seconds) {
   if (seconds === null || seconds === undefined) return '—';
   if (seconds < 1) return `${Math.round(seconds * 1000)}ms`;
