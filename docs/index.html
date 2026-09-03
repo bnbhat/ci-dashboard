@@ -62,7 +62,6 @@
 <section class="hero-section">
   <div class="hero-inner">
     <h1 class="hero-title">Ubuntu Image <strong>CI Dashboard</strong></h1>
-    <p class="hero-subtitle">Historic Checkbox test results across 8 lab devices running Ubuntu Desktop &amp; Server image tests daily.</p>
   </div>
 </section>
 
@@ -79,7 +78,7 @@
   <template x-if="!loading && !error">
     <div>
       <div class="summary-strip">
-        <h2>Latest results across all devices</h2>
+        <h2>Fleet-wide test summary</h2>
         <p class="summary-meta" x-text="'Data generated ' + formatTimestamp(manifest.generated_at)"></p>
       </div>
 
