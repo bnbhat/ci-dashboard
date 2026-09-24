@@ -90,7 +90,7 @@ def main() -> None:
     "--image",
     "image_type",
     default=None,
-    type=click.Choice(["desktop", "server"], case_sensitive=False),
+    type=click.Choice(["desktop", "server", "core"], case_sensitive=False),
     help="Image type under test. Auto-detected from testplan_id when omitted.",
 )
 @click.option(
@@ -160,7 +160,7 @@ def ingest(
         image = (image_type or infer_image_type(top_meta.get("testplan_id")) or "").lower()
         if not image:
             raise click.UsageError(
-                "--image is required (could not auto-detect desktop/server from testplan_id "
+                "--image is required (could not auto-detect desktop/server/core from testplan_id "
                 f"'{top_meta.get('testplan_id')}')."
             )
         if image_type and infer_image_type(top_meta.get("testplan_id")) not in (None, image):

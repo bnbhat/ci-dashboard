@@ -1,6 +1,6 @@
 # ci-dashboard
 
-A static, database-free CI dashboard for historic Ubuntu Desktop/Server
+A static, database-free CI dashboard for historic Ubuntu Desktop/Server/Core
 image test results (Canonical Checkbox `submission.json` reports), covering
 8 lab devices running daily image tests.
 
@@ -9,7 +9,7 @@ image test results (Canonical Checkbox `submission.json` reports), covering
 1. Each device's test job produces a `submission.json` (Checkbox/
    Certification report).
 2. A job in the same GitHub Actions workflow calls this repo's `ingest`
-   CLI, passing the device CID, image type (`desktop`/`server`), and the
+   CLI, passing the device CID, image type (`desktop`/`server`/`core`), and the
    `submission.json` as an artifact.
 3. `ci-dashboard ingest` streams the (often 100+ MB) JSON, keeping only
    test id/name/category/status/outcome/duration — **test output

@@ -20,7 +20,7 @@ on:
         description: "Image under test"
         required: true
         type: choice
-        options: [desktop, server]
+        options: [desktop, server, core]
   workflow_call:
     inputs:
       device_cid:

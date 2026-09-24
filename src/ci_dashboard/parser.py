@@ -125,6 +125,8 @@ def infer_image_type(testplan_id: str | None) -> str | None:
         return "desktop"
     if "server" in lowered:
         return "server"
+    if "core" in lowered:
+        return "core"
     return None
 
 

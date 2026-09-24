@@ -49,7 +49,7 @@ class RunMeta:
 
     run_id: str
     device_cid: str
-    image_type: str  # "desktop" | "server"
+    image_type: str  # "desktop" | "server" | "core"
     testplan_id: str
     distribution: str
     timestamp: str  # ISO-8601 UTC, assigned at ingest time

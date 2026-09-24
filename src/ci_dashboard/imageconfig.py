@@ -12,7 +12,7 @@ This file is the source of truth for:
     1. ``platforms.<platform>.testing.ignored_tests``            (platform-wide)
     2. ``platforms.<platform>.series.<series>.testing.ignored_tests``  (series-wide)
     3. ``...queues[].ignored_tests``                              (this device only)
-    4. ``...configurations.<desktop|server>.testing.ignored_tests`` (image-type-wide)
+    4. ``...configurations.<desktop|server|core>.testing.ignored_tests`` (image-type-wide)
 """
 
 from __future__ import annotations
