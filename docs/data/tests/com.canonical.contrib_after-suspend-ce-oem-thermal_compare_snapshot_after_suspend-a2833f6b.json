@@ -1,0 +1,218 @@
+{
+  "category": "Uncategorised",
+  "full_id": "com.canonical.contrib::after-suspend-ce-oem-thermal/compare_snapshot_after_suspend",
+  "history": [
+    {
+      "device_cid": "202512-38153",
+      "duration": 1.3745183944702148,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202512-38153-server-20260902T012600-88fcab",
+      "status": "pass",
+      "timestamp": "2026-09-02T01:26:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 49.208399534225464,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 0.9710273742675781,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 1.3495774269104004,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 0.9863224029541016,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "pass",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 152.44541025161743,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 52.91128849983215,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 1.3727564811706543,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202605-38802-desktop-20260829T061600-1057d8",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 1.3681600093841553,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202512-38153-desktop-20260829T061100-ebf249",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:11:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 1.3719689846038818,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202512-38153-server-20260829T011800-ce497f",
+      "status": "pass",
+      "timestamp": "2026-08-29T01:18:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 45.794408559799194,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-dependency",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 31.33603310585022,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-dependency",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:13:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 97.94802737236023,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "skip",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 42.639774322509766,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-dependency",
+      "run_id": "202509-37951-server-20260828T110700-ba39f6",
+      "status": "skip",
+      "timestamp": "2026-08-28T11:07:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 50.16900277137756,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202603-38455-desktop-20260827T052900-288bfe",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:29:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 44.61512017250061,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202605-38802-desktop-20260827T052600-5bd4ae",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:26:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 47.838093996047974,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-dependency",
+      "run_id": "202603-38455-server-20260827T033000-27c606",
+      "status": "skip",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 38.31742763519287,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-dependency",
+      "run_id": "202605-38802-server-20260827T033000-c651e2",
+      "status": "skip",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 55.90171241760254,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202603-38455-desktop-20260826T030400-2de298",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:04:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 53.68918752670288,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202605-38802-desktop-20260826T030200-25d5f3",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:02:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 47.19269132614136,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-dependency",
+      "run_id": "202603-38455-server-20260825T111200-58bc3e",
+      "status": "skip",
+      "timestamp": "2026-08-25T11:12:00+00:00"
+    }
+  ],
+  "name": "Verify thermal zone identities after suspend",
+  "version": "1"
+}

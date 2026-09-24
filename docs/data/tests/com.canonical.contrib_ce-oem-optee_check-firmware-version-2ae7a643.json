@@ -1,0 +1,218 @@
+{
+  "category": "OP-TEE(Open Source - Trusted Execution Environment) test",
+  "full_id": "com.canonical.contrib::ce-oem-optee/check-firmware-version",
+  "history": [
+    {
+      "device_cid": "202512-38153",
+      "duration": 7.919644355773926,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202512-38153-server-20260902T012600-88fcab",
+      "status": "skip",
+      "timestamp": "2026-09-02T01:26:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 56.12197971343994,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 10.92051911354065,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 8.716917753219604,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 9.92388105392456,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "skip",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 156.17744731903076,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 59.85299754142761,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 8.975760698318481,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202605-38802-desktop-20260829T061600-1057d8",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 8.788646221160889,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202512-38153-desktop-20260829T061100-ebf249",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:11:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 7.610641002655029,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202512-38153-server-20260829T011800-ce497f",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:18:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 52.121641635894775,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 35.37030863761902,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:13:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 101.81014347076416,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "skip",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 46.4741313457489,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202509-37951-server-20260828T110700-ba39f6",
+      "status": "skip",
+      "timestamp": "2026-08-28T11:07:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 57.26926922798157,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202603-38455-desktop-20260827T052900-288bfe",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:29:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 52.115278482437134,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202605-38802-desktop-20260827T052600-5bd4ae",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:26:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 54.382110357284546,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202603-38455-server-20260827T033000-27c606",
+      "status": "skip",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 44.93548798561096,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202605-38802-server-20260827T033000-c651e2",
+      "status": "skip",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 63.26955604553223,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202603-38455-desktop-20260826T030400-2de298",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:04:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 61.19833850860596,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202605-38802-desktop-20260826T030200-25d5f3",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:02:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 55.49717736244202,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202603-38455-server-20260825T111200-58bc3e",
+      "status": "skip",
+      "timestamp": "2026-08-25T11:12:00+00:00"
+    }
+  ],
+  "name": "Check the OP-TEE firmware version",
+  "version": "1"
+}

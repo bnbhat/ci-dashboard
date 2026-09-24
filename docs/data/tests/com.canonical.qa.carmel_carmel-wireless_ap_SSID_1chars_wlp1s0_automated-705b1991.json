@@ -1,0 +1,88 @@
+{
+  "category": "Carmel WiFi Test",
+  "full_id": "com.canonical.qa.carmel::carmel-wireless/ap_SSID_1chars_wlp1s0_automated",
+  "history": [
+    {
+      "device_cid": "202512-38153",
+      "duration": 34.78934907913208,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202512-38153-server-20260902T012600-88fcab",
+      "status": "pass",
+      "timestamp": "2026-09-02T01:26:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 22.714625597000122,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 29.834641456604004,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202512-38153-desktop-20260829T061100-ebf249",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:11:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 34.32154607772827,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202512-38153-server-20260829T011800-ce497f",
+      "status": "pass",
+      "timestamp": "2026-08-29T01:18:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 47.48375582695007,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1197",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202603-38455-desktop-20260827T052900-288bfe",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-27T05:29:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 47.0067675113678,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1197",
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202603-38455-server-20260827T033000-27c606",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 47.49620819091797,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1197",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202603-38455-desktop-20260826T030400-2de298",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-26T03:04:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 46.93258833885193,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1197",
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202603-38455-server-20260825T111200-58bc3e",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-25T11:12:00+00:00"
+    }
+  ],
+  "name": "Create open 802.11a Wi-Fi AP on wlp1s0 with 1 chars of SSID",
+  "version": "1"
+}

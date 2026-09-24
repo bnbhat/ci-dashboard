@@ -1,0 +1,28 @@
+{
+  "category": "Thermal",
+  "full_id": "com.canonical.contrib::after-suspend-ce-oem-thermal/temperature_6823a7f79186_gpuss-5-thermal",
+  "history": [
+    {
+      "device_cid": "202509-37951",
+      "duration": 141.05101609230042,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 91.6802270412445,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "skip",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    }
+  ],
+  "name": "Check Thermal temperature of gpuss-5-thermal - 6823a7f79186 after suspend (S3)",
+  "version": "1"
+}

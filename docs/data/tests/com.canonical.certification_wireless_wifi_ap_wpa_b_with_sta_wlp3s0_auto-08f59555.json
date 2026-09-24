@@ -1,0 +1,78 @@
+{
+  "category": "Wi-Fi access point",
+  "full_id": "com.canonical.certification::wireless/wifi_ap_wpa_b_with_sta_wlp3s0_auto",
+  "history": [
+    {
+      "device_cid": "202601-38369",
+      "duration": 1.4984853267669678,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 3.0608391761779785,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 1.5561637878417969,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202605-38802-desktop-20260829T061600-1057d8",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 2.087794542312622,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-resource",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:14:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 32.83505845069885,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202605-38802-desktop-20260827T052600-5bd4ae",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:26:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 32.14774537086487,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-resource",
+      "run_id": "202605-38802-server-20260827T033000-c651e2",
+      "status": "skip",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 1.583089828491211,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202605-38802-desktop-20260826T030200-25d5f3",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:02:00+00:00"
+    }
+  ],
+  "name": "Create a WPA2 802.11b Wi-Fi Access Point on wlp3s0 with active STA",
+  "version": "1"
+}

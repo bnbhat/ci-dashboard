@@ -1,0 +1,28 @@
+{
+  "category": "Ethernet Device tests",
+  "full_id": "com.canonical.certification::after-suspend-ethernet/ping_enP1p5s0f1",
+  "history": [
+    {
+      "device_cid": "202403-33871",
+      "duration": 3.00692081451416,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 3.023977279663086,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "pass",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    }
+  ],
+  "name": "Can ping another machine over Ethernet port enP1p5s0f1 after suspend (S3)",
+  "version": "1"
+}

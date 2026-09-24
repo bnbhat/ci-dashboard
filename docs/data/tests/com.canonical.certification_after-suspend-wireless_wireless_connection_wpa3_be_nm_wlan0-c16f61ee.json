@@ -1,0 +1,28 @@
+{
+  "category": "Wireless networking tests",
+  "full_id": "com.canonical.certification::after-suspend-wireless/wireless_connection_wpa3_be_nm_wlan0",
+  "history": [
+    {
+      "device_cid": "202403-33871",
+      "duration": 7.765415668487549,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 10.515052080154419,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-dependency",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "skip",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    }
+  ],
+  "name": "Connect to WPA3-encrypted 802.11be Wi-Fi network on wlan0 after suspend (S3)",
+  "version": "1"
+}

@@ -1,0 +1,48 @@
+{
+  "category": "Thermal",
+  "full_id": "com.canonical.contrib::ce-oem-thermal/temperature_9e5fb6dba09d_cpu0-3-btm-thermal",
+  "history": [
+    {
+      "device_cid": "202509-37951",
+      "duration": 0.3294088840484619,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 1.646974802017212,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "status": "pass",
+      "timestamp": "2026-08-29T01:13:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 1.6460895538330078,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "pass",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 0.3238530158996582,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202509-37951-server-20260828T110700-ba39f6",
+      "status": "pass",
+      "timestamp": "2026-08-28T11:07:00+00:00"
+    }
+  ],
+  "name": "Check Thermal temperature of cpu0-3-btm-thermal - 9e5fb6dba09d",
+  "version": "1"
+}

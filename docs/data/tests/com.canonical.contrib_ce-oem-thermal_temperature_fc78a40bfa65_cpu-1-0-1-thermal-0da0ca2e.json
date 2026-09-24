@@ -1,0 +1,158 @@
+{
+  "category": "Thermal",
+  "full_id": "com.canonical.contrib::ce-oem-thermal/temperature_fc78a40bfa65_cpu-1-0-1-thermal",
+  "history": [
+    {
+      "device_cid": "202512-38153",
+      "duration": 0.8595809936523438,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202512-38153-server-20260902T012600-88fcab",
+      "status": "pass",
+      "timestamp": "2026-09-02T01:26:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 0.8443694114685059,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 0.8588979244232178,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 1.6443324089050293,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 0.8663477897644043,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202605-38802-desktop-20260829T061600-1057d8",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 0.8547558784484863,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202512-38153-desktop-20260829T061100-ebf249",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:11:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 1.9986908435821533,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202512-38153-server-20260829T011800-ce497f",
+      "status": "pass",
+      "timestamp": "2026-08-29T01:18:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 1.644446849822998,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "status": "pass",
+      "timestamp": "2026-08-29T01:14:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 0.8425476551055908,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202603-38455-desktop-20260827T052900-288bfe",
+      "status": "pass",
+      "timestamp": "2026-08-27T05:29:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 0.8653178215026855,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202605-38802-desktop-20260827T052600-5bd4ae",
+      "status": "pass",
+      "timestamp": "2026-08-27T05:26:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 1.6551320552825928,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202603-38455-server-20260827T033000-27c606",
+      "status": "pass",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 1.9956495761871338,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202605-38802-server-20260827T033000-c651e2",
+      "status": "pass",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 0.8437035083770752,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202603-38455-desktop-20260826T030400-2de298",
+      "status": "pass",
+      "timestamp": "2026-08-26T03:04:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 0.872495174407959,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202605-38802-desktop-20260826T030200-25d5f3",
+      "status": "pass",
+      "timestamp": "2026-08-26T03:02:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 0.8455102443695068,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202603-38455-server-20260825T111200-58bc3e",
+      "status": "pass",
+      "timestamp": "2026-08-25T11:12:00+00:00"
+    }
+  ],
+  "name": "Check Thermal temperature of cpu-1-0-1-thermal - fc78a40bfa65",
+  "version": "1"
+}

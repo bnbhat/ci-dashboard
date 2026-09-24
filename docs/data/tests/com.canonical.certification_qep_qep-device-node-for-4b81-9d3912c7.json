@@ -1,0 +1,218 @@
+{
+  "category": "Quadrature Encoder Peripherals",
+  "full_id": "com.canonical.certification::qep/qep-device-node-for-4b81",
+  "history": [
+    {
+      "device_cid": "202512-38153",
+      "duration": 7.84274959564209,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202512-38153-server-20260902T012600-88fcab",
+      "status": "skip",
+      "timestamp": "2026-09-02T01:26:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 7.175926685333252,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 7.365978717803955,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 9.216440677642822,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 6.154024124145508,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "skip",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 5.56033182144165,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 7.459953546524048,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 7.567099571228027,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202605-38802-desktop-20260829T061600-1057d8",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 9.231750726699829,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202512-38153-desktop-20260829T061100-ebf249",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:11:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 6.98186182975769,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202512-38153-server-20260829T011800-ce497f",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:18:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 4.973148345947266,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 6.212714910507202,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:13:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 6.923676252365112,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "skip",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 3.9643335342407227,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202509-37951-server-20260828T110700-ba39f6",
+      "status": "skip",
+      "timestamp": "2026-08-28T11:07:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 7.251456022262573,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202603-38455-desktop-20260827T052900-288bfe",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:29:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 8.659128189086914,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202605-38802-desktop-20260827T052600-5bd4ae",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:26:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 6.450189590454102,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202603-38455-server-20260827T033000-27c606",
+      "status": "skip",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 7.999576807022095,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202605-38802-server-20260827T033000-c651e2",
+      "status": "skip",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 6.3626978397369385,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202603-38455-desktop-20260826T030400-2de298",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:04:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 8.717108488082886,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202605-38802-desktop-20260826T030200-25d5f3",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:02:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 6.413400173187256,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202603-38455-server-20260825T111200-58bc3e",
+      "status": "skip",
+      "timestamp": "2026-08-25T11:12:00+00:00"
+    }
+  ],
+  "name": "Verify device directory exists for 4b81",
+  "version": "1"
+}

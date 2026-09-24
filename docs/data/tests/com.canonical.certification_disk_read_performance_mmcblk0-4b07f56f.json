@@ -1,0 +1,48 @@
+{
+  "category": "Disk tests",
+  "full_id": "com.canonical.certification::disk/read_performance_mmcblk0",
+  "history": [
+    {
+      "device_cid": "202605-38802",
+      "duration": 68.7326180934906,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202605-38802-desktop-20260829T061600-1057d8",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 68.34047842025757,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202605-38802-desktop-20260827T052600-5bd4ae",
+      "status": "pass",
+      "timestamp": "2026-08-27T05:26:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 68.27021598815918,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202605-38802-server-20260827T033000-c651e2",
+      "status": "pass",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 68.6854772567749,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202605-38802-desktop-20260826T030200-25d5f3",
+      "status": "pass",
+      "timestamp": "2026-08-26T03:02:00+00:00"
+    }
+  ],
+  "name": "Disk performance test for AIM20F",
+  "version": "1"
+}

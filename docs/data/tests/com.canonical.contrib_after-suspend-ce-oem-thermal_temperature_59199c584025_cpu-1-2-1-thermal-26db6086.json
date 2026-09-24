@@ -1,0 +1,158 @@
+{
+  "category": "Thermal",
+  "full_id": "com.canonical.contrib::after-suspend-ce-oem-thermal/temperature_59199c584025_cpu-1-2-1-thermal",
+  "history": [
+    {
+      "device_cid": "202512-38153",
+      "duration": 1.777513027191162,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202512-38153-server-20260902T012600-88fcab",
+      "status": "pass",
+      "timestamp": "2026-09-02T01:26:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 8.36415958404541,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 0.858018159866333,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 10.897680521011353,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 1.7870125770568848,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202605-38802-desktop-20260829T061600-1057d8",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 1.7811291217803955,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202512-38153-desktop-20260829T061100-ebf249",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:11:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 1.9851746559143066,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202512-38153-server-20260829T011800-ce497f",
+      "status": "pass",
+      "timestamp": "2026-08-29T01:18:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 15.175030708312988,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-dependency",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:14:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 13.836609840393066,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202603-38455-desktop-20260827T052900-288bfe",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:29:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 8.348986148834229,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202605-38802-desktop-20260827T052600-5bd4ae",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:26:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 11.12615180015564,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-dependency",
+      "run_id": "202603-38455-server-20260827T033000-27c606",
+      "status": "skip",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 5.971415281295776,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-dependency",
+      "run_id": "202605-38802-server-20260827T033000-c651e2",
+      "status": "skip",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 17.305869340896606,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202603-38455-desktop-20260826T030400-2de298",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:04:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 17.750924110412598,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202605-38802-desktop-20260826T030200-25d5f3",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:02:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 9.975975513458252,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-dependency",
+      "run_id": "202603-38455-server-20260825T111200-58bc3e",
+      "status": "skip",
+      "timestamp": "2026-08-25T11:12:00+00:00"
+    }
+  ],
+  "name": "Check Thermal temperature of cpu-1-2-1-thermal - 59199c584025 after suspend (S3)",
+  "version": "1"
+}

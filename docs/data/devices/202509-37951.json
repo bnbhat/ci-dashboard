@@ -1,0 +1,57 @@
+{
+  "alias": "IQ-X7181 Evaluation Kit",
+  "device_cid": "202509-37951",
+  "platform": "dragonwing",
+  "runs": [
+    {
+      "image_type": "desktop",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "summary": {
+        "fail": 4,
+        "failed-ignored": 45,
+        "pass": 293,
+        "skip": 364
+      },
+      "timestamp": "2026-08-29T06:16:00+00:00",
+      "total": 706
+    },
+    {
+      "image_type": "server",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "summary": {
+        "fail": 3,
+        "failed-ignored": 42,
+        "pass": 283,
+        "skip": 356
+      },
+      "timestamp": "2026-08-29T01:13:00+00:00",
+      "total": 684
+    },
+    {
+      "image_type": "desktop",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "summary": {
+        "fail": 4,
+        "failed-ignored": 40,
+        "pass": 298,
+        "skip": 364
+      },
+      "timestamp": "2026-08-28T13:14:00+00:00",
+      "total": 706
+    },
+    {
+      "image_type": "server",
+      "run_id": "202509-37951-server-20260828T110700-ba39f6",
+      "summary": {
+        "fail": 3,
+        "failed-ignored": 45,
+        "pass": 280,
+        "skip": 356
+      },
+      "timestamp": "2026-08-28T11:07:00+00:00",
+      "total": 684
+    }
+  ],
+  "series": "resolute",
+  "version": "1"
+}

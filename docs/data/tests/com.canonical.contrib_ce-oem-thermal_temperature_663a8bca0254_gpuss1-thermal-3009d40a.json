@@ -1,0 +1,18 @@
+{
+  "category": "Thermal",
+  "full_id": "com.canonical.contrib::ce-oem-thermal/temperature_663a8bca0254_gpuss1-thermal",
+  "history": [
+    {
+      "device_cid": "202403-33871",
+      "duration": 1.6609008312225342,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "pass",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    }
+  ],
+  "name": "Check Thermal temperature of gpuss1-thermal - 663a8bca0254",
+  "version": "1"
+}

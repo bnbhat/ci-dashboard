@@ -1,0 +1,48 @@
+{
+  "category": "Camera tests",
+  "full_id": "com.canonical.certification::camera/multiple-resolution-images_video14",
+  "history": [
+    {
+      "device_cid": "202509-37951",
+      "duration": 0.43138790130615234,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1741",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 0.42844223976135254,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1741",
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-29T01:13:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 0.433513879776001,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1741",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 0.8291342258453369,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1741",
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202509-37951-server-20260828T110700-ba39f6",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-28T11:07:00+00:00"
+    }
+  ],
+  "name": "Webcam multiple resolution capture test for Qualcomm_Camera_Subsystem",
+  "version": "1"
+}

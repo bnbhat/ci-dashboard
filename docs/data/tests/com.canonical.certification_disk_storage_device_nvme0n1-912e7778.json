@@ -1,0 +1,48 @@
+{
+  "category": "Disk tests",
+  "full_id": "com.canonical.certification::disk/storage_device_nvme0n1",
+  "history": [
+    {
+      "device_cid": "202509-37951",
+      "duration": 72.45211720466614,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 70.62376761436462,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "status": "pass",
+      "timestamp": "2026-08-29T01:13:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 60.19121241569519,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "pass",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 70.9279580116272,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202509-37951-server-20260828T110700-ba39f6",
+      "status": "pass",
+      "timestamp": "2026-08-28T11:07:00+00:00"
+    }
+  ],
+  "name": "Disk I/O stress test for nvme0n1",
+  "version": "1"
+}

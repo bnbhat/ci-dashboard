@@ -1,0 +1,28 @@
+{
+  "category": "Thermal",
+  "full_id": "com.canonical.contrib::ce-oem-thermal/temperature_b4c4e680814e_gpuss-0-thermal",
+  "history": [
+    {
+      "device_cid": "202509-37951",
+      "duration": 1.6398766040802002,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 0.33646416664123535,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "pass",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    }
+  ],
+  "name": "Check Thermal temperature of gpuss-0-thermal - b4c4e680814e",
+  "version": "1"
+}

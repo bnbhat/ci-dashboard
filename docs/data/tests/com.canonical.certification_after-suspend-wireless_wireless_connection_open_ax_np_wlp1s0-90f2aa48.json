@@ -1,0 +1,88 @@
+{
+  "category": "Wireless networking tests",
+  "full_id": "com.canonical.certification::after-suspend-wireless/wireless_connection_open_ax_np_wlp1s0",
+  "history": [
+    {
+      "device_cid": "202512-38153",
+      "duration": 36.649606466293335,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202512-38153-server-20260902T012600-88fcab",
+      "status": "pass",
+      "timestamp": "2026-09-02T01:26:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 69.11713528633118,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "status": "fail",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 37.33073616027832,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202512-38153-desktop-20260829T061100-ebf249",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:11:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 35.463818073272705,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202512-38153-server-20260829T011800-ce497f",
+      "status": "pass",
+      "timestamp": "2026-08-29T01:18:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 22.77082371711731,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202603-38455-desktop-20260827T052900-288bfe",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:29:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 19.438347578048706,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-dependency",
+      "run_id": "202603-38455-server-20260827T033000-27c606",
+      "status": "skip",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 19.239044189453125,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202603-38455-desktop-20260826T030400-2de298",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:04:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 19.517153024673462,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-dependency",
+      "run_id": "202603-38455-server-20260825T111200-58bc3e",
+      "status": "skip",
+      "timestamp": "2026-08-25T11:12:00+00:00"
+    }
+  ],
+  "name": "Connect to unencrypted 802.11ax Wi-Fi network on wlp1s0 - netplan after suspend (S3)",
+  "version": "1"
+}

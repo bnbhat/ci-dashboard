@@ -1,0 +1,58 @@
+{
+  "category": "Thermal",
+  "full_id": "com.canonical.contrib::ce-oem-thermal/temperature_0a6b43872015_gpuss-4-thermal",
+  "history": [
+    {
+      "device_cid": "202601-38369",
+      "duration": 1.650679588317871,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 0.8261086940765381,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 1.752809762954712,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "status": "pass",
+      "timestamp": "2026-08-29T01:14:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 1.6526734828948975,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202603-38455-desktop-20260827T052900-288bfe",
+      "status": "pass",
+      "timestamp": "2026-08-27T05:29:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 0.8426253795623779,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202603-38455-desktop-20260826T030400-2de298",
+      "status": "pass",
+      "timestamp": "2026-08-26T03:04:00+00:00"
+    }
+  ],
+  "name": "Check Thermal temperature of gpuss-4-thermal - 0a6b43872015",
+  "version": "1"
+}

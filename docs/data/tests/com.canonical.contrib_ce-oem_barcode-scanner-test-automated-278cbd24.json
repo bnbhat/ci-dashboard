@@ -1,0 +1,218 @@
+{
+  "category": "Barcode Scanner Test",
+  "full_id": "com.canonical.contrib::ce-oem/barcode-scanner-test-automated",
+  "history": [
+    {
+      "device_cid": "202512-38153",
+      "duration": 2.432225227355957,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202512-38153-server-20260902T012600-88fcab",
+      "status": "skip",
+      "timestamp": "2026-09-02T01:26:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 1.5474722385406494,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 2.7840065956115723,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 4.231898307800293,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 7.736732721328735,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "skip",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 21.26453948020935,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 107.52751660346985,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 2.900974750518799,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202605-38802-desktop-20260829T061600-1057d8",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 3.727900505065918,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202512-38153-desktop-20260829T061100-ebf249",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:11:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 2.6428685188293457,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202512-38153-server-20260829T011800-ce497f",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:18:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 3.2356784343719482,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 0.6771056652069092,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:13:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 28.323253393173218,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "skip",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 11.797738075256348,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202509-37951-server-20260828T110700-ba39f6",
+      "status": "skip",
+      "timestamp": "2026-08-28T11:07:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 3.3545312881469727,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202603-38455-desktop-20260827T052900-288bfe",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:29:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 3.366480827331543,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202605-38802-desktop-20260827T052600-5bd4ae",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:26:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 4.196227788925171,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202603-38455-server-20260827T033000-27c606",
+      "status": "skip",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 2.2391340732574463,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202605-38802-server-20260827T033000-c651e2",
+      "status": "skip",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 1.072298288345337,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202603-38455-desktop-20260826T030400-2de298",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:04:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 2.7771503925323486,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202605-38802-desktop-20260826T030200-25d5f3",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:02:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 34.300132513046265,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202603-38455-server-20260825T111200-58bc3e",
+      "status": "skip",
+      "timestamp": "2026-08-25T11:12:00+00:00"
+    }
+  ],
+  "name": "Test barcode scanner functionality",
+  "version": "1"
+}

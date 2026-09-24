@@ -1,0 +1,48 @@
+{
+  "category": "Ethernet Device tests",
+  "full_id": "com.canonical.certification::ethernet/ping_enx00e04c6809bd",
+  "history": [
+    {
+      "device_cid": "202509-37951",
+      "duration": 2.660271406173706,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 2.715618848800659,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "status": "pass",
+      "timestamp": "2026-08-29T01:13:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 2.6466257572174072,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "pass",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 2.655038833618164,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202509-37951-server-20260828T110700-ba39f6",
+      "status": "pass",
+      "timestamp": "2026-08-28T11:07:00+00:00"
+    }
+  ],
+  "name": "Can ping another machine over Ethernet port enx00e04c6809bd",
+  "version": "1"
+}

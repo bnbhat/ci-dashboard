@@ -1,0 +1,18 @@
+{
+  "category": "Thermal",
+  "full_id": "com.canonical.contrib::ce-oem-thermal/temperature_90b3fd39aa0e_nspss1-thermal",
+  "history": [
+    {
+      "device_cid": "202403-33871",
+      "duration": 1.666466474533081,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    }
+  ],
+  "name": "Check Thermal temperature of nspss1-thermal - 90b3fd39aa0e",
+  "version": "1"
+}

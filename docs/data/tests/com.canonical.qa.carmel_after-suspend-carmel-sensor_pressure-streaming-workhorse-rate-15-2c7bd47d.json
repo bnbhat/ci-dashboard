@@ -1,0 +1,28 @@
+{
+  "category": "Carmel Sensor Test",
+  "full_id": "com.canonical.qa.carmel::after-suspend-carmel-sensor/pressure-streaming-workhorse-rate-15",
+  "history": [
+    {
+      "device_cid": "202403-33871",
+      "duration": 97.40505981445312,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 92.17918395996094,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-dependency",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "skip",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    }
+  ],
+  "name": "Test pressure streaming workhorse at sample rate 15 after suspend (S3)",
+  "version": "1"
+}

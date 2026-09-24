@@ -1,0 +1,45 @@
+{
+  "alias": "IQ-9 AMR Evaluation Kit",
+  "device_cid": "202601-38369",
+  "platform": "dragonwing",
+  "runs": [
+    {
+      "image_type": "desktop",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "summary": {
+        "fail": 34,
+        "failed-ignored": 26,
+        "pass": 260,
+        "skip": 378
+      },
+      "timestamp": "2026-09-01T12:41:00+00:00",
+      "total": 698
+    },
+    {
+      "image_type": "desktop",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "summary": {
+        "fail": 11,
+        "failed-ignored": 22,
+        "pass": 282,
+        "skip": 378
+      },
+      "timestamp": "2026-08-29T06:16:00+00:00",
+      "total": 693
+    },
+    {
+      "image_type": "server",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "summary": {
+        "fail": 11,
+        "failed-ignored": 8,
+        "pass": 283,
+        "skip": 369
+      },
+      "timestamp": "2026-08-29T01:14:00+00:00",
+      "total": 671
+    }
+  ],
+  "series": "noble",
+  "version": "1"
+}

@@ -1,0 +1,58 @@
+{
+  "category": "TPM 2.0 (Trusted Platform Module)",
+  "full_id": "com.canonical.certification::tpm2_pcr_banks",
+  "history": [
+    {
+      "device_cid": "202512-38153",
+      "duration": 1.85691237449646,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202512-38153-server-20260902T012600-88fcab",
+      "status": "pass",
+      "timestamp": "2026-09-02T01:26:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 1.8337764739990234,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 0.8351459503173828,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "fail",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 1.8332512378692627,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 0.8335123062133789,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "fail",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    }
+  ],
+  "name": "Print each TPM2 PCR bank as a separate resource record",
+  "version": "1"
+}

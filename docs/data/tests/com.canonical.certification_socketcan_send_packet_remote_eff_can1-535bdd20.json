@@ -1,0 +1,38 @@
+{
+  "category": "SocketCAN interface tests",
+  "full_id": "com.canonical.certification::socketcan/send_packet_remote_eff_can1",
+  "history": [
+    {
+      "device_cid": "202601-38369",
+      "duration": 1.5317928791046143,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 3.8339431285858154,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 1.8880653381347656,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:14:00+00:00"
+    }
+  ],
+  "name": "CAN device support test can1 (Raw, Remote, EFF)",
+  "version": "1"
+}

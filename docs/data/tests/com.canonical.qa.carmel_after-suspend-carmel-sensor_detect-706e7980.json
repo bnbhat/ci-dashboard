@@ -1,0 +1,218 @@
+{
+  "category": "Carmel Sensor Test",
+  "full_id": "com.canonical.qa.carmel::after-suspend-carmel-sensor/detect",
+  "history": [
+    {
+      "device_cid": "202512-38153",
+      "duration": 36.34989142417908,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202512-38153-server-20260902T012600-88fcab",
+      "status": "skip",
+      "timestamp": "2026-09-02T01:26:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 37.45245575904846,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 38.73830199241638,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 37.006513357162476,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 37.772255182266235,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "skip",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 23.817606687545776,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 38.33529257774353,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 36.84376287460327,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202605-38802-desktop-20260829T061600-1057d8",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 36.56463432312012,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202512-38153-desktop-20260829T061100-ebf249",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:11:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 36.78810906410217,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202512-38153-server-20260829T011800-ce497f",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:18:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 33.712546825408936,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 22.92587685585022,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:13:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 25.34044647216797,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "skip",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 21.220840454101562,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202509-37951-server-20260828T110700-ba39f6",
+      "status": "skip",
+      "timestamp": "2026-08-28T11:07:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 34.17138075828552,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202603-38455-desktop-20260827T052900-288bfe",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:29:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 41.482837200164795,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202605-38802-desktop-20260827T052600-5bd4ae",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:26:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 30.94625735282898,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202603-38455-server-20260827T033000-27c606",
+      "status": "skip",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 36.500070571899414,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202605-38802-server-20260827T033000-c651e2",
+      "status": "skip",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 34.09126162528992,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202603-38455-desktop-20260826T030400-2de298",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:04:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 41.320040225982666,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202605-38802-desktop-20260826T030200-25d5f3",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:02:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 30.15679693222046,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202603-38455-server-20260825T111200-58bc3e",
+      "status": "skip",
+      "timestamp": "2026-08-25T11:12:00+00:00"
+    }
+  ],
+  "name": "Detect sensors on the system after suspend (S3)",
+  "version": "1"
+}

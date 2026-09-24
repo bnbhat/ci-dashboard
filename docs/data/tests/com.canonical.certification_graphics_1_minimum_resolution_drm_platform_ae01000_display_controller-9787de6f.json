@@ -1,0 +1,128 @@
+{
+  "category": "Graphics tests",
+  "full_id": "com.canonical.certification::graphics/1_minimum_resolution_drm_platform_ae01000_display_controller",
+  "history": [
+    {
+      "device_cid": "202601-38369",
+      "duration": 2.4658849239349365,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "fail",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 2.5793983936309814,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 3.010206937789917,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 1.5767037868499756,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 2.4781861305236816,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "fail",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 3.2820587158203125,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202605-38802-desktop-20260829T061600-1057d8",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 2.997612476348877,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202512-38153-desktop-20260829T061100-ebf249",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:11:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 1.6522133350372314,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "pass",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 2.4745569229125977,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202603-38455-desktop-20260827T052900-288bfe",
+      "status": "pass",
+      "timestamp": "2026-08-27T05:29:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 3.1057722568511963,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202605-38802-desktop-20260827T052600-5bd4ae",
+      "status": "pass",
+      "timestamp": "2026-08-27T05:26:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 2.462141513824463,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202603-38455-desktop-20260826T030400-2de298",
+      "status": "pass",
+      "timestamp": "2026-08-26T03:04:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 3.0042686462402344,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202605-38802-desktop-20260826T030200-25d5f3",
+      "status": "pass",
+      "timestamp": "2026-08-26T03:02:00+00:00"
+    }
+  ],
+  "name": "Test that PCI ID 0x0 drm-platform-ae01000_display-controller meets minimum resolution requirement",
+  "version": "1"
+}

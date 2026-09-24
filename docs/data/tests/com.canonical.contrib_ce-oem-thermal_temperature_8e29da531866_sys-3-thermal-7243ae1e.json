@@ -1,0 +1,48 @@
+{
+  "category": "Thermal",
+  "full_id": "com.canonical.contrib::ce-oem-thermal/temperature_8e29da531866_sys-3-thermal",
+  "history": [
+    {
+      "device_cid": "202509-37951",
+      "duration": 2.436511754989624,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 0.3343031406402588,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "status": "pass",
+      "timestamp": "2026-08-29T01:13:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 0.32741713523864746,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "pass",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 1.6503276824951172,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202509-37951-server-20260828T110700-ba39f6",
+      "status": "pass",
+      "timestamp": "2026-08-28T11:07:00+00:00"
+    }
+  ],
+  "name": "Check Thermal temperature of sys-3-thermal - 8e29da531866",
+  "version": "1"
+}

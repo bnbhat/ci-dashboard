@@ -1,0 +1,88 @@
+{
+  "category": "Wi-Fi access point",
+  "full_id": "com.canonical.certification::wireless/wifi_ap_setup_wizard_wlp1s0_auto",
+  "history": [
+    {
+      "device_cid": "202512-38153",
+      "duration": 1.5714905261993408,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-resource",
+      "run_id": "202512-38153-server-20260902T012600-88fcab",
+      "status": "skip",
+      "timestamp": "2026-09-02T01:26:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 5.310795545578003,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 27.009799480438232,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202512-38153-desktop-20260829T061100-ebf249",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:11:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 2.622255325317383,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-resource",
+      "run_id": "202512-38153-server-20260829T011800-ce497f",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:18:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 1.5810692310333252,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202603-38455-desktop-20260827T052900-288bfe",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:29:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 1.458355188369751,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-resource",
+      "run_id": "202603-38455-server-20260827T033000-27c606",
+      "status": "skip",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 32.73095202445984,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202603-38455-desktop-20260826T030400-2de298",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:04:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 1.494037389755249,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-resource",
+      "run_id": "202603-38455-server-20260825T111200-58bc3e",
+      "status": "skip",
+      "timestamp": "2026-08-25T11:12:00+00:00"
+    }
+  ],
+  "name": "Create Access Point on wlp1s0 using wifi-ap.setup-wizard",
+  "version": "1"
+}

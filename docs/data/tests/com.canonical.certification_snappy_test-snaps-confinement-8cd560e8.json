@@ -1,0 +1,218 @@
+{
+  "category": "Snapd",
+  "full_id": "com.canonical.certification::snappy/test-snaps-confinement",
+  "history": [
+    {
+      "device_cid": "202512-38153",
+      "duration": 1.9937810897827148,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202512-38153-server-20260902T012600-88fcab",
+      "status": "pass",
+      "timestamp": "2026-09-02T01:26:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 1.4841880798339844,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 1.3854005336761475,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 2.382418632507324,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 0.9872701168060303,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "pass",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 1.4720633029937744,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "fail",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 1.4838504791259766,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "fail",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 1.874823808670044,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202605-38802-desktop-20260829T061600-1057d8",
+      "status": "fail",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 2.382603645324707,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202512-38153-desktop-20260829T061100-ebf249",
+      "status": "fail",
+      "timestamp": "2026-08-29T06:11:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 1.8698859214782715,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202512-38153-server-20260829T011800-ce497f",
+      "status": "fail",
+      "timestamp": "2026-08-29T01:18:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 1.3564324378967285,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "status": "fail",
+      "timestamp": "2026-08-29T01:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 1.3627119064331055,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "status": "fail",
+      "timestamp": "2026-08-29T01:13:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 1.3663833141326904,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "fail",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 1.3554842472076416,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202509-37951-server-20260828T110700-ba39f6",
+      "status": "fail",
+      "timestamp": "2026-08-28T11:07:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 1.4746243953704834,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202603-38455-desktop-20260827T052900-288bfe",
+      "status": "fail",
+      "timestamp": "2026-08-27T05:29:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 1.9811298847198486,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202605-38802-desktop-20260827T052600-5bd4ae",
+      "status": "fail",
+      "timestamp": "2026-08-27T05:26:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 1.3588135242462158,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202603-38455-server-20260827T033000-27c606",
+      "status": "fail",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 1.9911296367645264,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202605-38802-server-20260827T033000-c651e2",
+      "status": "fail",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 1.355241298675537,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202603-38455-desktop-20260826T030400-2de298",
+      "status": "fail",
+      "timestamp": "2026-08-26T03:04:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 1.951453685760498,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202605-38802-desktop-20260826T030200-25d5f3",
+      "status": "fail",
+      "timestamp": "2026-08-26T03:02:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 1.352299451828003,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202603-38455-server-20260825T111200-58bc3e",
+      "status": "fail",
+      "timestamp": "2026-08-25T11:12:00+00:00"
+    }
+  ],
+  "name": "Test all the snaps&#39; confinement",
+  "version": "1"
+}

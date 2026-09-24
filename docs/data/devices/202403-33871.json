@@ -1,0 +1,33 @@
+{
+  "alias": "RB3 Gen2 Vision Kit",
+  "device_cid": "202403-33871",
+  "platform": "dragonwing",
+  "runs": [
+    {
+      "image_type": "desktop",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "summary": {
+        "fail": 24,
+        "failed-ignored": 21,
+        "pass": 385,
+        "skip": 312
+      },
+      "timestamp": "2026-09-01T12:40:00+00:00",
+      "total": 742
+    },
+    {
+      "image_type": "server",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "summary": {
+        "fail": 2,
+        "failed-ignored": 1,
+        "pass": 447,
+        "skip": 270
+      },
+      "timestamp": "2026-09-01T07:42:00+00:00",
+      "total": 720
+    }
+  ],
+  "series": "noble",
+  "version": "1"
+}

@@ -1,0 +1,18 @@
+{
+  "category": "Thermal",
+  "full_id": "com.canonical.contrib::ce-oem-thermal/temperature_40fdb04583fa_gpuss0-thermal",
+  "history": [
+    {
+      "device_cid": "202403-33871",
+      "duration": 0.8726072311401367,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    }
+  ],
+  "name": "Check Thermal temperature of gpuss0-thermal - 40fdb04583fa",
+  "version": "1"
+}

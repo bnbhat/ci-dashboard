@@ -1,0 +1,28 @@
+{
+  "category": "Carmel camera Test",
+  "full_id": "com.canonical.qa.carmel::after-suspend-carmel-camera/imx577-0-snapshot-2160p-automated",
+  "history": [
+    {
+      "device_cid": "202403-33871",
+      "duration": 10.653854131698608,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 11.063642024993896,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "pass",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    }
+  ],
+  "name": "Test 2160p output to jpeg on imx577 id 0 after suspend (S3)",
+  "version": "1"
+}

@@ -1,0 +1,48 @@
+{
+  "category": "Wi-Fi access point",
+  "full_id": "com.canonical.certification::wireless/wifi_ap_setup_wizard_wlP4p1s0_auto",
+  "history": [
+    {
+      "device_cid": "202509-37951",
+      "duration": 0.7091662883758545,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 113.20367431640625,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-resource",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:13:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 0.7349627017974854,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "skip",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 0.6784775257110596,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-resource",
+      "run_id": "202509-37951-server-20260828T110700-ba39f6",
+      "status": "skip",
+      "timestamp": "2026-08-28T11:07:00+00:00"
+    }
+  ],
+  "name": "Create Access Point on wlP4p1s0 using wifi-ap.setup-wizard",
+  "version": "1"
+}

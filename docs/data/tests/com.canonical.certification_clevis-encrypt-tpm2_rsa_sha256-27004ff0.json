@@ -1,0 +1,38 @@
+{
+  "category": "TPM 2.0 (Trusted Platform Module)",
+  "full_id": "com.canonical.certification::clevis-encrypt-tpm2/rsa_sha256",
+  "history": [
+    {
+      "device_cid": "202512-38153",
+      "duration": 50.568652629852295,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202512-38153-server-20260902T012600-88fcab",
+      "status": "pass",
+      "timestamp": "2026-09-02T01:26:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 15.261049032211304,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 28.53154158592224,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    }
+  ],
+  "name": "clevis encrypt/decrypt key rsa using sha256 PCR bank and hash",
+  "version": "1"
+}

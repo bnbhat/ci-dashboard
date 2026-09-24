@@ -1,0 +1,18 @@
+{
+  "category": "USB tests",
+  "full_id": "com.canonical.certification::after-suspend-usb/storage-preinserted-disk/by-path/platform-xhci-hcd.2.auto-usb-0:2:1.0-scsi-0:0:0:0-part/by-uuid/BAB3-5A4C",
+  "history": [
+    {
+      "device_cid": "202509-37951",
+      "duration": 41.33414101600647,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-dependency",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:13:00+00:00"
+    }
+  ],
+  "name": "Test USB storage on 2.0 or 1.1 ports detected by udev (disk/by-path/platform-xhci-hcd.2.auto-usb-0:2:1.0-scsi-0:0:0:0-part/by-uuid/BAB3-5A4C) after suspend (S3)",
+  "version": "1"
+}

@@ -1,0 +1,28 @@
+{
+  "category": "Wireless networking tests",
+  "full_id": "com.canonical.certification::wireless/wireless_connection_wpa_bg_np_wlan0",
+  "history": [
+    {
+      "device_cid": "202403-33871",
+      "duration": 30.783369541168213,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 30.595210552215576,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "pass",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    }
+  ],
+  "name": "Connect to WPA-encrypted 802.11b/g Wi-Fi network on wlan0 - netplan",
+  "version": "1"
+}

@@ -1,0 +1,128 @@
+{
+  "category": "Suspend tests",
+  "full_id": "com.canonical.certification::suspend/1_suspend-time-check_drm_platform_ae01000_display_controller_auto",
+  "history": [
+    {
+      "device_cid": "202601-38369",
+      "duration": 54.040642499923706,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 0.6976282596588135,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1290",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "failed-ignored",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 0.865602970123291,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1290",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "status": "failed-ignored",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 37.970176458358765,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 59.33530926704407,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 0.8601651191711426,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1290",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202605-38802-desktop-20260829T061600-1057d8",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 0.8636953830718994,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1290",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202512-38153-desktop-20260829T061100-ebf249",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-29T06:11:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 48.405659675598145,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "skip",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 51.69839572906494,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202603-38455-desktop-20260827T052900-288bfe",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:29:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 63.099746227264404,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202605-38802-desktop-20260827T052600-5bd4ae",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:26:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 44.066258907318115,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202603-38455-desktop-20260826T030400-2de298",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:04:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 63.57885956764221,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202605-38802-desktop-20260826T030200-25d5f3",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:02:00+00:00"
+    }
+  ],
+  "name": "Verify if the machine meets the suspend and resume time thresholds.",
+  "version": "1"
+}

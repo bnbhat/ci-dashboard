@@ -1,0 +1,78 @@
+{
+  "category": "Carmel WiFi Test",
+  "full_id": "com.canonical.qa.carmel::carmel-wireless/ap_SSID_32chars_wlp3s0_automated",
+  "history": [
+    {
+      "device_cid": "202601-38369",
+      "duration": 21.69345450401306,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 50.902485609054565,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1197",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 44.393338203430176,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202605-38802-desktop-20260829T061600-1057d8",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 50.4416184425354,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1197",
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-29T01:14:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 46.45031452178955,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1197",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202605-38802-desktop-20260827T052600-5bd4ae",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-27T05:26:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 30.06684112548828,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1197",
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202605-38802-server-20260827T033000-c651e2",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 46.953408002853394,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1197",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202605-38802-desktop-20260826T030200-25d5f3",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-26T03:02:00+00:00"
+    }
+  ],
+  "name": "Create open 802.11a Wi-Fi AP on wlp3s0 with 32 chars of SSID",
+  "version": "1"
+}

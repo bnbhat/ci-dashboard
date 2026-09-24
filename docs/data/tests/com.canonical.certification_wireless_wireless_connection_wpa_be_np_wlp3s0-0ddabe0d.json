@@ -1,0 +1,78 @@
+{
+  "category": "Wireless networking tests",
+  "full_id": "com.canonical.certification::wireless/wireless_connection_wpa_be_np_wlp3s0",
+  "history": [
+    {
+      "device_cid": "202601-38369",
+      "duration": 4.78378701210022,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 5.120852708816528,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 5.388472080230713,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202605-38802-desktop-20260829T061600-1057d8",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 5.4855055809021,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-resource",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:14:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 12.26164197921753,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202605-38802-desktop-20260827T052600-5bd4ae",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:26:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 11.566022634506226,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-resource",
+      "run_id": "202605-38802-server-20260827T033000-c651e2",
+      "status": "skip",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202605-38802",
+      "duration": 5.921386241912842,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202605-38802-desktop-20260826T030200-25d5f3",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:02:00+00:00"
+    }
+  ],
+  "name": "Connect to WPA-encrypted 802.11be Wi-Fi network on wlp3s0 - netplan",
+  "version": "1"
+}

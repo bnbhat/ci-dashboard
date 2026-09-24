@@ -1,0 +1,38 @@
+{
+  "category": "PTP Test",
+  "full_id": "com.canonical.contrib::ce-oem-ptp/ptp4l-time-sync-for-enp6s0-auto",
+  "history": [
+    {
+      "device_cid": "202601-38369",
+      "duration": 4.099396705627441,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 4.551228046417236,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-manifest",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 4.220709800720215,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:14:00+00:00"
+    }
+  ],
+  "name": "Verify Ethernet interface enp6s0 can establish clock sync by ptp4l",
+  "version": "1"
+}

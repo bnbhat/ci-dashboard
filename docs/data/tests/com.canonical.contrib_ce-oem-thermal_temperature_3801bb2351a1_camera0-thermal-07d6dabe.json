@@ -1,0 +1,18 @@
+{
+  "category": "Thermal",
+  "full_id": "com.canonical.contrib::ce-oem-thermal/temperature_3801bb2351a1_camera0-thermal",
+  "history": [
+    {
+      "device_cid": "202403-33871",
+      "duration": 1.818265676498413,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "pass",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    }
+  ],
+  "name": "Check Thermal temperature of camera0-thermal - 3801bb2351a1",
+  "version": "1"
+}

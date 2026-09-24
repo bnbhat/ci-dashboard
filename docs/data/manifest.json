@@ -1,0 +1,445 @@
+{
+  "device_meta": {
+    "202403-33871": {
+      "alias": "RB3 Gen2 Vision Kit",
+      "platform": "dragonwing",
+      "series": "noble"
+    },
+    "202509-37951": {
+      "alias": "IQ-X7181 Evaluation Kit",
+      "platform": "dragonwing",
+      "series": "resolute"
+    },
+    "202512-38153": {
+      "alias": "IQ-8275 Evaluation Kit",
+      "platform": "dragonwing",
+      "series": "noble"
+    },
+    "202601-38369": {
+      "alias": "IQ-9 AMR Evaluation Kit",
+      "platform": "dragonwing",
+      "series": "noble"
+    },
+    "202603-38455": {
+      "alias": "IQ-9075 Evaluation Kit",
+      "platform": "dragonwing",
+      "series": "noble"
+    },
+    "202605-38802": {
+      "alias": "Arduino VentUno Q",
+      "platform": "dragonwing",
+      "series": "noble"
+    }
+  },
+  "devices": [
+    "202403-33871",
+    "202509-37951",
+    "202512-38153",
+    "202601-38369",
+    "202603-38455",
+    "202605-38802"
+  ],
+  "generated_at": "2026-09-02T15:11:21.659610+00:00",
+  "runs": [
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.5.0.dev34",
+      "device_cid": "202512-38153",
+      "distribution": "Ubuntu 24.04.4 LTS",
+      "image_type": "server",
+      "kernel": "6.8.0-1084-qcom",
+      "run_id": "202512-38153-server-20260902T012600-88fcab",
+      "submission_id": "508838",
+      "summary": {
+        "fail": 44,
+        "failed-ignored": 1,
+        "pass": 373,
+        "skip": 213
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-server-24-04-automated",
+      "timestamp": "2026-09-02T01:26:00+00:00",
+      "total": 631
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.5.0.dev34",
+      "device_cid": "202601-38369",
+      "distribution": "Ubuntu 24.04.4 LTS",
+      "image_type": "desktop",
+      "kernel": "6.8.0-1084-qcom",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "submission_id": "508656",
+      "summary": {
+        "fail": 34,
+        "failed-ignored": 26,
+        "pass": 260,
+        "skip": 378
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-desktop-24-04-automated",
+      "timestamp": "2026-09-01T12:41:00+00:00",
+      "total": 698
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.5.0.dev34",
+      "device_cid": "202403-33871",
+      "distribution": "Ubuntu 24.04.4 LTS",
+      "image_type": "desktop",
+      "kernel": "6.8.0-1084-qcom",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "submission_id": "508659",
+      "summary": {
+        "fail": 24,
+        "failed-ignored": 21,
+        "pass": 385,
+        "skip": 312
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-desktop-24-04-automated",
+      "timestamp": "2026-09-01T12:40:00+00:00",
+      "total": 742
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.5.0.dev34",
+      "device_cid": "202512-38153",
+      "distribution": "Ubuntu 24.04.4 LTS",
+      "image_type": "desktop",
+      "kernel": "6.8.0-1084-qcom",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "submission_id": "508700",
+      "summary": {
+        "fail": 44,
+        "failed-ignored": 26,
+        "pass": 366,
+        "skip": 217
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-desktop-24-04-automated",
+      "timestamp": "2026-09-01T12:40:00+00:00",
+      "total": 653
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.5.0.dev34",
+      "device_cid": "202403-33871",
+      "distribution": "Ubuntu 24.04.4 LTS",
+      "image_type": "server",
+      "kernel": "6.8.0-1084-qcom",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "submission_id": "508607",
+      "summary": {
+        "fail": 2,
+        "failed-ignored": 1,
+        "pass": 447,
+        "skip": 270
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-server-24-04-automated",
+      "timestamp": "2026-09-01T07:42:00+00:00",
+      "total": 720
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.4.0.dev135",
+      "device_cid": "202509-37951",
+      "distribution": "Ubuntu 26.04.1 LTS",
+      "image_type": "desktop",
+      "kernel": "7.0.0-1013-qcom",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "submission_id": "508186",
+      "summary": {
+        "fail": 4,
+        "failed-ignored": 45,
+        "pass": 293,
+        "skip": 364
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-desktop-24-04-automated",
+      "timestamp": "2026-08-29T06:16:00+00:00",
+      "total": 706
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.4.0.dev135",
+      "device_cid": "202601-38369",
+      "distribution": "Ubuntu 24.04.4 LTS",
+      "image_type": "desktop",
+      "kernel": "6.8.0-1084-qcom",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "submission_id": "508183",
+      "summary": {
+        "fail": 11,
+        "failed-ignored": 22,
+        "pass": 282,
+        "skip": 378
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-desktop-24-04-automated",
+      "timestamp": "2026-08-29T06:16:00+00:00",
+      "total": 693
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.4.0.dev135",
+      "device_cid": "202605-38802",
+      "distribution": "Ubuntu 24.04.4 LTS",
+      "image_type": "desktop",
+      "kernel": "6.8.0-1084-qcom",
+      "run_id": "202605-38802-desktop-20260829T061600-1057d8",
+      "submission_id": "508188",
+      "summary": {
+        "fail": 3,
+        "failed-ignored": 17,
+        "pass": 427,
+        "skip": 201
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-desktop-24-04-automated",
+      "timestamp": "2026-08-29T06:16:00+00:00",
+      "total": 648
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.4.0.dev135",
+      "device_cid": "202512-38153",
+      "distribution": "Ubuntu 24.04.4 LTS",
+      "image_type": "desktop",
+      "kernel": "6.8.0-1084-qcom",
+      "run_id": "202512-38153-desktop-20260829T061100-ebf249",
+      "submission_id": "508185",
+      "summary": {
+        "fail": 2,
+        "failed-ignored": 16,
+        "pass": 443,
+        "skip": 187
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-desktop-24-04-automated",
+      "timestamp": "2026-08-29T06:11:00+00:00",
+      "total": 648
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.4.0.dev135",
+      "device_cid": "202512-38153",
+      "distribution": "Ubuntu 24.04.4 LTS",
+      "image_type": "server",
+      "kernel": "6.8.0-1084-qcom",
+      "run_id": "202512-38153-server-20260829T011800-ce497f",
+      "submission_id": "508174",
+      "summary": {
+        "fail": 2,
+        "failed-ignored": 1,
+        "pass": 451,
+        "skip": 172
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-server-24-04-automated",
+      "timestamp": "2026-08-29T01:18:00+00:00",
+      "total": 626
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.4.0.dev135",
+      "device_cid": "202601-38369",
+      "distribution": "Ubuntu 24.04.4 LTS",
+      "image_type": "server",
+      "kernel": "6.8.0-1084-qcom",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "submission_id": "508173",
+      "summary": {
+        "fail": 11,
+        "failed-ignored": 8,
+        "pass": 283,
+        "skip": 369
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-server-24-04-automated",
+      "timestamp": "2026-08-29T01:14:00+00:00",
+      "total": 671
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.4.0.dev135",
+      "device_cid": "202509-37951",
+      "distribution": "Ubuntu 26.04.1 LTS",
+      "image_type": "server",
+      "kernel": "7.0.0-1013-qcom",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "submission_id": "508172",
+      "summary": {
+        "fail": 3,
+        "failed-ignored": 42,
+        "pass": 283,
+        "skip": 356
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-server-24-04-automated",
+      "timestamp": "2026-08-29T01:13:00+00:00",
+      "total": 684
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.4.0.dev135",
+      "device_cid": "202509-37951",
+      "distribution": "Ubuntu 26.04.1 LTS",
+      "image_type": "desktop",
+      "kernel": "7.0.0-1013-qcom",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "submission_id": "507961",
+      "summary": {
+        "fail": 4,
+        "failed-ignored": 40,
+        "pass": 298,
+        "skip": 364
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-desktop-24-04-automated",
+      "timestamp": "2026-08-28T13:14:00+00:00",
+      "total": 706
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.4.0.dev135",
+      "device_cid": "202509-37951",
+      "distribution": "Ubuntu 26.04.1 LTS",
+      "image_type": "server",
+      "kernel": "7.0.0-1013-qcom",
+      "run_id": "202509-37951-server-20260828T110700-ba39f6",
+      "submission_id": "507940",
+      "summary": {
+        "fail": 3,
+        "failed-ignored": 45,
+        "pass": 280,
+        "skip": 356
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-server-24-04-automated",
+      "timestamp": "2026-08-28T11:07:00+00:00",
+      "total": 684
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.4.0.dev135",
+      "device_cid": "202603-38455",
+      "distribution": "Ubuntu 24.04.4 LTS",
+      "image_type": "desktop",
+      "kernel": "6.8.0-1084-qcom",
+      "run_id": "202603-38455-desktop-20260827T052900-288bfe",
+      "submission_id": "507396",
+      "summary": {
+        "fail": 2,
+        "failed-ignored": 20,
+        "pass": 257,
+        "skip": 383
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-desktop-24-04-automated",
+      "timestamp": "2026-08-27T05:29:00+00:00",
+      "total": 662
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.4.0.dev135",
+      "device_cid": "202605-38802",
+      "distribution": "Ubuntu 24.04.4 LTS",
+      "image_type": "desktop",
+      "kernel": "6.8.0-1084-qcom",
+      "run_id": "202605-38802-desktop-20260827T052600-5bd4ae",
+      "submission_id": "507400",
+      "summary": {
+        "fail": 2,
+        "failed-ignored": 19,
+        "pass": 248,
+        "skip": 379
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-desktop-24-04-automated",
+      "timestamp": "2026-08-27T05:26:00+00:00",
+      "total": 648
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.4.0.dev135",
+      "device_cid": "202603-38455",
+      "distribution": "Ubuntu 24.04.4 LTS",
+      "image_type": "server",
+      "kernel": "6.8.0-1084-qcom",
+      "run_id": "202603-38455-server-20260827T033000-27c606",
+      "submission_id": "507357",
+      "summary": {
+        "fail": 2,
+        "failed-ignored": 5,
+        "pass": 261,
+        "skip": 372
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-server-24-04-automated",
+      "timestamp": "2026-08-27T03:30:00+00:00",
+      "total": 640
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.4.0.dev135",
+      "device_cid": "202605-38802",
+      "distribution": "Ubuntu 24.04.4 LTS",
+      "image_type": "server",
+      "kernel": "6.8.0-1084-qcom",
+      "run_id": "202605-38802-server-20260827T033000-c651e2",
+      "submission_id": "507363",
+      "summary": {
+        "fail": 2,
+        "failed-ignored": 5,
+        "pass": 251,
+        "skip": 368
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-server-24-04-automated",
+      "timestamp": "2026-08-27T03:30:00+00:00",
+      "total": 626
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.4.0.dev135",
+      "device_cid": "202603-38455",
+      "distribution": "Ubuntu 24.04.4 LTS",
+      "image_type": "desktop",
+      "kernel": "6.8.0-1084-qcom",
+      "run_id": "202603-38455-desktop-20260826T030400-2de298",
+      "submission_id": "506974",
+      "summary": {
+        "fail": 2,
+        "failed-ignored": 20,
+        "pass": 257,
+        "skip": 383
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-desktop-24-04-automated",
+      "timestamp": "2026-08-26T03:04:00+00:00",
+      "total": 662
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.4.0.dev135",
+      "device_cid": "202605-38802",
+      "distribution": "Ubuntu 24.04.4 LTS",
+      "image_type": "desktop",
+      "kernel": "6.8.0-1084-qcom",
+      "run_id": "202605-38802-desktop-20260826T030200-25d5f3",
+      "submission_id": "506979",
+      "summary": {
+        "fail": 2,
+        "failed-ignored": 19,
+        "pass": 248,
+        "skip": 379
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-desktop-24-04-automated",
+      "timestamp": "2026-08-26T03:02:00+00:00",
+      "total": 648
+    },
+    {
+      "architecture": "arm64",
+      "checkbox_version": "7.4.0.dev135",
+      "device_cid": "202603-38455",
+      "distribution": "Ubuntu 24.04.4 LTS",
+      "image_type": "server",
+      "kernel": "6.8.0-1084-qcom",
+      "run_id": "202603-38455-server-20260825T111200-58bc3e",
+      "submission_id": "506305",
+      "summary": {
+        "fail": 4,
+        "failed-ignored": 5,
+        "pass": 258,
+        "skip": 375
+      },
+      "testplan_id": "com.canonical.qa.carmel::carmel-server-24-04-automated",
+      "timestamp": "2026-08-25T11:12:00+00:00",
+      "total": 642
+    }
+  ],
+  "version": "1"
+}

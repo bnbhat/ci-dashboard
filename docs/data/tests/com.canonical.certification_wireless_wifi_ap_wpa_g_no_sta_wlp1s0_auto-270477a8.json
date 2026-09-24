@@ -1,0 +1,88 @@
+{
+  "category": "Wi-Fi access point",
+  "full_id": "com.canonical.certification::wireless/wifi_ap_wpa_g_no_sta_wlp1s0_auto",
+  "history": [
+    {
+      "device_cid": "202512-38153",
+      "duration": 2.424114465713501,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-resource",
+      "run_id": "202512-38153-server-20260902T012600-88fcab",
+      "status": "skip",
+      "timestamp": "2026-09-02T01:26:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 2.366529703140259,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 32.756365060806274,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202512-38153-desktop-20260829T061100-ebf249",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:11:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 25.776047706604004,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-resource",
+      "run_id": "202512-38153-server-20260829T011800-ce497f",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:18:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 1.4927411079406738,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202603-38455-desktop-20260827T052900-288bfe",
+      "status": "skip",
+      "timestamp": "2026-08-27T05:29:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 2.791407823562622,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-resource",
+      "run_id": "202603-38455-server-20260827T033000-27c606",
+      "status": "skip",
+      "timestamp": "2026-08-27T03:30:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 3.8946170806884766,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202603-38455-desktop-20260826T030400-2de298",
+      "status": "skip",
+      "timestamp": "2026-08-26T03:04:00+00:00"
+    },
+    {
+      "device_cid": "202603-38455",
+      "duration": 12.559975147247314,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-resource",
+      "run_id": "202603-38455-server-20260825T111200-58bc3e",
+      "status": "skip",
+      "timestamp": "2026-08-25T11:12:00+00:00"
+    }
+  ],
+  "name": "Create WPA2 802.11g Wi-Fi AP on wlp1s0 with no STA",
+  "version": "1"
+}

@@ -1,0 +1,48 @@
+{
+  "category": "Wireless networking tests",
+  "full_id": "com.canonical.certification::wireless/wireless_connection_wpa3_be_np_wlP4p1s0",
+  "history": [
+    {
+      "device_cid": "202509-37951",
+      "duration": 28.91195058822632,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 53.44211220741272,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1338",
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-29T01:13:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 53.944687843322754,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1338",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 53.83159112930298,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1338",
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202509-37951-server-20260828T110700-ba39f6",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-28T11:07:00+00:00"
+    }
+  ],
+  "name": "Connect to WPA3-encrypted 802.11be Wi-Fi network on wlP4p1s0 - netplan",
+  "version": "1"
+}

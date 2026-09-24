@@ -1,0 +1,18 @@
+{
+  "category": "Thermal",
+  "full_id": "com.canonical.contrib::after-suspend-ce-oem-thermal/temperature_41140525ea11_camera0-thermal",
+  "history": [
+    {
+      "device_cid": "202403-33871",
+      "duration": 1.975191354751587,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    }
+  ],
+  "name": "Check Thermal temperature of camera0-thermal - 41140525ea11 after suspend (S3)",
+  "version": "1"
+}

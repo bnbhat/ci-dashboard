@@ -1,0 +1,57 @@
+{
+  "alias": "IQ-8275 Evaluation Kit",
+  "device_cid": "202512-38153",
+  "platform": "dragonwing",
+  "runs": [
+    {
+      "image_type": "server",
+      "run_id": "202512-38153-server-20260902T012600-88fcab",
+      "summary": {
+        "fail": 44,
+        "failed-ignored": 1,
+        "pass": 373,
+        "skip": 213
+      },
+      "timestamp": "2026-09-02T01:26:00+00:00",
+      "total": 631
+    },
+    {
+      "image_type": "desktop",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "summary": {
+        "fail": 44,
+        "failed-ignored": 26,
+        "pass": 366,
+        "skip": 217
+      },
+      "timestamp": "2026-09-01T12:40:00+00:00",
+      "total": 653
+    },
+    {
+      "image_type": "desktop",
+      "run_id": "202512-38153-desktop-20260829T061100-ebf249",
+      "summary": {
+        "fail": 2,
+        "failed-ignored": 16,
+        "pass": 443,
+        "skip": 187
+      },
+      "timestamp": "2026-08-29T06:11:00+00:00",
+      "total": 648
+    },
+    {
+      "image_type": "server",
+      "run_id": "202512-38153-server-20260829T011800-ce497f",
+      "summary": {
+        "fail": 2,
+        "failed-ignored": 1,
+        "pass": 451,
+        "skip": 172
+      },
+      "timestamp": "2026-08-29T01:18:00+00:00",
+      "total": 626
+    }
+  ],
+  "series": "noble",
+  "version": "1"
+}

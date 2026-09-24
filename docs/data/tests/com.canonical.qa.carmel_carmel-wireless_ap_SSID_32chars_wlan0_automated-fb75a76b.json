@@ -1,0 +1,28 @@
+{
+  "category": "Carmel WiFi Test",
+  "full_id": "com.canonical.qa.carmel::carmel-wireless/ap_SSID_32chars_wlan0_automated",
+  "history": [
+    {
+      "device_cid": "202403-33871",
+      "duration": 32.79626441001892,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 38.91807007789612,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "pass",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    }
+  ],
+  "name": "Create open 802.11a Wi-Fi AP on wlan0 with 32 chars of SSID",
+  "version": "1"
+}

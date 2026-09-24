@@ -1,0 +1,78 @@
+{
+  "category": "Bluetooth tests",
+  "full_id": "com.canonical.certification::bluetooth4/beacon_eddystone_url_hci1",
+  "history": [
+    {
+      "device_cid": "202601-38369",
+      "duration": 195.89292407035828,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1719",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "failed-ignored",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 200.06762146949768,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1338",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 197.31389474868774,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1719",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 198.74116373062134,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1719",
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-29T01:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 198.70798802375793,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1338",
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-29T01:13:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 192.70567560195923,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1338",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 199.58123970031738,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1338",
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202509-37951-server-20260828T110700-ba39f6",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-28T11:07:00+00:00"
+    }
+  ],
+  "name": "Test system can get beacon EddyStone URL advertisements on the hci1 adapter",
+  "version": "1"
+}

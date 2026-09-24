@@ -1,0 +1,48 @@
+{
+  "category": "Wi-Fi access point",
+  "full_id": "com.canonical.contrib::ce-oem-wireless/ap_wpa_wpa-psk_bg_ch10_ccmp_wlP4p1s0_automated",
+  "history": [
+    {
+      "device_cid": "202509-37951",
+      "duration": 112.15811777114868,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1197",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 25.369998693466187,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1197",
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-29T01:13:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 26.063126802444458,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1197",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 25.986252069473267,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1197",
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202509-37951-server-20260828T110700-ba39f6",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-28T11:07:00+00:00"
+    }
+  ],
+  "name": "Create wpa 802.11bg Wi-Fi AP on wlP4p1s0 and check connection",
+  "version": "1"
+}

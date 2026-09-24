@@ -1,0 +1,48 @@
+{
+  "category": "Carmel WiFi Test",
+  "full_id": "com.canonical.qa.carmel::carmel-wireless/ap_pwd_63chars_wlP4p1s0_automated",
+  "history": [
+    {
+      "device_cid": "202509-37951",
+      "duration": 25.403590202331543,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1197",
+      "image_type": "desktop",
+      "outcome": "fail",
+      "run_id": "202509-37951-desktop-20260829T061600-25fd31",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 78.57257604598999,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202509-37951-server-20260829T011300-72b6ab",
+      "status": "pass",
+      "timestamp": "2026-08-29T01:13:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 18.833487510681152,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202509-37951-desktop-20260828T131400-549e46",
+      "status": "pass",
+      "timestamp": "2026-08-28T13:14:00+00:00"
+    },
+    {
+      "device_cid": "202509-37951",
+      "duration": 205.50514769554138,
+      "ignore_reason": "https://warthogs.atlassian.net/browse/PECA-1197",
+      "image_type": "server",
+      "outcome": "fail",
+      "run_id": "202509-37951-server-20260828T110700-ba39f6",
+      "status": "failed-ignored",
+      "timestamp": "2026-08-28T11:07:00+00:00"
+    }
+  ],
+  "name": "Create open 802.11a Wi-Fi AP on wlP4p1s0 with 63 chars password",
+  "version": "1"
+}

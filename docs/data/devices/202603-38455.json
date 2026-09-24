@@ -1,0 +1,57 @@
+{
+  "alias": "IQ-9075 Evaluation Kit",
+  "device_cid": "202603-38455",
+  "platform": "dragonwing",
+  "runs": [
+    {
+      "image_type": "desktop",
+      "run_id": "202603-38455-desktop-20260827T052900-288bfe",
+      "summary": {
+        "fail": 2,
+        "failed-ignored": 20,
+        "pass": 257,
+        "skip": 383
+      },
+      "timestamp": "2026-08-27T05:29:00+00:00",
+      "total": 662
+    },
+    {
+      "image_type": "server",
+      "run_id": "202603-38455-server-20260827T033000-27c606",
+      "summary": {
+        "fail": 2,
+        "failed-ignored": 5,
+        "pass": 261,
+        "skip": 372
+      },
+      "timestamp": "2026-08-27T03:30:00+00:00",
+      "total": 640
+    },
+    {
+      "image_type": "desktop",
+      "run_id": "202603-38455-desktop-20260826T030400-2de298",
+      "summary": {
+        "fail": 2,
+        "failed-ignored": 20,
+        "pass": 257,
+        "skip": 383
+      },
+      "timestamp": "2026-08-26T03:04:00+00:00",
+      "total": 662
+    },
+    {
+      "image_type": "server",
+      "run_id": "202603-38455-server-20260825T111200-58bc3e",
+      "summary": {
+        "fail": 4,
+        "failed-ignored": 5,
+        "pass": 258,
+        "skip": 375
+      },
+      "timestamp": "2026-08-25T11:12:00+00:00",
+      "total": 642
+    }
+  ],
+  "series": "noble",
+  "version": "1"
+}

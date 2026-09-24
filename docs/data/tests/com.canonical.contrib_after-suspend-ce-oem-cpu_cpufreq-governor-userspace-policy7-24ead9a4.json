@@ -1,0 +1,28 @@
+{
+  "category": "CPU tests",
+  "full_id": "com.canonical.contrib::after-suspend-ce-oem-cpu/cpufreq-governor-userspace-policy7",
+  "history": [
+    {
+      "device_cid": "202403-33871",
+      "duration": 0.8856568336486816,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 0.8958535194396973,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "pass",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    }
+  ],
+  "name": "Test &#34;userspace&#34; scaling governor on policy7 after suspend (S3)",
+  "version": "1"
+}

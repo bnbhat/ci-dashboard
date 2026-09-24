@@ -1,0 +1,38 @@
+{
+  "category": "TPM 2.0 (Trusted Platform Module)",
+  "full_id": "com.canonical.certification::clevis-encrypt-tpm2/detect-rsa-capabilities-sha384",
+  "history": [
+    {
+      "device_cid": "202512-38153",
+      "duration": 12.920689582824707,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202512-38153-server-20260902T012600-88fcab",
+      "status": "pass",
+      "timestamp": "2026-09-02T01:26:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 6.524884462356567,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202512-38153",
+      "duration": 13.91346001625061,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202512-38153-desktop-20260901T124000-164102",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    }
+  ],
+  "name": "Ensure TPM has required caps (sha384 PCR bank and hash) for clevis RSA",
+  "version": "1"
+}

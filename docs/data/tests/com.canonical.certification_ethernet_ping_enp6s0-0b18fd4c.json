@@ -1,0 +1,38 @@
+{
+  "category": "Ethernet Device tests",
+  "full_id": "com.canonical.certification::ethernet/ping_enp6s0",
+  "history": [
+    {
+      "device_cid": "202601-38369",
+      "duration": 2.7884483337402344,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 2.6640429496765137,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "pass",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 2.671797752380371,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "status": "pass",
+      "timestamp": "2026-08-29T01:14:00+00:00"
+    }
+  ],
+  "name": "Can ping another machine over Ethernet port enp6s0",
+  "version": "1"
+}

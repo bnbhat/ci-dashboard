@@ -1,0 +1,38 @@
+{
+  "category": "USB tests",
+  "full_id": "com.canonical.certification::after-suspend-usb/storage-preinserted-disk/by-uuid/1AD9850251BC037F",
+  "history": [
+    {
+      "device_cid": "202601-38369",
+      "duration": 62.812599658966064,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202601-38369-desktop-20260901T124100-34ec7c",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:41:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 68.14436554908752,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202601-38369-desktop-20260829T061600-deb493",
+      "status": "skip",
+      "timestamp": "2026-08-29T06:16:00+00:00"
+    },
+    {
+      "device_cid": "202601-38369",
+      "duration": 43.40049505233765,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-dependency",
+      "run_id": "202601-38369-server-20260829T011400-32d893",
+      "status": "skip",
+      "timestamp": "2026-08-29T01:14:00+00:00"
+    }
+  ],
+  "name": "Test USB storage on 2.0 or 1.1 ports detected by udev (disk/by-uuid/1AD9850251BC037F) after suspend (S3)",
+  "version": "1"
+}

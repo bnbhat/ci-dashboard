@@ -1,0 +1,18 @@
+{
+  "category": "USB tests",
+  "full_id": "com.canonical.contrib::after-suspend-ce-oem-otg/OTG-Serial-on-port-",
+  "history": [
+    {
+      "device_cid": "202603-38455",
+      "duration": 48.63644361495972,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-manifest",
+      "run_id": "202603-38455-server-20260825T111200-58bc3e",
+      "status": "skip",
+      "timestamp": "2026-08-25T11:12:00+00:00"
+    }
+  ],
+  "name": "ce-oem-otg/OTG-Serial-on-port- after suspend (S3)",
+  "version": "1"
+}

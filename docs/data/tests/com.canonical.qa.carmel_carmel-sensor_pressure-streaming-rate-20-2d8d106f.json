@@ -1,0 +1,28 @@
+{
+  "category": "Carmel Sensor Test",
+  "full_id": "com.canonical.qa.carmel::carmel-sensor/pressure-streaming-rate-20",
+  "history": [
+    {
+      "device_cid": "202403-33871",
+      "duration": 3.0240464210510254,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-dependency",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 11.490217447280884,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-dependency",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "skip",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    }
+  ],
+  "name": "Test pressure streaming at sample rate 20",
+  "version": "1"
+}

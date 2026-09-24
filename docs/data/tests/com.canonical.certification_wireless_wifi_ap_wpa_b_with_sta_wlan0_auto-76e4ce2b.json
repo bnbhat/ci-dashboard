@@ -1,0 +1,28 @@
+{
+  "category": "Wi-Fi access point",
+  "full_id": "com.canonical.certification::wireless/wifi_ap_wpa_b_with_sta_wlan0_auto",
+  "history": [
+    {
+      "device_cid": "202403-33871",
+      "duration": 2.678360939025879,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "skipped-resource",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "skip",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 33.65187215805054,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "skipped-resource",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "skip",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    }
+  ],
+  "name": "Create a WPA2 802.11b Wi-Fi Access Point on wlan0 with active STA",
+  "version": "1"
+}

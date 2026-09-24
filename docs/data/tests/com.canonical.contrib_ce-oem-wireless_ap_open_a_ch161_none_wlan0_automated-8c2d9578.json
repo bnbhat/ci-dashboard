@@ -1,0 +1,28 @@
+{
+  "category": "Wi-Fi access point",
+  "full_id": "com.canonical.contrib::ce-oem-wireless/ap_open_a_ch161_none_wlan0_automated",
+  "history": [
+    {
+      "device_cid": "202403-33871",
+      "duration": 23.33965563774109,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 22.837287664413452,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "pass",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    }
+  ],
+  "name": "Create open 802.11a Wi-Fi AP on wlan0 and check connection",
+  "version": "1"
+}

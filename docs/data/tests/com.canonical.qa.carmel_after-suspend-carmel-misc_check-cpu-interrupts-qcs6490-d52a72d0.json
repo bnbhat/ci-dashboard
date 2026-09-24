@@ -1,0 +1,28 @@
+{
+  "category": "Carmel Miscellanea Test",
+  "full_id": "com.canonical.qa.carmel::after-suspend-carmel-misc/check-cpu-interrupts-qcs6490",
+  "history": [
+    {
+      "device_cid": "202403-33871",
+      "duration": 0.8490417003631592,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 0.8727147579193115,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "pass",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    }
+  ],
+  "name": "Check if cpu intgerrupt has all CPUs after suspend (S3)",
+  "version": "1"
+}

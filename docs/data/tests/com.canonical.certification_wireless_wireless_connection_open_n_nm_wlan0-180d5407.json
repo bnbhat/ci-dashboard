@@ -1,0 +1,28 @@
+{
+  "category": "Wireless networking tests",
+  "full_id": "com.canonical.certification::wireless/wireless_connection_open_n_nm_wlan0",
+  "history": [
+    {
+      "device_cid": "202403-33871",
+      "duration": 20.341710090637207,
+      "ignore_reason": null,
+      "image_type": "desktop",
+      "outcome": "pass",
+      "run_id": "202403-33871-desktop-20260901T124000-cbc3b9",
+      "status": "pass",
+      "timestamp": "2026-09-01T12:40:00+00:00"
+    },
+    {
+      "device_cid": "202403-33871",
+      "duration": 22.689836740493774,
+      "ignore_reason": null,
+      "image_type": "server",
+      "outcome": "pass",
+      "run_id": "202403-33871-server-20260901T074200-15e76e",
+      "status": "pass",
+      "timestamp": "2026-09-01T07:42:00+00:00"
+    }
+  ],
+  "name": "Connect to an unencrypted 802.11n Wi-Fi network on wlan0",
+  "version": "1"
+}
