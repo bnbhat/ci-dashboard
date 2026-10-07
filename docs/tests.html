@@ -208,7 +208,14 @@ function testsPage() {
         this.categories = [...new Set(index.tests.map((t) => t.category))].sort();
         const params = new URLSearchParams(window.location.search);
         const preselect = params.get('test');
-        if (preselect) await this.selectTest(preselect);
+        if (preselect) {
+          await this.selectTest(preselect);
+          // Carry over the device/image context from the run the user came from.
+          const device = params.get('device');
+          const image = params.get('image');
+          if (device) this.deviceFilter = device;
+          if (image) this.imageFilter = image;
+        }
       } catch (e) {
         this.error = e.message;
       } finally {

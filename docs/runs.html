@@ -128,7 +128,7 @@
                 </td>
                 <td x-text="r.outcome"></td>
                 <td x-text="formatDuration(r.duration)"></td>
-                <td><a class="test-name-link" :href="'tests.html?test=' + encodeURIComponent(r.slug)">History →</a></td>
+                <td><a class="test-name-link" :href="'tests.html?test=' + encodeURIComponent(r.slug) + '&device=' + encodeURIComponent(run.device_cid) + '&image=' + encodeURIComponent(run.image_type)">History →</a></td>
               </tr>
             </template>
           </tbody>
