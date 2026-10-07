@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "ci-dashboard"
+name = "pe-ci-dashboard"
 version = "0.1.0"
 description = "Static CI dashboard for historic Ubuntu image (Checkbox) test results"
 readme = "README.md"

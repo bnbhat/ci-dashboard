@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CI Dashboard — Ubuntu Image Test History</title>
+  <title>PE CI Dashboard — Ubuntu Image Test History</title>
   <meta name="ci-dashboard-data-base" content="data" />
 
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -34,7 +34,7 @@
           <div class="p-navigation__logo-tag">
             <img src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="Ubuntu" width="32" height="32" />
           </div>
-          <span class="p-navigation__logo-title">CI Dashboard</span>
+          <span class="p-navigation__logo-title">PE CI Dashboard</span>
         </a>
       </div>
       <a href="#main-nav" class="p-navigation__toggle--open" title="Open menu">Menu</a>
@@ -61,7 +61,7 @@
 
 <section class="hero-section">
   <div class="hero-inner">
-    <h1 class="hero-title">Ubuntu Image <strong>CI Dashboard</strong></h1>
+    <h1 class="hero-title"><strong>PE CI Dashboard</strong></h1>
   </div>
 </section>
 
@@ -77,19 +77,6 @@
 
   <template x-if="!loading && !error">
     <div>
-      <div class="summary-strip">
-        <h2>Fleet-wide test summary</h2>
-        <p class="summary-meta" x-text="'Data generated ' + formatTimestamp(manifest.generated_at)"></p>
-      </div>
-
-      <div class="summary-strip" style="margin-bottom: 2rem;">
-        <div class="stat-card"><div class="stat-value" x-text="manifest.runs.length"></div><div class="stat-label">Runs (retained)</div></div>
-        <div class="stat-card is-pass"><div class="stat-value" x-text="totals.pass"></div><div class="stat-label">Passes</div></div>
-        <div class="stat-card is-fail"><div class="stat-value" x-text="totals.fail"></div><div class="stat-label">Failures</div></div>
-        <div class="stat-card is-ignored"><div class="stat-value" x-text="totals['failed-ignored']"></div><div class="stat-label">Ignored (known)</div></div>
-        <div class="stat-card is-skip"><div class="stat-value" x-text="totals.skip"></div><div class="stat-label">Skipped</div></div>
-        <div class="stat-card"><div class="stat-value" x-text="(overallPassRate === null ? '—' : overallPassRate + '%')"></div><div class="stat-label">Pass rate</div></div>
-      </div>
 
       <div class="section-header">
         <h2 style="font-size:1.25rem;font-weight:500;margin:0;">Devices (<span x-text="manifest.devices.length"></span>)</h2>
@@ -155,7 +142,7 @@
 </main>
 
 <footer class="ubuntu-footer">
-  <div class="ubuntu-footer-inner">CI Dashboard — generated from Checkbox submission.json reports. Test output is never stored, only pass/fail/skip status.</div>
+  <div class="ubuntu-footer-inner">PE CI Dashboard — generated from Checkbox submission.json reports. Test output is never stored, only pass/fail/skip status.</div>
 </footer>
 
 <script>
