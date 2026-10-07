@@ -138,11 +138,12 @@ def test_rebuild_compare_matrix_latest_status_per_device(tmp_path: Path):
 
     compare = json.loads((tmp_path / "compare.json").read_text())
     assert set(compare["devices"]) == {"cid-aaa111", "cid-bbb222"}
+    assert set(compare["image_types"]) == {"desktop", "server"}
     test0 = next(t for t in compare["tests"] if t["name"] == "Test 0")
-    # cid-aaa111's latest result should be the fail from run-a2, not the earlier pass
-    assert test0["latest_by_device"]["cid-aaa111"]["status"] == "fail"
-    assert test0["latest_by_device"]["cid-aaa111"]["run_id"] == "run-a2"
-    assert test0["latest_by_device"]["cid-bbb222"]["status"] == "pass"
+    # cid-aaa111's latest desktop result should be the fail from run-a2, not the earlier pass
+    assert test0["latest_by_device"]["cid-aaa111"]["desktop"]["status"] == "fail"
+    assert test0["latest_by_device"]["cid-aaa111"]["desktop"]["run_id"] == "run-a2"
+    assert test0["latest_by_device"]["cid-bbb222"]["server"]["status"] == "pass"
 
 
 def test_ingest_run_writes_packages_and_diffs_against_previous(tmp_path: Path):

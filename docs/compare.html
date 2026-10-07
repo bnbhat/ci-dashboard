@@ -82,6 +82,13 @@
           </select>
         </div>
         <div class="filter-field">
+          <label for="image-filter">Image type</label>
+          <select id="image-filter" x-model="imageFilter">
+            <option value="">All image types (latest overall)</option>
+            <template x-for="i in matrix.image_types" :key="i"><option :value="i" x-text="i"></option></template>
+          </select>
+        </div>
+        <div class="filter-field">
           <label>Show only</label>
           <div class="filter-checkboxes">
             <label><input type="checkbox" x-model="onlyDiffering"> Tests differing across devices</label>
@@ -108,11 +115,11 @@
                     <div class="summary-meta" x-text="t.name"></div></td>
                 <td x-text="t.category"></td>
                 <template x-for="d in matrix.devices" :key="d">
-                  <td class="status-cell" @click="goToRun(t, d)" :title="t.latest_by_device[d] && t.latest_by_device[d].ignore_reason || ''">
-                    <template x-if="t.latest_by_device[d]">
-                      <span class="status-chip" :class="statusChipClass(t.latest_by_device[d].status)" x-text="statusLabel(t.latest_by_device[d].status)"></span>
+                  <td class="status-cell" @click="goToRun(t, d)" :title="entryFor(t, d) && entryFor(t, d).ignore_reason || ''">
+                    <template x-if="entryFor(t, d)">
+                      <span class="status-chip" :class="statusChipClass(entryFor(t, d).status)" x-text="statusLabel(entryFor(t, d).status)"></span>
                     </template>
-                    <template x-if="!t.latest_by_device[d]">
+                    <template x-if="!entryFor(t, d)">
                       <span class="summary-meta">—</span>
                     </template>
                   </td>
@@ -136,12 +143,22 @@ function comparePage() {
   return {
     loading: true,
     error: null,
-    matrix: { devices: [], tests: [], device_meta: {}, generated_at: null },
+    matrix: { devices: [], tests: [], device_meta: {}, image_types: [], generated_at: null },
     search: '',
     categoryFilter: '',
+    imageFilter: '',
     onlyDiffering: false,
     onlyFailing: false,
     formatTimestamp, statusChipClass, statusLabel,
+
+    /* Picks the entry for a device: the selected image type, or the
+     * overall most recent one across image types when none is selected. */
+    entryFor(test, device) {
+      const perImage = test.latest_by_device[device];
+      if (!perImage) return null;
+      if (this.imageFilter) return perImage[this.imageFilter] || null;
+      return Object.values(perImage).reduce((best, e) => (!best || e.timestamp > best.timestamp ? e : best), null);
+    },
 
     deviceLabel(cid) {
       const meta = (this.matrix.device_meta || {})[cid];
@@ -167,7 +184,7 @@ function comparePage() {
       return this.matrix.tests.filter((t) => {
         if (q && !(t.name.toLowerCase().includes(q) || t.full_id.toLowerCase().includes(q))) return false;
         if (this.categoryFilter && t.category !== this.categoryFilter) return false;
-        const statuses = Object.values(t.latest_by_device).map((e) => e.status);
+        const statuses = this.matrix.devices.map((d) => this.entryFor(t, d)).filter(Boolean).map((e) => e.status);
         if (this.onlyFailing && !statuses.includes('fail')) return false;
         if (this.onlyDiffering && new Set(statuses).size <= 1) return false;
         return true;
@@ -175,7 +192,7 @@ function comparePage() {
     },
 
     goToRun(test, device) {
-      const entry = test.latest_by_device[device];
+      const entry = this.entryFor(test, device);
       if (entry) window.location.href = `runs.html?run=${encodeURIComponent(entry.run_id)}`;
     },
   };

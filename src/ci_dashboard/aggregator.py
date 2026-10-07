@@ -328,8 +328,8 @@ def _update_test_history(data_dir: Path, run: RunMeta, result, cutoff: str) -> N
 
 def rebuild_compare_matrix(data_dir: str | Path) -> None:
     """Write ``compare.json`` — for every known test, the latest status per
-    device — so the cross-device comparison view can render without
-    fetching every per-test history file individually."""
+    device *and* image type — so the cross-device comparison view can
+    render without fetching every per-test history file individually."""
     data_dir = Path(data_dir)
     tests_dir = data_dir / "tests"
     manifest = _load_json(data_dir / "manifest.json", {"devices": [], "device_meta": {}})
@@ -337,33 +337,34 @@ def rebuild_compare_matrix(data_dir: str | Path) -> None:
     device_meta = manifest.get("device_meta", {})
 
     matrix = []
+    image_types: set[str] = set()
     if tests_dir.exists():
         for f in sorted(tests_dir.glob("*.json")):
             if f.name == "index.json":
                 continue
             with open(f, encoding="utf-8") as fh:
                 t = json.load(fh)
-            latest_by_device: dict[str, dict] = {}
+            latest_by_device_image: dict[tuple[str, str], dict] = {}
             for entry in t["history"]:
-                dev = entry["device_cid"]
-                if dev not in latest_by_device or entry["timestamp"] > latest_by_device[dev]["timestamp"]:
-                    latest_by_device[dev] = entry
+                key = (entry["device_cid"], entry["image_type"])
+                if key not in latest_by_device_image or entry["timestamp"] > latest_by_device_image[key]["timestamp"]:
+                    latest_by_device_image[key] = entry
+            latest_by_device: dict[str, dict[str, dict]] = {}
+            for (dev, image), e in latest_by_device_image.items():
+                image_types.add(image)
+                latest_by_device.setdefault(dev, {})[image] = {
+                    "status": e["status"],
+                    "run_id": e["run_id"],
+                    "timestamp": e["timestamp"],
+                    "ignore_reason": e.get("ignore_reason"),
+                }
             matrix.append(
                 {
                     "full_id": t["full_id"],
                     "name": t["name"],
                     "category": t["category"],
                     "slug": f.stem,
-                    "latest_by_device": {
-                        dev: {
-                            "status": e["status"],
-                            "run_id": e["run_id"],
-                            "timestamp": e["timestamp"],
-                            "image_type": e["image_type"],
-                            "ignore_reason": e.get("ignore_reason"),
-                        }
-                        for dev, e in latest_by_device.items()
-                    },
+                    "latest_by_device": latest_by_device,
                 }
             )
 
@@ -374,6 +375,7 @@ def rebuild_compare_matrix(data_dir: str | Path) -> None:
             "generated_at": datetime.now(UTC).isoformat(),
             "devices": devices,
             "device_meta": device_meta,
+            "image_types": sorted(image_types),
             "tests": matrix,
         },
     )
