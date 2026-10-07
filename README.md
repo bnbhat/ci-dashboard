@@ -1,4 +1,4 @@
-# ci-dashboard
+# pe-ci-dashboard
 
 A static, database-free CI dashboard for historic Ubuntu Desktop/Server/Core
 image test results (Canonical Checkbox `submission.json` reports), covering
@@ -46,4 +46,14 @@ ingest time to keep per-test JSON files small.
 
 ## Repository layout
 
-See `specs/plan.md` (or the session plan) for full architecture details.
+- `src/ci_dashboard/` — the `ingest` CLI (parser, aggregator, image config).
+- `docs/` — the static frontend; `docs/data/` is generated output, not
+  hand-edited source (see [AGENTS.md](AGENTS.md) for details).
+- `tests/` — unit tests and fixtures.
+
+See [AGENTS.md](AGENTS.md) for conventions and build/test commands.
+
+## License
+
+Licensed under the GPL-3.0-or-later. See [LICENSE](LICENSE) for the full
+text. Copyright (C) 2026 Canonical Ltd.
