@@ -135,6 +135,21 @@
                 <template x-for="d in testDevices" :key="d"><option :value="d" x-text="d"></option></template>
               </select>
             </div>
+            <div class="filter-field">
+              <label for="image-filter">Filter by image type</label>
+              <select id="image-filter" x-model="imageFilter">
+                <option value="">All image types</option>
+                <template x-for="i in testImageTypes" :key="i"><option :value="i" x-text="i"></option></template>
+              </select>
+            </div>
+            <div class="filter-field">
+              <label>Filter by status</label>
+              <div class="filter-checkboxes">
+                <label><input type="checkbox" value="pass" x-model="historyStatusFilter"> Pass</label>
+                <label><input type="checkbox" value="fail" x-model="historyStatusFilter"> Fail</label>
+                <label><input type="checkbox" value="failed-ignored" x-model="historyStatusFilter"> Ignored</label>
+              </div>
+            </div>
           </div>
 
           <div style="overflow-x:auto;">
@@ -182,6 +197,8 @@ function testsPage() {
     selectedTest: null,
     testDetail: null,
     deviceFilter: '',
+    imageFilter: '',
+    historyStatusFilter: [],
     formatTimestamp, formatDuration, statusChipClass, statusLabel,
 
     async load() {
@@ -215,6 +232,8 @@ function testsPage() {
         this.testDetail = await fetchJSON(`tests/${slug}.json`);
         this.selectedTest = slug;
         this.deviceFilter = '';
+        this.imageFilter = '';
+        this.historyStatusFilter = [];
         history.replaceState(null, '', `tests.html?test=${encodeURIComponent(slug)}`);
       } catch (e) {
         this.error = e.message;
@@ -228,10 +247,19 @@ function testsPage() {
       return [...new Set(this.testDetail.history.map((h) => h.device_cid))].sort();
     },
 
+    get testImageTypes() {
+      if (!this.testDetail) return [];
+      return [...new Set(this.testDetail.history.map((h) => h.image_type))].sort();
+    },
+
     get filteredHistory() {
       if (!this.testDetail) return [];
-      if (!this.deviceFilter) return this.testDetail.history;
-      return this.testDetail.history.filter((h) => h.device_cid === this.deviceFilter);
+      return this.testDetail.history.filter((h) => {
+        if (this.deviceFilter && h.device_cid !== this.deviceFilter) return false;
+        if (this.imageFilter && h.image_type !== this.imageFilter) return false;
+        if (this.historyStatusFilter.length > 0 && !this.historyStatusFilter.includes(h.status)) return false;
+        return true;
+      });
     },
   };
 }
