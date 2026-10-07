@@ -9,6 +9,12 @@ description = "Static CI dashboard for historic Ubuntu image (Checkbox) test res
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "GPL-3.0-or-later" }
+authors = [
+    { name = "Canonical Ltd." },
+]
+maintainers = [
+    { name = "Canonical Ltd." },
+]
 dependencies = [
     "ijson>=3.2",
     "click>=8.1",
@@ -24,6 +30,9 @@ dev = [
 
 [project.scripts]
 ci-dashboard = "ci_dashboard.cli:main"
+
+[project.urls]
+Repository = "https://github.com/canonical/pe-ci-dashboard"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/ci_dashboard"]
