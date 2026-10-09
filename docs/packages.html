@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" class="is-paper">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Packages — PE CI Dashboard</title>
+  <meta name="ci-dashboard-data-base" content="data" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla_framework_version_4.51.0.min.css" />
+  <script>
+    (function () {
+      var saved = localStorage.getItem('ci-dashboard-theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = saved || (prefersDark ? 'dark' : 'paper');
+      var html = document.documentElement;
+      html.classList.remove('is-dark', 'is-paper');
+      html.classList.add(theme === 'dark' ? 'is-dark' : 'is-paper');
+    }());
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+  <script src="assets/app.js"></script>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<header class="p-navigation is-dark">
+  <div class="p-navigation__row">
+    <div class="p-navigation__banner">
+      <div class="p-navigation__tagged-logo">
+        <a class="p-navigation__link" href="index.html">
+          <div class="p-navigation__logo-tag"><img src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="Ubuntu" width="32" height="32" /></div>
+          <span class="p-navigation__logo-title">PE CI Dashboard</span>
+        </a>
+      </div>
+      <a href="#main-nav" class="p-navigation__toggle--open" title="Open menu">Menu</a>
+      <a href="#main-nav-closed" class="p-navigation__toggle--close" title="Close menu">Close menu</a>
+    </div>
+    <nav id="main-nav" class="p-navigation__nav" aria-label="Main navigation">
+      <ul class="p-navigation__items">
+        <li class="p-navigation__item"><a class="p-navigation__link" href="index.html">Overview</a></li>
+        <li class="p-navigation__item"><a class="p-navigation__link" href="tests.html">Tests</a></li>
+        <li class="p-navigation__item"><a class="p-navigation__link" href="compare.html">Compare Devices</a></li>
+        <li class="p-navigation__item is-selected"><a class="p-navigation__link" href="packages.html">Packages</a></li>
+      </ul>
+      <ul class="p-navigation__items p-navigation__items--right">
+        <li class="p-navigation__item u-vertically-center">
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="l-content" x-data="packagesPage()" x-init="load()" style="padding-top:2rem;">
+
+  <template x-if="loading"><div class="u-loading"><div class="u-spinner"></div><p>Loading packages…</p></div></template>
+  <template x-if="error"><div class="p-notification--negative"><div class="p-notification__content"><p class="p-notification__message" x-text="error"></p></div></div></template>
+
+  <template x-if="!loading && !error">
+    <div>
+      <div style="margin-bottom:1rem;">
+        <h2 style="font-size:1.25rem;font-weight:500;margin:0 0 0.25rem;">Browse or compare installed packages</h2>
+        <p class="summary-meta">Pick a run to browse its installed packages, or pick a second run to compare package/version changes between them.</p>
+      </div>
+
+      <div class="filter-bar">
+        <div class="filter-field">
+          <label for="run-device-filter">Device</label>
+          <select id="run-device-filter" x-model="deviceFilter">
+            <option value="">All devices</option>
+            <template x-for="d in deviceOptions" :key="d"><option :value="d" x-text="deviceLabel(d)"></option></template>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="run-image-filter">Image type</label>
+          <select id="run-image-filter" x-model="imageFilter">
+            <option value="">All image types</option>
+            <template x-for="i in imageOptions" :key="i"><option :value="i" x-text="i"></option></template>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="run-a">Run A</label>
+          <select id="run-a" x-model="runA">
+            <option value="">— select a run —</option>
+            <template x-for="r in runOptions" :key="r.run_id"><option :value="r.run_id" x-text="runLabel(r)"></option></template>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="run-b">Run B (optional, to compare)</label>
+          <select id="run-b" x-model="runB">
+            <option value="">— none, just browse Run A —</option>
+            <template x-for="r in runOptions" :key="r.run_id"><option :value="r.run_id" x-text="runLabel(r)"></option></template>
+          </select>
+        </div>
+      </div>
+
+      <template x-if="!runA">
+        <div class="u-empty">Select a run above to browse its installed packages, or select two runs to compare what changed.</div>
+      </template>
+
+      <template x-if="runA && !runB && pkgA">
+        <div>
+          <div class="summary-strip" style="margin-top:1rem;">
+            <h2 x-text="'Packages: ' + pkgA.run_id"></h2>
+          </div>
+          <p class="summary-meta">
+            <span x-text="deviceLabel(pkgA.device_cid)"></span> · <span x-text="pkgA.image_type"></span> ·
+            <span x-text="formatTimestamp(pkgA.timestamp)"></span>
+            <span x-show="pkgA.submission_id"> · Submission ID: <span x-text="pkgA.submission_id"></span></span>
+          </p>
+          <p class="summary-meta">
+            <span x-show="pkgA.kernel">Kernel: <span x-text="pkgA.kernel"></span></span>
+            <span x-show="pkgA.architecture"> · Arch: <span x-text="pkgA.architecture"></span></span>
+            <span x-show="pkgA.checkbox_version"> · Checkbox: <span x-text="pkgA.checkbox_version"></span></span>
+            <span x-show="pkgA.distribution_codename"> · Series: <span x-text="pkgA.distribution_codename"></span></span>
+            <span x-show="pkgA.distribution_release"> · Release: <span x-text="pkgA.distribution_release"></span></span>
+          </p>
+          <p style="margin:0.5rem 0 1rem;"><a class="run-link" :href="'runs.html?run=' + encodeURIComponent(pkgA.run_id)">← Back to run detail</a></p>
+
+          <div class="summary-strip" style="margin-bottom:1.5rem;">
+            <div class="stat-card"><div class="stat-value" x-text="pkgA.packages.length"></div><div class="stat-label">Deb packages</div></div>
+            <div class="stat-card"><div class="stat-value" x-text="pkgA.snap_packages.length"></div><div class="stat-label">Snap packages</div></div>
+          </div>
+
+          <template x-if="pkgA.previous_run_id">
+            <div style="margin-bottom:2rem;">
+              <h3 style="font-size:1.1rem;font-weight:500;">
+                Changes since previous run
+                (<a class="run-link" @click.prevent="runA = pkgA.previous_run_id" href="#" x-text="pkgA.previous_run_id"></a>)
+              </h3>
+              <template x-if="diffIsEmpty(pkgA.diff_from_previous)">
+                <p class="summary-meta">No package or snap changes since the previous run on this device/image.</p>
+              </template>
+              <template x-if="!diffIsEmpty(pkgA.diff_from_previous)">
+                <div style="overflow-x:auto;">
+                  <table class="p-table">
+                    <thead><tr><th>Package</th><th>Change</th><th>Old version</th><th>New version</th></tr></thead>
+                    <tbody>
+                      <template x-for="row in diffRows(pkgA.diff_from_previous)" :key="row.type + '-' + row.change + '-' + row.name">
+                        <tr>
+                          <td x-text="row.name + (row.type === 'snap' ? ' (snap)' : '')"></td>
+                          <td><span class="status-chip" :class="changeChipClass(row.change)" x-text="row.change"></span></td>
+                          <td x-text="row.old_version || '—'"></td>
+                          <td x-text="row.new_version || '—'"></td>
+                        </tr>
+                      </template>
+                    </tbody>
+                  </table>
+                </div>
+              </template>
+            </div>
+          </template>
+
+          <div class="filter-bar">
+            <div class="filter-field">
+              <label for="search">Search package name</label>
+              <input id="search" type="text" x-model="search" placeholder="filter packages…" />
+            </div>
+            <div class="filter-field">
+              <label>Type</label>
+              <div class="filter-checkboxes">
+                <label><input type="checkbox" value="deb" x-model="typeFilter"> Deb</label>
+                <label><input type="checkbox" value="snap" x-model="typeFilter"> Snap</label>
+              </div>
+            </div>
+          </div>
+
+          <p class="summary-meta" x-text="filteredPackages.length + ' of ' + (pkgA.packages.length + pkgA.snap_packages.length) + ' packages'"></p>
+
+          <div style="overflow-x:auto;">
+            <table class="p-table">
+              <thead><tr><th>Name</th><th>Type</th><th>Version</th><th>Channel</th></tr></thead>
+              <tbody>
+                <template x-for="p in filteredPackages" :key="p.type + '-' + p.name">
+                  <tr>
+                    <td x-text="p.name"></td>
+                    <td x-text="p.type"></td>
+                    <td x-text="p.version || '—'"></td>
+                    <td x-text="p.channel || '—'"></td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
+          <template x-if="filteredPackages.length === 0">
+            <div class="u-empty">No packages match the current filters.</div>
+          </template>
+        </div>
+      </template>
+
+      <template x-if="runA && runB && pkgA && pkgB">
+        <div>
+          <div class="summary-strip" style="margin-top:1rem;">
+            <h2>Comparing packages</h2>
+          </div>
+          <p class="summary-meta">
+            <strong>Run A:</strong> <span x-text="deviceLabel(pkgA.device_cid)"></span> · <span x-text="pkgA.image_type"></span> · <span x-text="formatTimestamp(pkgA.timestamp)"></span>
+            (<a class="run-link" :href="'runs.html?run=' + encodeURIComponent(pkgA.run_id)">view run</a>)
+          </p>
+          <p class="summary-meta">
+            <strong>Run B:</strong> <span x-text="deviceLabel(pkgB.device_cid)"></span> · <span x-text="pkgB.image_type"></span> · <span x-text="formatTimestamp(pkgB.timestamp)"></span>
+            (<a class="run-link" :href="'runs.html?run=' + encodeURIComponent(pkgB.run_id)">view run</a>)
+          </p>
+          <template x-if="pkgA.device_cid !== pkgB.device_cid || pkgA.image_type !== pkgB.image_type">
+            <p class="summary-meta">Note: these runs are on different devices/image types — differences may simply reflect that, not a regression.</p>
+          </template>
+
+          <div class="filter-bar" style="margin-top:1rem;">
+            <div class="filter-field">
+              <label for="search">Search package name</label>
+              <input id="search" type="text" x-model="search" placeholder="filter changes…" />
+            </div>
+            <div class="filter-field">
+              <label>Type</label>
+              <div class="filter-checkboxes">
+                <label><input type="checkbox" value="deb" x-model="typeFilter"> Deb</label>
+                <label><input type="checkbox" value="snap" x-model="typeFilter"> Snap</label>
+              </div>
+            </div>
+            <div class="filter-field">
+              <label>Change</label>
+              <div class="filter-checkboxes">
+                <label><input type="checkbox" value="added" x-model="changeFilter"> Added</label>
+                <label><input type="checkbox" value="removed" x-model="changeFilter"> Removed</label>
+                <label><input type="checkbox" value="changed" x-model="changeFilter"> Changed</label>
+              </div>
+            </div>
+          </div>
+
+          <p class="summary-meta" x-text="filteredCompareRows.length + ' of ' + compareRows.length + ' differences'"></p>
+
+          <div style="overflow-x:auto;">
+            <table class="p-table">
+              <thead><tr><th>Package</th><th>Type</th><th>Change</th><th>Run A version</th><th>Run B version</th></tr></thead>
+              <tbody>
+                <template x-for="row in filteredCompareRows" :key="row.type + '-' + row.change + '-' + row.name">
+                  <tr>
+                    <td x-text="row.name"></td>
+                    <td x-text="row.type"></td>
+                    <td><span class="status-chip" :class="changeChipClass(row.change)" x-text="row.change"></span></td>
+                    <td x-text="row.old_version || '—'"></td>
+                    <td x-text="row.new_version || '—'"></td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
+          <template x-if="filteredCompareRows.length === 0">
+            <div class="u-empty">No differences match the current filters.</div>
+          </template>
+        </div>
+      </template>
+    </div>
+  </template>
+</main>
+
+<footer class="ubuntu-footer"><div class="ubuntu-footer-inner">PE CI Dashboard — Installed package versions per run. Compare any two runs to help correlate regressions with package/kernel changes.</div></footer>
+
+<script>
+/* Compares two {name, version} lists, mirroring the server-side
+ * aggregator._diff_package_lists so arbitrary runs can be diffed client-side. */
+function diffPackageList(oldList, newList) {
+  const oldMap = new Map(oldList.map((p) => [p.name, p.version]));
+  const newMap = new Map(newList.map((p) => [p.name, p.version]));
+  const added = [...newMap.keys()].filter((n) => !oldMap.has(n)).sort();
+  const removed = [...oldMap.keys()].filter((n) => !newMap.has(n)).sort();
+  const changed = [...newMap.keys()]
+    .filter((n) => oldMap.has(n) && oldMap.get(n) !== newMap.get(n))
+    .map((n) => ({ name: n, old_version: oldMap.get(n), new_version: newMap.get(n) }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+  return { added, removed, changed };
+}
+
+function packagesPage() {
+  return {
+    loading: true,
+    error: null,
+    manifest: { runs: [], device_meta: {} },
+    runA: '',
+    runB: '',
+    pkgA: null,
+    pkgB: null,
+    deviceFilter: '',
+    imageFilter: '',
+    search: '',
+    typeFilter: [],
+    changeFilter: [],
+    formatTimestamp,
+
+    async load() {
+      try {
+        this.manifest = await fetchJSON('manifest.json');
+        const params = new URLSearchParams(window.location.search);
+        this.runA = params.get('run') || '';
+        this.runB = params.get('compare') || '';
+        await Promise.all([this.loadRun('A'), this.loadRun('B')]);
+        this.$watch('runA', () => { this.loadRun('A'); this.updateUrl(); });
+        this.$watch('runB', () => { this.loadRun('B'); this.updateUrl(); });
+      } catch (e) {
+        this.error = e.message;
+      } finally {
+        this.loading = false;
+      }
+    },
+
+    async loadRun(which) {
+      const runId = which === 'A' ? this.runA : this.runB;
+      const key = which === 'A' ? 'pkgA' : 'pkgB';
+      if (!runId) { this[key] = null; return; }
+      try {
+        this[key] = await fetchJSON(`packages/${runId}.json`);
+      } catch (e) {
+        this.error = e.message;
+      }
+    },
+
+    updateUrl() {
+      const params = new URLSearchParams();
+      if (this.runA) params.set('run', this.runA);
+      if (this.runB) params.set('compare', this.runB);
+      const qs = params.toString();
+      history.replaceState(null, '', qs ? `packages.html?${qs}` : 'packages.html');
+    },
+
+    deviceLabel(cid) {
+      const meta = (this.manifest.device_meta || {})[cid];
+      return meta && meta.alias ? `${meta.alias} (${cid})` : cid;
+    },
+
+    runLabel(r) {
+      const sub = r.submission_id ? ` #${r.submission_id}` : '';
+      return `${formatTimestamp(r.timestamp)} · ${this.deviceLabel(r.device_cid)} · ${r.image_type}${sub}`;
+    },
+
+    get deviceOptions() {
+      return [...new Set(this.manifest.runs.map((r) => r.device_cid))].sort();
+    },
+
+    get imageOptions() {
+      return [...new Set(this.manifest.runs.map((r) => r.image_type))].sort();
+    },
+
+    get runOptions() {
+      return this.manifest.runs
+        .filter((r) => (!this.deviceFilter || r.device_cid === this.deviceFilter) && (!this.imageFilter || r.image_type === this.imageFilter))
+        .slice()
+        .sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+    },
+
+    changeChipClass(change) {
+      return { added: 'is-pass', removed: 'is-fail', changed: 'is-ignored' }[change] || 'is-skip';
+    },
+
+    diffIsEmpty(d) {
+      if (!d) return true;
+      return d.packages.added.length === 0 && d.packages.removed.length === 0 && d.packages.changed.length === 0
+        && d.snap_packages.added.length === 0 && d.snap_packages.removed.length === 0 && d.snap_packages.changed.length === 0;
+    },
+
+    /* Flattens a server-provided {packages, snap_packages} diff into rows for rendering. */
+    diffRows(d) {
+      const rows = [];
+      const addRows = (diff, type) => {
+        for (const name of diff.added) rows.push({ name, type, change: 'added', old_version: null, new_version: null });
+        for (const name of diff.removed) rows.push({ name, type, change: 'removed', old_version: null, new_version: null });
+        for (const c of diff.changed) rows.push({ name: c.name, type, change: 'changed', old_version: c.old_version, new_version: c.new_version });
+      };
+      addRows(d.packages, 'deb');
+      addRows(d.snap_packages, 'snap');
+      return rows;
+    },
+
+    get filteredPackages() {
+      const q = this.search.trim().toLowerCase();
+      const debs = this.pkgA.packages.map((p) => ({ ...p, type: 'deb' }));
+      const snaps = this.pkgA.snap_packages.map((p) => ({ ...p, type: 'snap' }));
+      let all = [...debs, ...snaps];
+      if (this.typeFilter.length > 0) all = all.filter((p) => this.typeFilter.includes(p.type));
+      if (q) all = all.filter((p) => p.name.toLowerCase().includes(q));
+      return all.sort((a, b) => a.name.localeCompare(b.name));
+    },
+
+    get compareRows() {
+      if (!this.pkgA || !this.pkgB) return [];
+      const debDiff = diffPackageList(this.pkgA.packages, this.pkgB.packages);
+      const snapDiff = diffPackageList(this.pkgA.snap_packages, this.pkgB.snap_packages);
+      return [...this.diffRows({ packages: debDiff, snap_packages: snapDiff })];
+    },
+
+    get filteredCompareRows() {
+      const q = this.search.trim().toLowerCase();
+      let rows = this.compareRows;
+      if (this.typeFilter.length > 0) rows = rows.filter((r) => this.typeFilter.includes(r.type));
+      if (this.changeFilter.length > 0) rows = rows.filter((r) => this.changeFilter.includes(r.change));
+      if (q) rows = rows.filter((r) => r.name.toLowerCase().includes(q));
+      return rows.sort((a, b) => a.name.localeCompare(b.name));
+    },
+  };
+}
+</script>
+
+</body>
+</html>
